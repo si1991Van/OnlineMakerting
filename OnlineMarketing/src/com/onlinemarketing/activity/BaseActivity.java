@@ -1,9 +1,9 @@
 package com.onlinemarketing.activity;
 
+import android.app.Activity;
+
 import com.lib.Debug;
 import com.smile.android.gsm.utils.AndroidUtils;
-
-import android.app.Activity;
 
 public class BaseActivity extends Activity{
 
