@@ -5,6 +5,7 @@ import com.smile.android.gsm.utils.AndroidUtils;
 
 import android.app.Activity;
 
+
 public class BaseActivity extends Activity{
 
 	public boolean isConnect(){

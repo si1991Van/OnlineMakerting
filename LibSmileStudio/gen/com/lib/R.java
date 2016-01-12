@@ -497,25 +497,25 @@ containing a value of this type.
         public static int wallet_secondary_text_holo_dark=0x7f060027;
     }
     public static final class dimen {
-        public static int com_facebook_likeboxcountview_border_radius=0x7f090005;
-        public static int com_facebook_likeboxcountview_border_width=0x7f090006;
-        public static int com_facebook_likeboxcountview_caret_height=0x7f090004;
-        public static int com_facebook_likeboxcountview_caret_width=0x7f090003;
-        public static int com_facebook_likeboxcountview_text_padding=0x7f090008;
-        public static int com_facebook_likeboxcountview_text_size=0x7f090007;
-        public static int com_facebook_likeview_edge_padding=0x7f090001;
-        public static int com_facebook_likeview_internal_padding=0x7f090002;
-        public static int com_facebook_likeview_text_size=0x7f090000;
-        public static int com_facebook_profilepictureview_preset_size_large=0x7f09000b;
-        public static int com_facebook_profilepictureview_preset_size_normal=0x7f09000a;
-        public static int com_facebook_profilepictureview_preset_size_small=0x7f090009;
-        public static int com_facebook_share_button_compound_drawable_padding=0x7f09000c;
-        public static int com_facebook_share_button_padding_bottom=0x7f09000d;
-        public static int com_facebook_share_button_padding_left=0x7f09000e;
-        public static int com_facebook_share_button_padding_right=0x7f09000f;
-        public static int com_facebook_share_button_padding_top=0x7f090010;
-        public static int com_facebook_share_button_text_size=0x7f090011;
-        public static int com_facebook_tooltip_horizontal_padding=0x7f090012;
+        public static int com_facebook_likeboxcountview_border_radius=0x7f080005;
+        public static int com_facebook_likeboxcountview_border_width=0x7f080006;
+        public static int com_facebook_likeboxcountview_caret_height=0x7f080004;
+        public static int com_facebook_likeboxcountview_caret_width=0x7f080003;
+        public static int com_facebook_likeboxcountview_text_padding=0x7f080008;
+        public static int com_facebook_likeboxcountview_text_size=0x7f080007;
+        public static int com_facebook_likeview_edge_padding=0x7f080001;
+        public static int com_facebook_likeview_internal_padding=0x7f080002;
+        public static int com_facebook_likeview_text_size=0x7f080000;
+        public static int com_facebook_profilepictureview_preset_size_large=0x7f08000b;
+        public static int com_facebook_profilepictureview_preset_size_normal=0x7f08000a;
+        public static int com_facebook_profilepictureview_preset_size_small=0x7f080009;
+        public static int com_facebook_share_button_compound_drawable_padding=0x7f08000c;
+        public static int com_facebook_share_button_padding_bottom=0x7f08000d;
+        public static int com_facebook_share_button_padding_left=0x7f08000e;
+        public static int com_facebook_share_button_padding_right=0x7f08000f;
+        public static int com_facebook_share_button_padding_top=0x7f080010;
+        public static int com_facebook_share_button_text_size=0x7f080011;
+        public static int com_facebook_tooltip_horizontal_padding=0x7f080012;
     }
     public static final class drawable {
         public static int com_facebook_button_background=0x7f020000;
@@ -578,54 +578,54 @@ containing a value of this type.
         public static int powered_by_google_light=0x7f020039;
     }
     public static final class id {
-        public static int automatic=0x7f070014;
-        public static int book_now=0x7f070010;
-        public static int bottom=0x7f07001f;
-        public static int box_count=0x7f07001e;
-        public static int button=0x7f07001d;
-        public static int buyButton=0x7f07000a;
-        public static int buy_now=0x7f07000f;
-        public static int buy_with_google=0x7f07000e;
-        public static int center=0x7f070022;
-        public static int classic=0x7f070011;
-        public static int com_facebook_body_frame=0x7f070027;
-        public static int com_facebook_button_xout=0x7f070029;
-        public static int com_facebook_fragment_container=0x7f070025;
-        public static int com_facebook_login_activity_progress_bar=0x7f070026;
-        public static int com_facebook_tooltip_bubble_view_bottom_pointer=0x7f07002b;
-        public static int com_facebook_tooltip_bubble_view_text_body=0x7f07002a;
-        public static int com_facebook_tooltip_bubble_view_top_pointer=0x7f070028;
-        public static int display_always=0x7f070015;
-        public static int grayscale=0x7f070012;
-        public static int holo_dark=0x7f070005;
-        public static int holo_light=0x7f070006;
-        public static int hybrid=0x7f070004;
-        public static int inline=0x7f070020;
-        public static int large=0x7f070018;
-        public static int left=0x7f070023;
-        public static int match_parent=0x7f07000c;
-        public static int messenger_send_button=0x7f07002c;
-        public static int monochrome=0x7f070013;
-        public static int never_display=0x7f070016;
-        public static int none=0x7f070000;
-        public static int normal=0x7f070001;
-        public static int open_graph=0x7f07001a;
-        public static int page=0x7f07001b;
-        public static int production=0x7f070007;
-        public static int right=0x7f070024;
-        public static int sandbox=0x7f070008;
-        public static int satellite=0x7f070002;
-        public static int selectionDetails=0x7f07000b;
-        public static int small=0x7f070017;
-        public static int standard=0x7f07001c;
-        public static int strict_sandbox=0x7f070009;
-        public static int terrain=0x7f070003;
-        public static int top=0x7f070021;
-        public static int unknown=0x7f070019;
-        public static int wrap_content=0x7f07000d;
+        public static int automatic=0x7f090014;
+        public static int book_now=0x7f09000e;
+        public static int bottom=0x7f09001f;
+        public static int box_count=0x7f09001c;
+        public static int button=0x7f09001d;
+        public static int buyButton=0x7f09000a;
+        public static int buy_now=0x7f09000f;
+        public static int buy_with_google=0x7f090010;
+        public static int center=0x7f090022;
+        public static int classic=0x7f090011;
+        public static int com_facebook_body_frame=0x7f090027;
+        public static int com_facebook_button_xout=0x7f090029;
+        public static int com_facebook_fragment_container=0x7f090025;
+        public static int com_facebook_login_activity_progress_bar=0x7f090026;
+        public static int com_facebook_tooltip_bubble_view_bottom_pointer=0x7f09002b;
+        public static int com_facebook_tooltip_bubble_view_text_body=0x7f09002a;
+        public static int com_facebook_tooltip_bubble_view_top_pointer=0x7f090028;
+        public static int display_always=0x7f090015;
+        public static int grayscale=0x7f090012;
+        public static int holo_dark=0x7f090005;
+        public static int holo_light=0x7f090006;
+        public static int hybrid=0x7f090000;
+        public static int inline=0x7f090020;
+        public static int large=0x7f090017;
+        public static int left=0x7f090023;
+        public static int match_parent=0x7f09000c;
+        public static int messenger_send_button=0x7f09002c;
+        public static int monochrome=0x7f090013;
+        public static int never_display=0x7f090016;
+        public static int none=0x7f090001;
+        public static int normal=0x7f090002;
+        public static int open_graph=0x7f090019;
+        public static int page=0x7f09001a;
+        public static int production=0x7f090007;
+        public static int right=0x7f090024;
+        public static int sandbox=0x7f090008;
+        public static int satellite=0x7f090003;
+        public static int selectionDetails=0x7f09000b;
+        public static int small=0x7f090018;
+        public static int standard=0x7f09001e;
+        public static int strict_sandbox=0x7f090009;
+        public static int terrain=0x7f090004;
+        public static int top=0x7f090021;
+        public static int unknown=0x7f09001b;
+        public static int wrap_content=0x7f09000d;
     }
     public static final class integer {
-        public static int google_play_services_version=0x7f080000;
+        public static int google_play_services_version=0x7f070000;
     }
     public static final class layout {
         public static int com_facebook_activity_layout=0x7f030000;
@@ -855,7 +855,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name com.lib:adSize
         */
-        public static final int AdsAttrs_adSize = 0;
+        public static int AdsAttrs_adSize = 0;
         /**
           <p>
           @attr description
@@ -875,7 +875,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name com.lib:adSizes
         */
-        public static final int AdsAttrs_adSizes = 1;
+        public static int AdsAttrs_adSizes = 1;
         /**
           <p>
           @attr description
@@ -891,7 +891,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name com.lib:adUnitId
         */
-        public static final int AdsAttrs_adUnitId = 2;
+        public static int AdsAttrs_adUnitId = 2;
         /** Attributes that can be used with a MapAttrs.
            <p>Includes the following attributes:</p>
            <table>
@@ -947,7 +947,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:cameraBearing
         */
-        public static final int MapAttrs_cameraBearing = 1;
+        public static int MapAttrs_cameraBearing = 1;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#cameraTargetLat}
           attribute's value can be found in the {@link #MapAttrs} array.
@@ -961,7 +961,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:cameraTargetLat
         */
-        public static final int MapAttrs_cameraTargetLat = 2;
+        public static int MapAttrs_cameraTargetLat = 2;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#cameraTargetLng}
           attribute's value can be found in the {@link #MapAttrs} array.
@@ -975,7 +975,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:cameraTargetLng
         */
-        public static final int MapAttrs_cameraTargetLng = 3;
+        public static int MapAttrs_cameraTargetLng = 3;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#cameraTilt}
           attribute's value can be found in the {@link #MapAttrs} array.
@@ -989,7 +989,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:cameraTilt
         */
-        public static final int MapAttrs_cameraTilt = 4;
+        public static int MapAttrs_cameraTilt = 4;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#cameraZoom}
           attribute's value can be found in the {@link #MapAttrs} array.
@@ -1003,7 +1003,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:cameraZoom
         */
-        public static final int MapAttrs_cameraZoom = 5;
+        public static int MapAttrs_cameraZoom = 5;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#mapType}
           attribute's value can be found in the {@link #MapAttrs} array.
@@ -1023,7 +1023,7 @@ containing a value of this type.
 </table>
           @attr name com.lib:mapType
         */
-        public static final int MapAttrs_mapType = 0;
+        public static int MapAttrs_mapType = 0;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#uiCompass}
           attribute's value can be found in the {@link #MapAttrs} array.
@@ -1037,7 +1037,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:uiCompass
         */
-        public static final int MapAttrs_uiCompass = 6;
+        public static int MapAttrs_uiCompass = 6;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#uiRotateGestures}
           attribute's value can be found in the {@link #MapAttrs} array.
@@ -1051,7 +1051,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:uiRotateGestures
         */
-        public static final int MapAttrs_uiRotateGestures = 7;
+        public static int MapAttrs_uiRotateGestures = 7;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#uiScrollGestures}
           attribute's value can be found in the {@link #MapAttrs} array.
@@ -1065,7 +1065,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:uiScrollGestures
         */
-        public static final int MapAttrs_uiScrollGestures = 8;
+        public static int MapAttrs_uiScrollGestures = 8;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#uiTiltGestures}
           attribute's value can be found in the {@link #MapAttrs} array.
@@ -1079,7 +1079,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:uiTiltGestures
         */
-        public static final int MapAttrs_uiTiltGestures = 9;
+        public static int MapAttrs_uiTiltGestures = 9;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#uiZoomControls}
           attribute's value can be found in the {@link #MapAttrs} array.
@@ -1093,7 +1093,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:uiZoomControls
         */
-        public static final int MapAttrs_uiZoomControls = 10;
+        public static int MapAttrs_uiZoomControls = 10;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#uiZoomGestures}
           attribute's value can be found in the {@link #MapAttrs} array.
@@ -1107,7 +1107,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:uiZoomGestures
         */
-        public static final int MapAttrs_uiZoomGestures = 11;
+        public static int MapAttrs_uiZoomGestures = 11;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#useViewLifecycle}
           attribute's value can be found in the {@link #MapAttrs} array.
@@ -1121,7 +1121,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:useViewLifecycle
         */
-        public static final int MapAttrs_useViewLifecycle = 12;
+        public static int MapAttrs_useViewLifecycle = 12;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#zOrderOnTop}
           attribute's value can be found in the {@link #MapAttrs} array.
@@ -1135,7 +1135,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:zOrderOnTop
         */
-        public static final int MapAttrs_zOrderOnTop = 13;
+        public static int MapAttrs_zOrderOnTop = 13;
         /**  Attributes for the WalletFragment &lt;fragment&gt; tag 
            <p>Includes the following attributes:</p>
            <table>
@@ -1174,7 +1174,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name com.lib:environment
         */
-        public static final int WalletFragmentOptions_environment = 1;
+        public static int WalletFragmentOptions_environment = 1;
         /**
           <p>
           @attr description
@@ -1193,7 +1193,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name com.lib:fragmentMode
         */
-        public static final int WalletFragmentOptions_fragmentMode = 3;
+        public static int WalletFragmentOptions_fragmentMode = 3;
         /**
           <p>
           @attr description
@@ -1205,7 +1205,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name com.lib:fragmentStyle
         */
-        public static final int WalletFragmentOptions_fragmentStyle = 2;
+        public static int WalletFragmentOptions_fragmentStyle = 2;
         /**
           <p>
           @attr description
@@ -1224,7 +1224,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name com.lib:theme
         */
-        public static final int WalletFragmentOptions_theme = 0;
+        public static int WalletFragmentOptions_theme = 0;
         /**  Attributes that may be specified in a style resource to customize the look and feel of
          WalletFragment 
            <p>Includes the following attributes:</p>
@@ -1280,7 +1280,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name com.lib:buyButtonAppearance
         */
-        public static final int WalletFragmentStyle_buyButtonAppearance = 3;
+        public static int WalletFragmentStyle_buyButtonAppearance = 3;
         /**
           <p>
           @attr description
@@ -1309,7 +1309,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name com.lib:buyButtonHeight
         */
-        public static final int WalletFragmentStyle_buyButtonHeight = 0;
+        public static int WalletFragmentStyle_buyButtonHeight = 0;
         /**
           <p>
           @attr description
@@ -1329,7 +1329,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name com.lib:buyButtonText
         */
-        public static final int WalletFragmentStyle_buyButtonText = 2;
+        public static int WalletFragmentStyle_buyButtonText = 2;
         /**
           <p>
           @attr description
@@ -1358,7 +1358,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name com.lib:buyButtonWidth
         */
-        public static final int WalletFragmentStyle_buyButtonWidth = 1;
+        public static int WalletFragmentStyle_buyButtonWidth = 1;
         /**
           <p>
           @attr description
@@ -1372,7 +1372,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name com.lib:maskedWalletDetailsBackground
         */
-        public static final int WalletFragmentStyle_maskedWalletDetailsBackground = 6;
+        public static int WalletFragmentStyle_maskedWalletDetailsBackground = 6;
         /**
           <p>
           @attr description
@@ -1386,7 +1386,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name com.lib:maskedWalletDetailsButtonBackground
         */
-        public static final int WalletFragmentStyle_maskedWalletDetailsButtonBackground = 8;
+        public static int WalletFragmentStyle_maskedWalletDetailsButtonBackground = 8;
         /**
           <p>
           @attr description
@@ -1398,7 +1398,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name com.lib:maskedWalletDetailsButtonTextAppearance
         */
-        public static final int WalletFragmentStyle_maskedWalletDetailsButtonTextAppearance = 7;
+        public static int WalletFragmentStyle_maskedWalletDetailsButtonTextAppearance = 7;
         /**
           <p>
           @attr description
@@ -1410,7 +1410,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name com.lib:maskedWalletDetailsHeaderTextAppearance
         */
-        public static final int WalletFragmentStyle_maskedWalletDetailsHeaderTextAppearance = 5;
+        public static int WalletFragmentStyle_maskedWalletDetailsHeaderTextAppearance = 5;
         /**
           <p>
           @attr description
@@ -1429,7 +1429,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name com.lib:maskedWalletDetailsLogoImageType
         */
-        public static final int WalletFragmentStyle_maskedWalletDetailsLogoImageType = 10;
+        public static int WalletFragmentStyle_maskedWalletDetailsLogoImageType = 10;
         /**
           <p>
           @attr description
@@ -1446,7 +1446,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name com.lib:maskedWalletDetailsLogoTextColor
         */
-        public static final int WalletFragmentStyle_maskedWalletDetailsLogoTextColor = 9;
+        public static int WalletFragmentStyle_maskedWalletDetailsLogoTextColor = 9;
         /**
           <p>
           @attr description
@@ -1458,7 +1458,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name com.lib:maskedWalletDetailsTextAppearance
         */
-        public static final int WalletFragmentStyle_maskedWalletDetailsTextAppearance = 4;
+        public static int WalletFragmentStyle_maskedWalletDetailsTextAppearance = 4;
         /** Attributes that can be used with a com_facebook_like_view.
            <p>Includes the following attributes:</p>
            <table>
@@ -1500,7 +1500,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 </table>
           @attr name com.lib:com_facebook_auxiliary_view_position
         */
-        public static final int com_facebook_like_view_com_facebook_auxiliary_view_position = 4;
+        public static int com_facebook_like_view_com_facebook_auxiliary_view_position = 4;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#com_facebook_foreground_color}
           attribute's value can be found in the {@link #com_facebook_like_view} array.
@@ -1515,7 +1515,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:com_facebook_foreground_color
         */
-        public static final int com_facebook_like_view_com_facebook_foreground_color = 0;
+        public static int com_facebook_like_view_com_facebook_foreground_color = 0;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#com_facebook_horizontal_alignment}
           attribute's value can be found in the {@link #com_facebook_like_view} array.
@@ -1533,7 +1533,7 @@ containing a value of this type.
 </table>
           @attr name com.lib:com_facebook_horizontal_alignment
         */
-        public static final int com_facebook_like_view_com_facebook_horizontal_alignment = 5;
+        public static int com_facebook_like_view_com_facebook_horizontal_alignment = 5;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#com_facebook_object_id}
           attribute's value can be found in the {@link #com_facebook_like_view} array.
@@ -1547,7 +1547,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:com_facebook_object_id
         */
-        public static final int com_facebook_like_view_com_facebook_object_id = 1;
+        public static int com_facebook_like_view_com_facebook_object_id = 1;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#com_facebook_object_type}
           attribute's value can be found in the {@link #com_facebook_like_view} array.
@@ -1565,7 +1565,7 @@ containing a value of this type.
 </table>
           @attr name com.lib:com_facebook_object_type
         */
-        public static final int com_facebook_like_view_com_facebook_object_type = 2;
+        public static int com_facebook_like_view_com_facebook_object_type = 2;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#com_facebook_style}
           attribute's value can be found in the {@link #com_facebook_like_view} array.
@@ -1583,7 +1583,7 @@ containing a value of this type.
 </table>
           @attr name com.lib:com_facebook_style
         */
-        public static final int com_facebook_like_view_com_facebook_style = 3;
+        public static int com_facebook_like_view_com_facebook_style = 3;
         /** Attributes that can be used with a com_facebook_login_view.
            <p>Includes the following attributes:</p>
            <table>
@@ -1616,7 +1616,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:com_facebook_confirm_logout
         */
-        public static final int com_facebook_login_view_com_facebook_confirm_logout = 0;
+        public static int com_facebook_login_view_com_facebook_confirm_logout = 0;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#com_facebook_login_text}
           attribute's value can be found in the {@link #com_facebook_login_view} array.
@@ -1630,7 +1630,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:com_facebook_login_text
         */
-        public static final int com_facebook_login_view_com_facebook_login_text = 1;
+        public static int com_facebook_login_view_com_facebook_login_text = 1;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#com_facebook_logout_text}
           attribute's value can be found in the {@link #com_facebook_login_view} array.
@@ -1644,7 +1644,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:com_facebook_logout_text
         */
-        public static final int com_facebook_login_view_com_facebook_logout_text = 2;
+        public static int com_facebook_login_view_com_facebook_logout_text = 2;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#com_facebook_tooltip_mode}
           attribute's value can be found in the {@link #com_facebook_login_view} array.
@@ -1662,7 +1662,7 @@ containing a value of this type.
 </table>
           @attr name com.lib:com_facebook_tooltip_mode
         */
-        public static final int com_facebook_login_view_com_facebook_tooltip_mode = 3;
+        public static int com_facebook_login_view_com_facebook_tooltip_mode = 3;
         /** Attributes that can be used with a com_facebook_profile_picture_view.
            <p>Includes the following attributes:</p>
            <table>
@@ -1691,7 +1691,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:com_facebook_is_cropped
         */
-        public static final int com_facebook_profile_picture_view_com_facebook_is_cropped = 1;
+        public static int com_facebook_profile_picture_view_com_facebook_is_cropped = 1;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#com_facebook_preset_size}
           attribute's value can be found in the {@link #com_facebook_profile_picture_view} array.
@@ -1709,6 +1709,6 @@ containing a value of this type.
 </table>
           @attr name com.lib:com_facebook_preset_size
         */
-        public static final int com_facebook_profile_picture_view_com_facebook_preset_size = 0;
+        public static int com_facebook_profile_picture_view_com_facebook_preset_size = 0;
     };
 }

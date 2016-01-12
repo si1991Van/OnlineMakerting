@@ -587,24 +587,25 @@ containing a value of this type.
         public static final int powered_by_google_light=0x7f020039;
     }
     public static final class id {
-        public static final int action_settings=0x7f07002d;
+        public static final int action_settings=0x7f070030;
         public static final int automatic=0x7f070014;
         public static final int book_now=0x7f070010;
         public static final int bottom=0x7f07001f;
         public static final int box_count=0x7f07001e;
+        public static final int btnlogin=0x7f070027;
         public static final int button=0x7f07001d;
         public static final int buyButton=0x7f07000a;
         public static final int buy_now=0x7f07000f;
         public static final int buy_with_google=0x7f07000e;
         public static final int center=0x7f070022;
         public static final int classic=0x7f070011;
-        public static final int com_facebook_body_frame=0x7f070027;
-        public static final int com_facebook_button_xout=0x7f070029;
-        public static final int com_facebook_fragment_container=0x7f070025;
-        public static final int com_facebook_login_activity_progress_bar=0x7f070026;
-        public static final int com_facebook_tooltip_bubble_view_bottom_pointer=0x7f07002b;
-        public static final int com_facebook_tooltip_bubble_view_text_body=0x7f07002a;
-        public static final int com_facebook_tooltip_bubble_view_top_pointer=0x7f070028;
+        public static final int com_facebook_body_frame=0x7f07002a;
+        public static final int com_facebook_button_xout=0x7f07002c;
+        public static final int com_facebook_fragment_container=0x7f070028;
+        public static final int com_facebook_login_activity_progress_bar=0x7f070029;
+        public static final int com_facebook_tooltip_bubble_view_bottom_pointer=0x7f07002e;
+        public static final int com_facebook_tooltip_bubble_view_text_body=0x7f07002d;
+        public static final int com_facebook_tooltip_bubble_view_top_pointer=0x7f07002b;
         public static final int display_always=0x7f070015;
         public static final int grayscale=0x7f070012;
         public static final int holo_dark=0x7f070005;
@@ -614,7 +615,7 @@ containing a value of this type.
         public static final int large=0x7f070018;
         public static final int left=0x7f070023;
         public static final int match_parent=0x7f07000c;
-        public static final int messenger_send_button=0x7f07002c;
+        public static final int messenger_send_button=0x7f07002f;
         public static final int monochrome=0x7f070013;
         public static final int never_display=0x7f070016;
         public static final int none=0x7f070000;
@@ -631,6 +632,8 @@ containing a value of this type.
         public static final int strict_sandbox=0x7f070009;
         public static final int terrain=0x7f070003;
         public static final int top=0x7f070021;
+        public static final int txtpassword=0x7f070026;
+        public static final int txtusername=0x7f070025;
         public static final int unknown=0x7f070019;
         public static final int wrap_content=0x7f07000d;
     }
@@ -638,7 +641,7 @@ containing a value of this type.
         public static final int google_play_services_version=0x7f080000;
     }
     public static final class layout {
-        public static final int activity_main=0x7f030000;
+        public static final int activity_login=0x7f030000;
         public static final int com_facebook_activity_layout=0x7f030001;
         public static final int com_facebook_login_fragment=0x7f030002;
         public static final int com_facebook_tooltip_bubble=0x7f030003;

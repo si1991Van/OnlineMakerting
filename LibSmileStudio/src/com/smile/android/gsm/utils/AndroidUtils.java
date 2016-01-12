@@ -7,10 +7,10 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Collections;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.apache.http.conn.util.InetAddressUtils;
-
-import com.lib.Debug;
 
 import android.annotation.SuppressLint;
 import android.content.ComponentName;
@@ -26,8 +26,13 @@ import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.util.Base64;
 
+import com.lib.Debug;
+
 @SuppressLint("DefaultLocale")
 public class AndroidUtils {
+	private static Pattern pattern;
+	private static Matcher matcher;
+
 	/**
 	 * Trả về tên ứng dụng chứa trong file AndroidManifest.xml
 	 * 
@@ -35,15 +40,17 @@ public class AndroidUtils {
 	 * @param defaultValues
 	 * @return
 	 */
-	public static String getApplicationName(Context context, String defaultValues) {
+	public static String getApplicationName(Context context,
+			String defaultValues) {
 		String str = null;
 		Object localObject = context.getPackageManager();
 		ApplicationInfo localApplicationInfo = null;
 		try {
-			if ((localApplicationInfo = ((PackageManager) localObject).getApplicationInfo(context.getPackageName(),
-					0)) != null) {
-				str = (localObject = ((PackageManager) localObject).getApplicationLabel(localApplicationInfo)) != null
-						? (String) localObject : null;
+			if ((localApplicationInfo = ((PackageManager) localObject)
+					.getApplicationInfo(context.getPackageName(), 0)) != null) {
+				str = (localObject = ((PackageManager) localObject)
+						.getApplicationLabel(localApplicationInfo)) != null ? (String) localObject
+						: null;
 			}
 		} catch (PackageManager.NameNotFoundException localNameNotFoundException) {
 			if ((localApplicationInfo = context.getApplicationInfo()) != null) {
@@ -65,9 +72,11 @@ public class AndroidUtils {
 	public static String getSHA1(Context context) {
 		String str = null;
 		try {
-			for (Signature sig : context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures) {
+			for (Signature sig : context.getPackageManager().getPackageInfo(
+					context.getPackageName(), 64).signatures) {
 				MessageDigest localMessageDigest;
-				(localMessageDigest = MessageDigest.getInstance("SHA1")).update(sig.toByteArray());
+				(localMessageDigest = MessageDigest.getInstance("SHA1"))
+						.update(sig.toByteArray());
 				str = byte2HexFormatted(localMessageDigest.digest());
 			}
 		} catch (Exception e) {
@@ -85,9 +94,11 @@ public class AndroidUtils {
 	public static String getHashKey(Context context) {
 		String str = null;
 		try {
-			for (Signature sig : context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures) {
+			for (Signature sig : context.getPackageManager().getPackageInfo(
+					context.getPackageName(), 64).signatures) {
 				MessageDigest localMessageDigest;
-				(localMessageDigest = MessageDigest.getInstance("SHA1")).update(sig.toByteArray());
+				(localMessageDigest = MessageDigest.getInstance("SHA1"))
+						.update(sig.toByteArray());
 				str = new String(Base64.encode(localMessageDigest.digest(), 0));
 			}
 		} catch (Exception e) {
@@ -106,9 +117,11 @@ public class AndroidUtils {
 	 */
 	public static String getIPAddress(boolean useIPv4) {
 		try {
-			List<NetworkInterface> interfaces = Collections.list(NetworkInterface.getNetworkInterfaces());
+			List<NetworkInterface> interfaces = Collections
+					.list(NetworkInterface.getNetworkInterfaces());
 			for (NetworkInterface intf : interfaces) {
-				List<InetAddress> addrs = Collections.list(intf.getInetAddresses());
+				List<InetAddress> addrs = Collections.list(intf
+						.getInetAddresses());
 				for (InetAddress addr : addrs) {
 					if (!addr.isLoopbackAddress()) {
 						String sAddr = addr.getHostAddress().toUpperCase();
@@ -119,7 +132,8 @@ public class AndroidUtils {
 						} else {
 							if (!isIPv4) {
 								int delim = sAddr.indexOf('%');
-								return delim < 0 ? sAddr : sAddr.substring(0, delim);
+								return delim < 0 ? sAddr : sAddr.substring(0,
+										delim);
 							}
 						}
 					}
@@ -140,7 +154,8 @@ public class AndroidUtils {
 	 */
 	public static String getMACAddress(String interfaceName) {
 		try {
-			List<NetworkInterface> interfaces = Collections.list(NetworkInterface.getNetworkInterfaces());
+			List<NetworkInterface> interfaces = Collections
+					.list(NetworkInterface.getNetworkInterfaces());
 			for (NetworkInterface intf : interfaces) {
 				if (interfaceName != null) {
 					if (!intf.getName().equalsIgnoreCase(interfaceName))
@@ -173,10 +188,12 @@ public class AndroidUtils {
 	public static int getTypeConnectedToIntenet(Context context) {
 		ConnectivityManager cm;
 		NetworkInfo networkInfo[];
-		if (((cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE)) != null)
+		if (((cm = (ConnectivityManager) context
+				.getSystemService(Context.CONNECTIVITY_SERVICE)) != null)
 				&& ((networkInfo = cm.getAllNetworkInfo()) != null)) {
 			for (int i = 0; i < networkInfo.length; i++) {
-				if ((networkInfo[i] != null) && (networkInfo[i].isAvailable())
+				if ((networkInfo[i] != null)
+						&& (networkInfo[i].isAvailable())
 						&& (networkInfo[i].getState() == NetworkInfo.State.CONNECTED)) {
 					return networkInfo[i].getType();
 				}
@@ -193,7 +210,8 @@ public class AndroidUtils {
 	 * @return
 	 */
 	public static String getWifiMacAddress(Context context) {
-		WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+		WifiManager wifiManager = (WifiManager) context
+				.getSystemService(Context.WIFI_SERVICE);
 		WifiInfo wInfo = wifiManager.getConnectionInfo();
 		return wInfo.getMacAddress();
 	}
@@ -207,14 +225,17 @@ public class AndroidUtils {
 	 * @return
 	 */
 	public static boolean isConnectedToInternet(Context context) {
-		ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+		ConnectivityManager cm = (ConnectivityManager) context
+				.getSystemService(Context.CONNECTIVITY_SERVICE);
 
-		NetworkInfo wifiNetwork = cm.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+		NetworkInfo wifiNetwork = cm
+				.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
 		if (wifiNetwork != null && wifiNetwork.isConnected()) {
 			return true;
 		}
 
-		NetworkInfo mobileNetwork = cm.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
+		NetworkInfo mobileNetwork = cm
+				.getNetworkInfo(ConnectivityManager.TYPE_MOBILE);
 		if (mobileNetwork != null && mobileNetwork.isConnected()) {
 			return true;
 		}
@@ -235,8 +256,8 @@ public class AndroidUtils {
 	 */
 	public static boolean isConnectedToInternetMobile(Context context) {
 		int value = 0;
-		return ((value = getTypeConnectedToIntenet(context)) == 0) || (value == 4) || (value == 5) || (value == 2)
-				|| (value == 3);
+		return ((value = getTypeConnectedToIntenet(context)) == 0)
+				|| (value == 4) || (value == 5) || (value == 2) || (value == 3);
 	}
 
 	/**
@@ -249,8 +270,10 @@ public class AndroidUtils {
 	 * @return
 	 * @throws NullPointerException
 	 */
-	public static boolean checkPermission(Context context, String permission) throws NullPointerException {
-		return context.getPackageManager().checkPermission(permission, context.getPackageName()) != 0;
+	public static boolean checkPermission(Context context, String permission)
+			throws NullPointerException {
+		return context.getPackageManager().checkPermission(permission,
+				context.getPackageName()) != 0;
 	}
 
 	/**
@@ -260,8 +283,10 @@ public class AndroidUtils {
 	 * @param mClass
 	 * @return
 	 */
-	public static boolean isExsistActivity(Context context, Class<?> mClass) throws NameNotFoundException {
-		return context.getPackageManager().getActivityInfo(new ComponentName(context, mClass),
+	public static boolean isExsistActivity(Context context, Class<?> mClass)
+			throws NameNotFoundException {
+		return context.getPackageManager().getActivityInfo(
+				new ComponentName(context, mClass),
 				PackageManager.GET_META_DATA) != null;
 	}
 
@@ -272,8 +297,10 @@ public class AndroidUtils {
 	 * @param mClass
 	 * @return
 	 */
-	public static boolean isExsistServices(Context context, Class<?> mClass) throws NameNotFoundException {
-		return context.getPackageManager().getServiceInfo(new ComponentName(context, mClass),
+	public static boolean isExsistServices(Context context, Class<?> mClass)
+			throws NameNotFoundException {
+		return context.getPackageManager().getServiceInfo(
+				new ComponentName(context, mClass),
 				PackageManager.GET_META_DATA) != null;
 	}
 
@@ -289,7 +316,8 @@ public class AndroidUtils {
 		Debug.d("product=" + product);
 		boolean isEmulator = false;
 		if (product != null) {
-			isEmulator = product.equals("sdk") || product.contains("_sdk") || product.contains("sdk_");
+			isEmulator = product.equals("sdk") || product.contains("_sdk")
+					|| product.contains("sdk_");
 		}
 		Debug.d("isEmulator=" + isEmulator);
 		return isEmulator;
@@ -332,14 +360,15 @@ public class AndroidUtils {
 
 	/**
 	 * Mã hóa MD5
-	 * @param text 
-	 * chuỗi String Chuyền vào
-	 * @return 
-	 * trả về MD5
+	 * 
+	 * @param text
+	 *            chuỗi String Chuyền vào
+	 * @return trả về MD5
 	 * @throws NoSuchAlgorithmException
 	 * @throws UnsupportedEncodingException
 	 */
-	public static String hash(String text) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+	public static String hash(String text) throws NoSuchAlgorithmException,
+			UnsupportedEncodingException {
 		MessageDigest md;
 		md = MessageDigest.getInstance("MD5");
 		byte[] md5hash = new byte[32];
@@ -347,7 +376,32 @@ public class AndroidUtils {
 		md5hash = md.digest();
 		return convertToHex(md5hash);
 	}
-	
-	
-	
+
+	// Email Pattern
+	private static final String EMAIL_PATTERN = "^[_A-Za-z0-9-+]+(.[_A-Za-z0-9-]+)*@"
+			+ "[A-Za-z0-9-]+(.[A-Za-z0-9]+)*(.[A-Za-z]{2,})$";
+
+	/**
+	 * Validate Email with regular expression
+	 * 
+	 * @param email
+	 * @return true for Valid Email and false for Invalid Email
+	 */
+	public static boolean validate(String email) {
+		pattern = Pattern.compile(EMAIL_PATTERN);
+		matcher = pattern.matcher(email);
+		return matcher.matches();
+
+	}
+
+	/**
+	 * Checks for Null String object
+	 * 
+	 * @param txt
+	 * @return true for not null and false for null String object
+	 */
+	public static boolean isNotNull(String txt) {
+		return txt != null && txt.trim().length() > 0 ? true : false;
+	}
+
 }
