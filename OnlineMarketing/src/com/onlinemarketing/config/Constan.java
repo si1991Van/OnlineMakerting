@@ -5,3 +5,4 @@ public class Constan {
 	public static String Error02 = "Email không đúng định dạng!";
 	public static String Error03 = "Tài khoản không tồn tại!";
 }
+ 
