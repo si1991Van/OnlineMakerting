@@ -1,5 +1,9 @@
 package com.smile.android.gsm.utils;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -10,7 +14,14 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.StatusLine;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.conn.util.InetAddressUtils;
+import org.apache.http.impl.client.DefaultHttpClient;
 
 import android.annotation.SuppressLint;
 import android.content.ComponentName;
@@ -25,6 +36,7 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.util.Base64;
+import android.util.Log;
 
 import com.lib.Debug;
 
@@ -402,6 +414,34 @@ public class AndroidUtils {
 	 */
 	public static boolean isNotNull(String txt) {
 		return txt != null && txt.trim().length() > 0 ? true : false;
+	}
+
+	// ham connecet webservice.
+	public static String getjSonUrl(String link) {
+		StringBuffer objbuffer = new StringBuffer();
+
+		HttpClient httpcliend = new DefaultHttpClient();
+		HttpGet httpget = new HttpGet(link);
+		try {
+			HttpResponse response = httpcliend.execute(httpget);
+			StatusLine statusLine = response.getStatusLine();
+			int statusCode = statusLine.getStatusCode();
+			if (statusCode == 200) {
+				HttpEntity entity = response.getEntity();
+				InputStream coInputStream = entity.getContent();
+				BufferedReader reader = new BufferedReader(
+						new InputStreamReader(coInputStream));
+				String line;
+				while ((line = reader.readLine()) != null) {
+					objbuffer.append(line);
+				}
+			} else {
+				Debug.e("Fiale to jdklfajlkd");
+			}
+		} catch (Exception e) {
+			Debug.e(e.toString());
+		}
+		return objbuffer.toString();
 	}
 
 }
