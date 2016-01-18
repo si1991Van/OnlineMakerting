@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.onlinemarketing.HomeActivity;
 import com.example.onlinemarketing.R;
 import com.onlinemarketing.config.Constan;
 import com.onlinemarketing.object.OutputAccount;
@@ -77,6 +76,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 
 			case 2:
 				
+				break;
 			}
 			return null;
 
@@ -90,7 +90,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 				startActivity(intObj);
 				break;
 			case 1:
-				alert(Constan.Error01);
+				alert(Ooput.getMessage());
 				break;
 			}
 		}
