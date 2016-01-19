@@ -49,7 +49,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	}
 	public void alert(String text) {
 		 objdealog = new Dialog(this);
-		objdealog.setContentView(R.layout.alert);
+		objdealog.setContentView(R.layout.dialog_message);
 		TextView textView1 = (TextView) objdealog.findViewById(R.id.textView1);
 		textView1.setText(text);
 		objdealog.setTitle("Thông báo");
