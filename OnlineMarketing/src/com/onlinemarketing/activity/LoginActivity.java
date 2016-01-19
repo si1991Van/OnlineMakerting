@@ -59,8 +59,6 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		textView1.setText(text);
 		objdealog.setTitle("Thông báo");
 		objdealog.show();
-		
-
 	}
 
 	public class LoginAsystask extends AsyncTask<Integer, Void, Void> {
@@ -77,7 +75,9 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 			switch (params[0]) {
 			case 1:
 				Ooput = new OutputAccount();
-				Ooput = json.Login(txtusername.getText().toString(), txtpass.getText().toString());
+
+				Ooput = json.Login(txtusername.getText().toString(), txtpass
+						.getText().toString());
 				break;
 
 			case 2:
@@ -93,7 +93,8 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 			// TODO Auto-generated method stub
 			switch (Ooput.getResult()) {
 			case 0:
-				Intent intObj = new Intent(LoginActivity.this, RegisterActivity.class);
+				Intent intObj = new Intent(LoginActivity.this,
+						HomeActivity.class);
 				startActivity(intObj);
 				break;
 			case 1:
