@@ -1,19 +1,19 @@
 package com.onlinemarketing.activity;
 
+import com.example.onlinemarketing.R;
+import com.onlinemarketing.object.OutputAccount;
+import com.onlinemarketing.processes.Account;
+
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
-import com.example.onlinemarketing.R;
-import com.onlinemarketing.config.Constan;
-import com.onlinemarketing.object.OutputAccount;
-import com.onlinemarketing.processes.Account;
 
 public class LoginActivity extends BaseActivity implements OnClickListener {
 
@@ -37,10 +37,14 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btnlogin:
-			new LoginAsystask().execute(1);
+			if (isConnect()) {
+				new LoginAsystask().execute(1);
+			}
 			break;
 		case R.id.btnRegister:
-			new LoginAsystask().execute(2);
+			if (isConnect()) {
+				new LoginAsystask().execute(2);
+			}
 			break;
 
 		default:
@@ -50,12 +54,11 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 
 	public void alert(String text) {
 		objdealog = new Dialog(this);
-		objdealog.setContentView(R.layout.alert);
+		objdealog.setContentView(R.layout.dialog_message);
 		TextView textView1 = (TextView) objdealog.findViewById(R.id.textView1);
 		textView1.setText(text);
 		objdealog.setTitle("Thông báo");
 		objdealog.show();
-
 	}
 
 	public class LoginAsystask extends AsyncTask<Integer, Void, Void> {
@@ -72,6 +75,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 			switch (params[0]) {
 			case 1:
 				Ooput = new OutputAccount();
+
 				Ooput = json.Login(txtusername.getText().toString(), txtpass
 						.getText().toString());
 				break;
@@ -99,6 +103,15 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 			}
 		}
 
+	}
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			moveTaskToBack(true);
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
 	}
 
 }

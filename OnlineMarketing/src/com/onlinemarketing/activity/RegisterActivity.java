@@ -1,9 +1,6 @@
 package com.onlinemarketing.activity;
 
 import com.example.onlinemarketing.R;
-import com.example.onlinemarketing.R.id;
-import com.example.onlinemarketing.R.layout;
-import com.example.onlinemarketing.R.menu;
 
 import android.app.Activity;
 import android.os.Bundle;

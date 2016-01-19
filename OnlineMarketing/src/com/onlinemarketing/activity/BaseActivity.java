@@ -1,36 +1,48 @@
 package com.onlinemarketing.activity;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.view.Window;
-import android.widget.TextView;
-
-import com.example.onlinemarketing.R;
 import com.lib.Debug;
+import com.onlinemarketing.config.Constan;
 import com.smile.android.gsm.utils.AndroidUtils;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 
 
 public class BaseActivity extends Activity{
+
 	Dialog objdealog;
 	public boolean isConnect(){
 		
 		boolean isconnect = AndroidUtils.isConnectedToInternet(this);
 		if (!isconnect) {
-			Debug.showAlert(this, "mat ket noi internet");
+//			Debug.showAlert(this, "mat ket noi internet");
+			showProgressDialogCheckInternet();
 		}
 		return isconnect;
 	}
-	public void alert(String text) {
-		objdealog = new Dialog(this);
-//		 objdealog.requestWindowFeature(Window.FEATURE_LEFT_ICON);
-		objdealog.setContentView(R.layout.alert);
-		TextView textView1 = (TextView) objdealog.findViewById(R.id.textView1);
-		textView1.setText(text);
-		objdealog.setTitle("abc");
-//		 objdealog.setFeatureDrawableResource(Window.FEATURE_LEFT_ICON,
-//		 R.drawable.success_icon_36x36);
-		objdealog.show();
+	public void showProgressDialogCheckInternet() {
+		@SuppressWarnings("deprecation")
+		AlertDialog.Builder alertDialog = new AlertDialog.Builder(BaseActivity.this, AlertDialog.THEME_HOLO_LIGHT);
+		alertDialog.setTitle(Constan.ErrorConnectInterNet);
+		alertDialog.setMessage(Constan.ErrorConnectInterNetMessage)
+				.setCancelable(false).setPositiveButton(Constan.Cancel, new DialogInterface.OnClickListener() {
 
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.dismiss();
+					}
+
+				}).setNegativeButton(Constan.Ok, new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						
+					}
+				});
+		alertDialog.show();
 	}
+
 	
 }

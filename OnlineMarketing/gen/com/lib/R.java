@@ -187,13 +187,13 @@ public final class R {
 		public static final int buy_with_google = 0x7f0a0010;
 		public static final int center = 0x7f0a0022;
 		public static final int classic = 0x7f0a0011;
-		public static final int com_facebook_body_frame = 0x7f0a002d;
-		public static final int com_facebook_button_xout = 0x7f0a002f;
-		public static final int com_facebook_fragment_container = 0x7f0a002b;
-		public static final int com_facebook_login_activity_progress_bar = 0x7f0a002c;
-		public static final int com_facebook_tooltip_bubble_view_bottom_pointer = 0x7f0a0031;
-		public static final int com_facebook_tooltip_bubble_view_text_body = 0x7f0a0030;
-		public static final int com_facebook_tooltip_bubble_view_top_pointer = 0x7f0a002e;
+		public static final int com_facebook_body_frame = 0x7f0a002c;
+		public static final int com_facebook_button_xout = 0x7f0a002e;
+		public static final int com_facebook_fragment_container = 0x7f0a002a;
+		public static final int com_facebook_login_activity_progress_bar = 0x7f0a002b;
+		public static final int com_facebook_tooltip_bubble_view_bottom_pointer = 0x7f0a0030;
+		public static final int com_facebook_tooltip_bubble_view_text_body = 0x7f0a002f;
+		public static final int com_facebook_tooltip_bubble_view_top_pointer = 0x7f0a002d;
 		public static final int display_always = 0x7f0a0015;
 		public static final int grayscale = 0x7f0a0012;
 		public static final int holo_dark = 0x7f0a0005;
@@ -227,9 +227,9 @@ public final class R {
 		public static final int google_play_services_version = 0x7f070000;
 	}
 	public static final class layout {
-		public static final int com_facebook_activity_layout = 0x7f030004;
-		public static final int com_facebook_login_fragment = 0x7f030005;
-		public static final int com_facebook_tooltip_bubble = 0x7f030006;
+		public static final int com_facebook_activity_layout = 0x7f030003;
+		public static final int com_facebook_login_fragment = 0x7f030004;
+		public static final int com_facebook_tooltip_bubble = 0x7f030005;
 		public static final int messenger_button_send_blue_large = 0x7f030007;
 		public static final int messenger_button_send_blue_round = 0x7f030008;
 		public static final int messenger_button_send_blue_small = 0x7f030009;
