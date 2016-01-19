@@ -159,22 +159,22 @@ public final class R {
 		public static final int common_signin_btn_text_normal_light = 0x7f020027;
 		public static final int common_signin_btn_text_pressed_dark = 0x7f020028;
 		public static final int common_signin_btn_text_pressed_light = 0x7f020029;
-		public static final int ic_launcher = 0x7f02002a;
-		public static final int ic_plusone_medium_off_client = 0x7f02002b;
-		public static final int ic_plusone_small_off_client = 0x7f02002c;
-		public static final int ic_plusone_standard_off_client = 0x7f02002d;
-		public static final int ic_plusone_tall_off_client = 0x7f02002e;
-		public static final int messenger_bubble_large_blue = 0x7f02002f;
-		public static final int messenger_bubble_large_white = 0x7f020030;
-		public static final int messenger_bubble_small_blue = 0x7f020031;
-		public static final int messenger_bubble_small_white = 0x7f020032;
-		public static final int messenger_button_blue_bg_round = 0x7f020033;
-		public static final int messenger_button_blue_bg_selector = 0x7f020034;
-		public static final int messenger_button_send_round_shadow = 0x7f020035;
-		public static final int messenger_button_white_bg_round = 0x7f020036;
-		public static final int messenger_button_white_bg_selector = 0x7f020037;
-		public static final int powered_by_google_dark = 0x7f020038;
-		public static final int powered_by_google_light = 0x7f020039;
+		public static final int ic_launcher = 0x7f02002b;
+		public static final int ic_plusone_medium_off_client = 0x7f02002c;
+		public static final int ic_plusone_small_off_client = 0x7f02002d;
+		public static final int ic_plusone_standard_off_client = 0x7f02002e;
+		public static final int ic_plusone_tall_off_client = 0x7f02002f;
+		public static final int messenger_bubble_large_blue = 0x7f020030;
+		public static final int messenger_bubble_large_white = 0x7f020031;
+		public static final int messenger_bubble_small_blue = 0x7f020032;
+		public static final int messenger_bubble_small_white = 0x7f020033;
+		public static final int messenger_button_blue_bg_round = 0x7f020034;
+		public static final int messenger_button_blue_bg_selector = 0x7f020035;
+		public static final int messenger_button_send_round_shadow = 0x7f020036;
+		public static final int messenger_button_white_bg_round = 0x7f020037;
+		public static final int messenger_button_white_bg_selector = 0x7f020038;
+		public static final int powered_by_google_dark = 0x7f020039;
+		public static final int powered_by_google_light = 0x7f02003a;
 	}
 	public static final class id {
 		public static final int automatic = 0x7f070014;
@@ -227,15 +227,15 @@ public final class R {
 		public static final int google_play_services_version = 0x7f080000;
 	}
 	public static final class layout {
-		public static final int com_facebook_activity_layout = 0x7f030002;
-		public static final int com_facebook_login_fragment = 0x7f030003;
-		public static final int com_facebook_tooltip_bubble = 0x7f030004;
-		public static final int messenger_button_send_blue_large = 0x7f030006;
-		public static final int messenger_button_send_blue_round = 0x7f030007;
-		public static final int messenger_button_send_blue_small = 0x7f030008;
-		public static final int messenger_button_send_white_large = 0x7f030009;
-		public static final int messenger_button_send_white_round = 0x7f03000a;
-		public static final int messenger_button_send_white_small = 0x7f03000b;
+		public static final int com_facebook_activity_layout = 0x7f030003;
+		public static final int com_facebook_login_fragment = 0x7f030004;
+		public static final int com_facebook_tooltip_bubble = 0x7f030005;
+		public static final int messenger_button_send_blue_large = 0x7f030007;
+		public static final int messenger_button_send_blue_round = 0x7f030008;
+		public static final int messenger_button_send_blue_small = 0x7f030009;
+		public static final int messenger_button_send_white_large = 0x7f03000a;
+		public static final int messenger_button_send_white_round = 0x7f03000b;
+		public static final int messenger_button_send_white_small = 0x7f03000c;
 	}
 	public static final class string {
 		public static final int app_name = 0x7f050031;

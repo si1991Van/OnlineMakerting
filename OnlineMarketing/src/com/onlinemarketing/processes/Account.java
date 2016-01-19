@@ -10,7 +10,9 @@ import com.onlinemarketing.config.Constan;
 import com.onlinemarketing.config.SystemConfig;
 import com.onlinemarketing.object.AccountVO;
 import com.onlinemarketing.object.OutputAccount;
+import com.onlinemarketing.util.Util;
 import com.smile.android.gsm.utils.AndroidUtils;
+import com.lib.*;
 
 public class Account {
 	static AccountVO objAccount;
@@ -43,16 +45,14 @@ public class Account {
 	 */
 	private static void processLogin(String email, String password) {
 		try {
+			JSONObject objjson = new JSONObject();
 			StringBuilder request = new StringBuilder(SystemConfig.apiLogin);
 			request.append("User=").append(URLEncoder.encode(email, "UTF-8"));
 			request.append("&Pass=").append(
 					URLEncoder.encode(password, "UTF-8"));
 			// call webservice
-			String json = AndroidUtils.getjSonUrl(request.toString());
+			objjson = Util.readJsonFromUrl(request.toString());
 			
-			JSONParser parser = new JSONParser();
-			JSONObject objjson = (JSONObject) parser.parse(json);
-
 			// set result Account on WS return
 			output.setSession(objjson.get("sessionid").toString());
 			output.setMessage(objjson.get("message").toString());

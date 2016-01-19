@@ -8,14 +8,11 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 
 
 public class BaseActivity extends Activity{
 
-	Dialog dialog;
-	
-	
+	Dialog objdealog;
 	public boolean isConnect(){
 		
 		boolean isconnect = AndroidUtils.isConnectedToInternet(this);
@@ -24,9 +21,7 @@ public class BaseActivity extends Activity{
 			showProgressDialogCheckInternet();
 		}
 		return isconnect;
-		
 	}
-	
 	public void showProgressDialogCheckInternet() {
 		@SuppressWarnings("deprecation")
 		AlertDialog.Builder alertDialog = new AlertDialog.Builder(BaseActivity.this, AlertDialog.THEME_HOLO_LIGHT);
