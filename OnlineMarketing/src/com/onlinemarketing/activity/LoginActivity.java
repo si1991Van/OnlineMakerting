@@ -8,6 +8,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -15,12 +16,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class LoginActivity extends BaseActivity implements OnClickListener {
-	
+
 	EditText txtusername, txtpass;
 	Button btnlogin;
 	boolean loginStatus;
-	OutputAccount Ooput ;
+	OutputAccount Ooput;
 	Dialog objdealog;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -35,18 +37,23 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btnlogin:
-			new LoginAsystask().execute(1);
+			if (isConnect()) {
+				new LoginAsystask().execute(1);
+			}
 			break;
 		case R.id.btnRegister:
-			new LoginAsystask().execute(2);
+			if (isConnect()) {
+				new LoginAsystask().execute(2);
+			}
 			break;
 
 		default:
 			break;
 		}
 	}
+
 	public void alert(String text) {
-		 objdealog = new Dialog(this);
+		objdealog = new Dialog(this);
 		objdealog.setContentView(R.layout.dialog_message);
 		TextView textView1 = (TextView) objdealog.findViewById(R.id.textView1);
 		textView1.setText(text);
@@ -57,7 +64,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 
 	public class LoginAsystask extends AsyncTask<Integer, Void, Void> {
 		Account json;
-		
+
 		@Override
 		protected void onPreExecute() {
 			json = new Account();
@@ -69,17 +76,17 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 			switch (params[0]) {
 			case 1:
 				Ooput = new OutputAccount();
-				Ooput = json.Login(txtusername.getText().toString(),
-						txtpass.getText().toString());
+				Ooput = json.Login(txtusername.getText().toString(), txtpass.getText().toString());
 				break;
 
 			case 2:
-				
+
 				break;
 			}
 			return null;
 
 		}
+
 		@Override
 		protected void onPostExecute(Void result) {
 			// TODO Auto-generated method stub
@@ -93,8 +100,16 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 				break;
 			}
 		}
-		
+
 	}
 
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
+			moveTaskToBack(true);
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
+	}
 
 }

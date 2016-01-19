@@ -8,6 +8,8 @@ public class Constan {
 	public static String ErrorConnectInterNetMessage = "Mất kết nối internet";
 	public static String Ok = "Kết Nối";
 	public static String Cancel = "Hủy";
+//	thời gian chờ chạy khi vào app.
+	public static int sleep = 5000;
 	
 	// status login success	
 	public static int loginSuccess = 0;

@@ -17,7 +17,7 @@ public class BaseActivity extends Activity{
 		
 		boolean isconnect = AndroidUtils.isConnectedToInternet(this);
 		if (!isconnect) {
-			Debug.showAlert(this, "mat ket noi internet");
+//			Debug.showAlert(this, "mat ket noi internet");
 			showProgressDialogCheckInternet();
 		}
 		return isconnect;
