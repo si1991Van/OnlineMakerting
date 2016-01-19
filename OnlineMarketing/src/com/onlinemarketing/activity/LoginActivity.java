@@ -1,9 +1,11 @@
 package com.onlinemarketing.activity;
 
 import com.example.onlinemarketing.R;
+import com.onlinemarketing.config.Constan;
 import com.onlinemarketing.object.OutputAccount;
 import com.onlinemarketing.processes.Account;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -13,7 +15,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 public class LoginActivity extends BaseActivity implements OnClickListener {
 
@@ -22,6 +23,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	boolean loginStatus;
 	OutputAccount Ooput;
 	Dialog objdealog;
+	AlertDialog.Builder mProgressDialog;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -52,14 +54,6 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		}
 	}
 
-	public void alert(String text) {
-		objdealog = new Dialog(this);
-		objdealog.setContentView(R.layout.dialog_message);
-		TextView textView1 = (TextView) objdealog.findViewById(R.id.textView1);
-		textView1.setText(text);
-		objdealog.setTitle("Thông báo");
-		objdealog.show();
-	}
 
 	public class LoginAsystask extends AsyncTask<Integer, Void, Void> {
 		Account json;
@@ -76,8 +70,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 			case 1:
 				Ooput = new OutputAccount();
 
-				Ooput = json.Login(txtusername.getText().toString(), txtpass
-						.getText().toString());
+				Ooput = json.Login(txtusername.getText().toString(), txtpass.getText().toString());
 				break;
 
 			case 2:
@@ -91,15 +84,14 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		@Override
 		protected void onPostExecute(Void result) {
 			// TODO Auto-generated method stub
-			switch (Ooput.getResult()) {
-			case 0:
-				Intent intObj = new Intent(LoginActivity.this,
-						HomeActivity.class);
+			if (Ooput.getResult() == Constan.loginSuccess){
+				Intent intObj = new Intent(LoginActivity.this, RegisterActivity.class);
 				startActivity(intObj);
-				break;
-			case 1:
-				alert(Ooput.getMessage());
-				break;
+			}else{
+				mProgressDialog = new AlertDialog.Builder(LoginActivity.this, AlertDialog.THEME_HOLO_LIGHT);
+				mProgressDialog.setTitle("Thông Báo");
+				mProgressDialog.setMessage(Ooput.getMessage());
+				mProgressDialog.show();
 			}
 		}
 

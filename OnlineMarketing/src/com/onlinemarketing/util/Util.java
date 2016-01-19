@@ -11,6 +11,8 @@ import java.nio.charset.Charset;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.lib.Debug;
+
 public class Util {
 	public static String readAll(Reader rd) throws IOException {
 		StringBuilder sb = new StringBuilder();
@@ -37,6 +39,7 @@ public class Util {
 			BufferedReader rd = new BufferedReader(new InputStreamReader(is,
 					Charset.forName("UTF-8")));
 			String jsonText = readAll(rd);
+			Debug.e("jsonText" + jsonText);
 			JSONObject json = new JSONObject(jsonText);
 			return json;
 		} finally {

@@ -29,11 +29,13 @@ public class Account {
 			} else {
 				output.setResult(98);
 				output.setMessage(Constan.Error03);
+				Debug.e("Error03: " +Constan.Error03 );
 				return output;
 			}
 		} else {
 			output.setResult(99);
 			output.setMessage(Constan.Error01);
+			Debug.e("Error01: " +Constan.Error01 );
 			return output;
 		}
 	}
@@ -57,6 +59,7 @@ public class Account {
 			output.setSession(objjson.get("sessionid").toString());
 			output.setMessage(objjson.get("message").toString());
 			output.setResult(Integer.parseInt(objjson.get("status").toString()));
+			
 		} catch (Exception e) {
 			Debug.e(e.toString());
 		}
