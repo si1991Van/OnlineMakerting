@@ -4,6 +4,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import com.lib.Debug;
+
 public class Constan {
 	public static String Error01 = "";
 	public static String Error02 = "";
@@ -23,7 +25,8 @@ public class Constan {
 	public static void loadProperties() throws IOException {
 		PathConfig root = new PathConfig();
 		String root_path = root.getRoot(); 
-		String fileName = root_path+"/assets/constan.cfg";
+		String fileName = root_path+"constan.cfg";
+		Debug.e("fileName: " +fileName);
 		try
 		{
 			FileInputStream propsFile = new FileInputStream(fileName);
