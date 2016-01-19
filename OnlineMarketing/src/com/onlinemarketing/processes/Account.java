@@ -57,6 +57,7 @@ public class Account {
 			output.setSession(objjson.get("sessionid").toString());
 			output.setMessage(objjson.get("message").toString());
 			output.setResult(Integer.parseInt(objjson.get("status").toString()));
+			
 		} catch (Exception e) {
 			Debug.e(e.toString());
 		}

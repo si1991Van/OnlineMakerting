@@ -1,6 +1,5 @@
 package com.onlinemarketing.activity;
 
-import com.lib.Debug;
 import com.onlinemarketing.config.Constan;
 import com.smile.android.gsm.utils.AndroidUtils;
 
@@ -17,7 +16,7 @@ public class BaseActivity extends Activity{
 		
 		boolean isconnect = AndroidUtils.isConnectedToInternet(this);
 		if (!isconnect) {
-//			Debug.showAlert(this, "mat ket noi internet");
+		
 			showProgressDialogCheckInternet();
 		}
 		return isconnect;

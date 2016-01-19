@@ -1,37 +1,39 @@
 package com.onlinemarketing.activity;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import com.example.onlinemarketing.R;
-import com.lib.Debug;
-import com.onlinemarketing.config.Constan;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 
 public class HomeActivity extends BaseActivity {
 
-	private Thread thread;
+	private Timer myTimer = new Timer();
+	private TimerTask myTimerTask;
+	private Handler handler = new Handler();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
-		thread = new Thread(new Runnable() {
-
+		myTimerTask = new TimerTask() {
+			
 			@Override
 			public void run() {
-				if (isConnect()) {
-					try {
-						Debug.e("log 0");
-						thread.sleep(Constan.sleep);
-						Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
-						startActivity(intent);
-					} catch (InterruptedException e) {
-						Debug.e("log 1");
-						e.printStackTrace();
+				handler.post(new Runnable() {
+					@Override
+					public void run() {
+						if (isConnect()) {
+							Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+							startActivity(intent);
+						}
 					}
-				}
+				});
 			}
-		});
-		thread.start();
+		};
+		myTimer.schedule(myTimerTask, 5000);
 	}
 }
