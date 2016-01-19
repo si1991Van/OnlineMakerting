@@ -16,12 +16,13 @@ import com.onlinemarketing.object.OutputAccount;
 import com.onlinemarketing.processes.Account;
 
 public class LoginActivity extends BaseActivity implements OnClickListener {
-	
+
 	EditText txtusername, txtpass;
 	Button btnlogin;
 	boolean loginStatus;
-	OutputAccount Ooput ;
+	OutputAccount Ooput;
 	Dialog objdealog;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,8 +47,9 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 			break;
 		}
 	}
+
 	public void alert(String text) {
-		 objdealog = new Dialog(this);
+		objdealog = new Dialog(this);
 		objdealog.setContentView(R.layout.alert);
 		TextView textView1 = (TextView) objdealog.findViewById(R.id.textView1);
 		textView1.setText(text);
@@ -58,7 +60,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 
 	public class LoginAsystask extends AsyncTask<Integer, Void, Void> {
 		Account json;
-		
+
 		@Override
 		protected void onPreExecute() {
 			json = new Account();
@@ -70,23 +72,25 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 			switch (params[0]) {
 			case 1:
 				Ooput = new OutputAccount();
-				Ooput = json.Login(txtusername.getText().toString(),
-						txtpass.getText().toString());
+				Ooput = json.Login(txtusername.getText().toString(), txtpass
+						.getText().toString());
 				break;
 
 			case 2:
-				
+
 				break;
 			}
 			return null;
 
 		}
+
 		@Override
 		protected void onPostExecute(Void result) {
 			// TODO Auto-generated method stub
 			switch (Ooput.getResult()) {
 			case 0:
-				Intent intObj = new Intent(LoginActivity.this, HomeActivity.class);
+				Intent intObj = new Intent(LoginActivity.this,
+						HomeActivity.class);
 				startActivity(intObj);
 				break;
 			case 1:
@@ -94,8 +98,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 				break;
 			}
 		}
-		
-	}
 
+	}
 
 }
