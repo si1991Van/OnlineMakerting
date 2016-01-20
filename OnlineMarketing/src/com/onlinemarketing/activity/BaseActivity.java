@@ -1,5 +1,7 @@
 package com.onlinemarketing.activity;
 
+import java.io.IOException;
+
 import com.onlinemarketing.config.Constan;
 import com.smile.android.gsm.utils.AndroidUtils;
 
@@ -24,22 +26,33 @@ public class BaseActivity extends Activity{
 	public void showProgressDialogCheckInternet() {
 		@SuppressWarnings("deprecation")
 		AlertDialog.Builder alertDialog = new AlertDialog.Builder(BaseActivity.this, AlertDialog.THEME_HOLO_LIGHT);
-		alertDialog.setTitle(Constan.ErrorConnectInterNet);
-		alertDialog.setMessage(Constan.ErrorConnectInterNetMessage)
-				.setCancelable(false).setPositiveButton(Constan.Cancel, new DialogInterface.OnClickListener() {
+		try {
+			alertDialog.setTitle(Constan.getProperty("ErrorConnectInterNet", getApplicationContext()));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}//ErrorConnectInterNet);
+		
+		try {
+			alertDialog.setMessage(Constan.getProperty("ErrorConnectInterNetMessage",getApplicationContext()))
+					.setCancelable(false).setPositiveButton(Constan.getProperty("Cancel",getApplicationContext()), new DialogInterface.OnClickListener() {
 
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						dialog.dismiss();
-					}
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							dialog.dismiss();
+						}
 
-				}).setNegativeButton(Constan.Ok, new DialogInterface.OnClickListener() {
+					}).setNegativeButton(Constan.getProperty("Ok",getApplicationContext()), new DialogInterface.OnClickListener() {
 
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						
-					}
-				});
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							
+						}
+					});
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		alertDialog.show();
 	}
 
