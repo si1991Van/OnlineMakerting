@@ -1,6 +1,7 @@
 package com.onlinemarketing.activity;
 
 import com.example.onlinemarketing.R;
+import com.lib.Debug;
 import com.onlinemarketing.config.Constan;
 import com.onlinemarketing.object.OutputAccount;
 import com.onlinemarketing.processes.Account;
@@ -33,6 +34,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		txtpass = (EditText) findViewById(R.id.txtpassword);
 		btnlogin = (Button) findViewById(R.id.btnlogin);
 		btnlogin.setOnClickListener(this);
+		
 	}
 
 	@Override
@@ -70,7 +72,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 			case 1:
 				Ooput = new OutputAccount();
 
-				Ooput = json.Login(txtusername.getText().toString(), txtpass.getText().toString());
+				Ooput = json.Login(txtusername.getText().toString().trim(), txtpass.getText().toString(), LoginActivity.this);
 				break;
 
 			case 2:
@@ -84,7 +86,8 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		@Override
 		protected void onPostExecute(Void result) {
 			// TODO Auto-generated method stub
-			if (Ooput.getResult() == Constan.loginSuccess){
+			try{
+			if (Ooput.getResult() == Integer.parseInt(Constan.getProperty("loginSuccess", getApplicationContext()))){
 				Intent intObj = new Intent(LoginActivity.this, RegisterActivity.class);
 				startActivity(intObj);
 			}else{
@@ -92,6 +95,9 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 				mProgressDialog.setTitle("Thông Báo");
 				mProgressDialog.setMessage(Ooput.getMessage());
 				mProgressDialog.show();
+			}
+			} catch (Exception e) {
+				Debug.e(e.toString());
 			}
 		}
 

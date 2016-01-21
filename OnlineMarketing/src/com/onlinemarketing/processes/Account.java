@@ -12,32 +12,37 @@ import com.onlinemarketing.object.AccountVO;
 import com.onlinemarketing.object.OutputAccount;
 import com.onlinemarketing.util.Util;
 import com.smile.android.gsm.utils.AndroidUtils;
-import com.lib.*;
+
+import android.content.Context;
 
 public class Account {
-	static AccountVO objAccount;
-	static OutputAccount output;
+	private static AccountVO objAccount;
+	private static OutputAccount output;
 
-	public OutputAccount Login(String user, String pass) {
-		output = new OutputAccount();
-		// check is null user and pass
-		if (AndroidUtils.isNotNull(user) || AndroidUtils.isNotNull(pass)) {
-			if (AndroidUtils.validate(user)) {
-				// check call webservice
-				processLogin(user, pass);
-				return output;
+	public OutputAccount Login(String user, String pass, Context contex) {
+		try {
+			output = new OutputAccount();
+			// check is null user and pass
+			if (AndroidUtils.isNotNull(user) || AndroidUtils.isNotNull(pass)) {
+				if (AndroidUtils.validate(user)) {
+					// check call webservice
+					processLogin(user, pass);
+					return output;
+				} else {
+					output.setResult(98);
+					output.setMessage(Constan.getProperty("Error02",
+							contex.getApplicationContext()));
+					return output;
+				}
 			} else {
-				output.setResult(98);
-				output.setMessage(Constan.Error03);
-				Debug.e("Error03: " +Constan.Error03 );
-				return output;
+				output.setResult(99);
+				output.setMessage(Constan.getProperty("Error01",
+						contex.getApplicationContext()));
 			}
-		} else {
-			output.setResult(99);
-			output.setMessage(Constan.Error01);
-			Debug.e("Error01: " +Constan.Error01 );
-			return output;
+		} catch (Exception e) {
+			Debug.e(e.toString());
 		}
+		return output;
 	}
 
 	/**
@@ -54,12 +59,12 @@ public class Account {
 					URLEncoder.encode(password, "UTF-8"));
 			// call webservice
 			objjson = Util.readJsonFromUrl(request.toString());
-			
+
 			// set result Account on WS return
 			output.setSession(objjson.get("sessionid").toString());
 			output.setMessage(objjson.get("message").toString());
 			output.setResult(Integer.parseInt(objjson.get("status").toString()));
-			
+
 		} catch (Exception e) {
 			Debug.e(e.toString());
 		}
