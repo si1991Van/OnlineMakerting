@@ -2,6 +2,7 @@ package com.onlinemarketing.activity;
 
 import java.io.IOException;
 
+import com.lib.Debug;
 import com.onlinemarketing.config.Constan;
 import com.smile.android.gsm.utils.AndroidUtils;
 
@@ -28,11 +29,6 @@ public class BaseActivity extends Activity{
 		AlertDialog.Builder alertDialog = new AlertDialog.Builder(BaseActivity.this, AlertDialog.THEME_HOLO_LIGHT);
 		try {
 			alertDialog.setTitle(Constan.getProperty("ErrorConnectInterNet", getApplicationContext()));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		try {
 			alertDialog.setMessage(Constan.getProperty("ErrorConnectInterNetMessage",getApplicationContext()))
 					.setCancelable(false).setPositiveButton(Constan.getProperty("Cancel",getApplicationContext()), new DialogInterface.OnClickListener() {
 
@@ -49,8 +45,7 @@ public class BaseActivity extends Activity{
 						}
 					});
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Debug.e(e.toString());
 		}
 		alertDialog.show();
 	}
