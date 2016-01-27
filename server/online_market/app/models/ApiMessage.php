@@ -11,4 +11,4 @@ class ApiMessage extends Eloquent
     protected $fillable = ['sent_id', 'receiver_id', 'message', 'status'];
     protected $dates = ['deleted_at'];
 
-}	
+}

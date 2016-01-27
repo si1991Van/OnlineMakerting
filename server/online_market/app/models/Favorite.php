@@ -11,4 +11,4 @@ class Favorite extends Eloquent
     protected $fillable = ['user_id', 'model_name', 'model_id', 'follow_id'];
     protected $dates = ['deleted_at'];
 
-}	
+}
