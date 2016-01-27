@@ -4,17 +4,25 @@
 	"keywords": ["framework", "laravel"],
 	"license": "MIT",
 	"require": {
-		"laravel/framework": "4.2.*"
+		"laravel/framework": "4.2.*",
+		"ollieread/multiauth": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
 			"app/commands",
 			"app/controllers",
+			"app/controllers/admin",
+            "app/controllers/api",
 			"app/models",
+			"app/services",
 			"app/database/migrations",
 			"app/database/seeds",
 			"app/tests/TestCase.php"
-		]
+		],
+		"files": [
+            "app/helpers/Constant.php",
+            "app/helpers/Function.php"
+        ]
 	},
 	"scripts": {
 		"post-install-cmd": [

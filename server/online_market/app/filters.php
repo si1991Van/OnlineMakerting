@@ -48,6 +48,12 @@ Route::filter('auth', function()
 	}
 });
 
+Route::filter('admin', function()
+{
+	if (Auth::admin()->guest()){
+		return Redirect::route('admin.login');
+	}
+});
 
 Route::filter('auth.basic', function()
 {
