@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder {
 		$this->call('UserTableSeeder');
 		$this->call('CategoryTableSeeder');
 		$this->call('PriceTableSeeder');
-		// $this->call('ProductTableSeeder');
-		// $this->call('ProductImageTableSeeder');
-		// $this->call('FavoriteTableSeeder');
-		// $this->call('MessageTableSeeder');
+		$this->call('ProductTableSeeder');
+		$this->call('ProductImageTableSeeder');
+		$this->call('FavoriteTableSeeder');
+		$this->call('ApiMessageTableSeeder');
 		$this->call('BlackListTableSeeder');
 
 	}
