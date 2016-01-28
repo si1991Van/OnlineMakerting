@@ -11,7 +11,16 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
+Route::group(['prefix' => 'admin'], function () {
+
+	Route::get('/login', array('uses' => 'AdminController@login', 'as' => 'admin.login'));
+	Route::post('/login', array('uses' => 'AdminController@doLogin'));
+	Route::get('/logout', array('uses' => 'AdminController@logout', 'as' => 'admin.logout'));
+	Route::resource('/', 'AdminController');
+
+	Route::get('/manager/changepassword/{id}', array('uses' => 'ManagerController@changePassword', 'as' => 'admin.manager.chanpassword'));
+	Route::post('/manager/updatePassword/{id}', array('uses' => 'ManagerController@updatePassword'));
+	Route::get('/manager/search', array('uses' => 'ManagerController@search', 'as' => 'admin.manager.search'));
+	Route::resource('/manager', 'ManagerController');
+
 });

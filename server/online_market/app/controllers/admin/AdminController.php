@@ -104,19 +104,7 @@ class AdminController extends BaseController {
             Auth::admin()->attempt($input);
             $checkLogin = Auth::admin()->check();
             if($checkLogin) {
-            	if (Auth::admin()->get()->status == ACTIVE) {
-            		$inputUser = CommonSite::ipDeviceUser();
-	            	CommonNormal::update(Auth::admin()->get()->id, $inputUser, 'Admin');
-					//update history
-					$inputHistory = AdminHistory::where('model_name', 'Admin')->where('model_id', Auth::admin()->get()->id)->first();
-					$history_id = CommonLog::updateHistory('Admin', Auth::admin()->get()->id);
-					CommonLog::insertLogEdit('Admin', Auth::admin()->get()->id, $history_id, LOGIN);
-	        		return Redirect::action('ManagerController@index');
-            	}
-            	else{
-            		return View::make('admin.layout.login');
-            	}
-
+        		return Redirect::action('ManagerController@edit', Auth::admin()->get()->id);
             } else {
                 return Redirect::route('admin.login');
             }

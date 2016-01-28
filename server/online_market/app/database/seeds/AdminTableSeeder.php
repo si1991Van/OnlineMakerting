@@ -9,6 +9,7 @@ class AdminTableSeeder extends Seeder {
 				'password'=>Hash::make('123456'),
 				'username'=> 'tung1984',
 				'status'=> '1',
+				'role_id'=> '1',
 			]);
 	}
 
