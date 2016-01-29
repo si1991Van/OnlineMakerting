@@ -35,8 +35,14 @@ class CommonNormal
 		if ($name == 'manager') {
 			return 'Admin';
 		}
-		if($name =='price') {
+		if($name == 'price') {
 			return 'Price';
+		}
+		if($name == 'category') {
+			return 'Category';
+		}
+		if($name == 'product') {
+			return 'Product';
 		}
 
 	}

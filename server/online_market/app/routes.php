@@ -24,5 +24,8 @@ Route::group(['prefix' => 'admin'], function () {
 	Route::resource('/manager', 'ManagerController');
 
 	Route::resource('/price', 'PriceController');
+	Route::resource('/category', 'CategoryController');
+	Route::get('/product/check/{id}', 'ProductController@check');
+	Route::resource('/product', 'ProductController');
 
 });

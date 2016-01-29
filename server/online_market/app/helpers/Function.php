@@ -39,3 +39,39 @@ function getFilename($filename = null)
 	}
 	return null;
 }
+
+//Product type
+function getProductType($id) {
+	$arr = array(
+		TYPEVALUE1 => TYPE1,
+		TYPEVALUE2 => TYPE2,
+	);
+	return $arr[$id];
+}
+
+function selectProductType()
+{
+	return array(
+		'' => '-- Lựa chọn',
+		TYPEVALUE1 => TYPE1,
+		TYPEVALUE2 => TYPE2,
+	);
+}
+
+//Product status
+function getProductStatus($id) {
+	$arr = array(
+		ACTIVE => PRODUCT_ACTIVE,
+		INACTIVE => PRODUCT_INACTIVE,
+	);
+	return $arr[$id];
+}
+
+function selectProductStatus()
+{
+	return array(
+		'' => '-- Lựa chọn',
+		ACTIVE => PRODUCT_ACTIVE,
+		INACTIVE => PRODUCT_INACTIVE,
+	);
+}
