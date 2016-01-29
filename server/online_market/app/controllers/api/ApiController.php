@@ -7,13 +7,12 @@ class ApiController extends BaseController {
 
     public function checkLogin($input)
     {
-        // dd(Auth::user()->attempt($input));
-    	if (Auth::user()->attempt($input)){
-            return Common::returnData(200, 'Success');
+    	if (Auth::user()->attempt(Input::only('email', 'password'))){
+            $userId = Auth::user()->get()->id;
+            $sessionId = Common::getSessionId(Input::all(), $userId);
+            return Common::returnData(200, 'Success', $userId, $sessionId);
 		}
         throw new Prototype\Exceptions\UserLoginException();
-
     }
 
 }
-

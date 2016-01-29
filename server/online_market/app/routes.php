@@ -33,5 +33,11 @@ Route::group(['prefix' => 'admin'], function () {
 Route::group(['prefix' => 'api'], function () {
 	//check login
 	Route::post('/login', 'LoginController@postLogin');
+	Route::post('/logout', 'LogoutController@logout');
+	Route::post('/register', 'RegisterController@store');
+	Route::get('/', 'MainController@index');
+	Route::post('/category', 'ApiCategoryController@index');
+	Route::post('/product', 'ApiProductController@index');
+
 });
 

@@ -3,14 +3,20 @@ namespace Prototype\ExceptionHandler;
 
 class ApiExceptionHandler {
 
-    private function makeJsonResponse($code, $msg) {
+    private function makeJsonResponse($code, $msg, $data = null) {
         return \Response::json([
                 "code" => $code,
                 "message" => $msg,
+                "data" => $data,
         ]);
     }
+
     public function handleUserLoginException(){
         return $this->makeJsonResponse(401, "Username or email is wrong");
+    }
+
+    public function handleUserSessionErrorException(){
+        return $this->makeJsonResponse(402, "User session is wrong");
     }
 
 }

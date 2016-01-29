@@ -21,3 +21,5 @@ define('TYPEVALUE2', 2);
 //define status product
 define('PRODUCT_ACTIVE', 'Đã duyệt');
 define('PRODUCT_INACTIVE', 'Chưa duyệt');
+//lengh random string
+define('RANDOMSTRING', 16);
