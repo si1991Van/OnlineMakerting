@@ -6,7 +6,7 @@
 			<li class="header">Menu</li>
 			<li><a href="#"><i class="fa fa-laptop"></i> <span>Products</span></a></li>
 			<li><a href="#"><i class="fa fa-list"></i> <span>Category</span></a></li>
-			<li><a href="#"><i class="fa fa-dollar"></i> <span>Prices</span></a></li>
+			<li><a href="{{ action('PriceController@index') }}"><i class="fa fa-dollar"></i> <span>Prices</span></a></li>
 			<li><a href="#"><i class="fa fa-user"></i> <span>Users</span></a></li>
 			@if(Admin::isAdmin())
 			<li><a href="{{ action('ManagerController@index') }}"><i class="fa fa-users"></i> <span>Admins</span></a></li>

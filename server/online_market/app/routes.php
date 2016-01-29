@@ -23,4 +23,6 @@ Route::group(['prefix' => 'admin'], function () {
 	Route::get('/manager/search', array('uses' => 'ManagerController@search', 'as' => 'admin.manager.search'));
 	Route::resource('/manager', 'ManagerController');
 
+	Route::resource('/price', 'PriceController');
+
 });

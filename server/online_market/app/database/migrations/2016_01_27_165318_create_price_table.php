@@ -14,8 +14,8 @@ class CreatePriceTable extends Migration {
 	{
 		Schema::create('prices', function(Blueprint $table) {
             $table->increments('id');
-            $table->float('min')->nullable();
-            $table->float('max')->nullable();
+            $table->string('min', 256)->nullable();
+            $table->string('max', 256)->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
