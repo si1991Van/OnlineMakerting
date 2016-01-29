@@ -26,3 +26,9 @@ Route::group(['prefix' => 'admin'], function () {
 	Route::resource('/price', 'PriceController');
 
 });
+
+Route::group(['prefix' => 'api'], function () {
+	//check login
+	Route::post('/login', 'LoginController@getLogin');
+});
+
