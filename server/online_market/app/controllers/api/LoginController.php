@@ -2,7 +2,7 @@
 
 class LoginController extends ApiController {
 
-	public function getLogin()
+	public function postLogin()
 	{
 		$input = Input::all();
 		return $this->checkLogin($input);

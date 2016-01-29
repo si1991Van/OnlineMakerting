@@ -1,5 +1,4 @@
 <?php 
-use Prototype\Exceptions\UserLoginException;
 class ApiController extends BaseController {
 
     public function __construct() {

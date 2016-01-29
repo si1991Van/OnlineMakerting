@@ -32,6 +32,6 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::group(['prefix' => 'api'], function () {
 	//check login
-	Route::post('/login', 'LoginController@getLogin');
+	Route::post('/login', 'LoginController@postLogin');
 });
 
