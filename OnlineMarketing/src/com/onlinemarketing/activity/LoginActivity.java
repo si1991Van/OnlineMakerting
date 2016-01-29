@@ -15,13 +15,14 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
 public class LoginActivity extends BaseActivity implements OnClickListener {
 
 	EditText txtusername, txtpass;
 	Button btnlogin;
-	boolean loginStatus;
+	CheckBox loginStatus;
 	OutputAccount Ooput;
 	Dialog objdealog;
 	AlertDialog.Builder mProgressDialog;
@@ -33,6 +34,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		txtusername = (EditText) findViewById(R.id.txtusername);
 		txtpass = (EditText) findViewById(R.id.txtpassword);
 		btnlogin = (Button) findViewById(R.id.btnlogin);
+		loginStatus = (CheckBox) findViewById(R.id.chkremember);
 		btnlogin.setOnClickListener(this);
 		
 	}
@@ -76,7 +78,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 				break;
 
 			case 2:
-
+				
 				break;
 			}
 			return null;
@@ -88,6 +90,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 			// TODO Auto-generated method stub
 			try{
 			if (Ooput.getResult() == Integer.parseInt(Constan.getProperty("loginSuccess", getApplicationContext()))){
+				json.rememberPassword(loginStatus.isChecked(), txtusername.getText().toString().trim(), txtpass.getText().toString(), Ooput.getSession(), LoginActivity.this);
 				Intent intObj = new Intent(LoginActivity.this, RegisterActivity.class);
 				startActivity(intObj);
 			}else{
@@ -102,6 +105,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		}
 
 	}
+
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {

@@ -10,6 +10,7 @@ import java.nio.charset.Charset;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.simple.JSONArray;
 
 import com.lib.Debug;
 
@@ -41,6 +42,7 @@ public class Util {
 			String jsonText = readAll(rd);
 			Debug.e("jsonText" + jsonText);
 			JSONObject json = new JSONObject(jsonText);
+			
 			return json;
 		} finally {
 			is.close();
