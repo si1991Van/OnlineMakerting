@@ -29,3 +29,9 @@ Route::group(['prefix' => 'admin'], function () {
 	Route::resource('/product', 'ProductController');
 
 });
+
+Route::group(['prefix' => 'api'], function () {
+	//check login
+	Route::post('/login', 'LoginController@getLogin');
+});
+
