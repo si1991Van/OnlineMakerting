@@ -10,7 +10,7 @@ class MainController extends ApiController {
 	public function index()
 	{
 		$category = Common::getListArray('Category', ['id', 'name']);
-		$product = Common::getListArray('Product', ['id', 'name', 'avatar', 'price']);
+		$product = Common::getListArray('Product', ['id', 'name', 'avatar', 'price', 'created_at']);
 		return Common::returnData(200, 'Success', '', '', ['category' => $category, 'product'=>$product]);
 	}
 

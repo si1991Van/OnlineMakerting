@@ -1,6 +1,6 @@
 <?php
 
-class ApiProductController extends ApiController {
+class ApiMessageController extends ApiController {
 
 	/**
 	 * Display a listing of the resource.
@@ -12,9 +12,5 @@ class ApiProductController extends ApiController {
 		//
 	}
 
-	public function saved($id)
-	{
-		//
-	}
 
 }

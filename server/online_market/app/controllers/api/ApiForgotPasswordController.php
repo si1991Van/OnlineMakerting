@@ -1,6 +1,6 @@
 <?php
 
-class ApiProductController extends ApiController {
+class ApiForgotPasswordController extends ApiController {
 
 	/**
 	 * Display a listing of the resource.
@@ -8,11 +8,6 @@ class ApiProductController extends ApiController {
 	 * @return Response
 	 */
 	public function index()
-	{
-		//
-	}
-
-	public function saved($id)
 	{
 		//
 	}
