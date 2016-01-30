@@ -57,9 +57,13 @@ Route::group(['prefix' => 'api'], function () {
 	//search log
 	Route::post('/search_log', 'ApiSearchLogController@index');
 	Route::post('/search_log/delete/{id}', 'ApiSearchLogController@destroy');
-	//profile
+	//account profile
 	Route::get('/profile', 'ApiProfileController@index');
 	Route::post('/profile', 'ApiProfileController@post');
+	//user profile
+	Route::post('/account/{id}', 'ApiProfileController@account');
+	//block user
+	Route::post('/block/{id}', 'ApiProfileController@block');
 	//list products user
 	Route::post('/product_user', 'ApiProductUserController@index');
 	//black list user
