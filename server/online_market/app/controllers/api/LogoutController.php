@@ -11,7 +11,7 @@ class LogoutController extends ApiController {
 	{
 		$input = Input::all();
 		$device = Device::where('device_id', $input['device_id'])
-						->where('user_id', $userId)
+						->where('user_id', $input['user_id'])
 						->first();
 		if($device) {
 			if($device->session_id == $input['session_id']) {
