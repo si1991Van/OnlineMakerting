@@ -13,7 +13,7 @@ class InsertMoreField3 extends Migration {
 	public function up()
 	{
 		Schema::table('products', function(Blueprint $table) {
-            $table->integer('start_time')->after('status')->nullable();
+            $table->string('start_time')->after('status')->nullable();
         });
 	}
 
