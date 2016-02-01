@@ -54,9 +54,9 @@ class CommonSetting {
 		    ],
 		    [
 		     'name' => PRODUCT_STATUS_4,
-		     'link' => url('api/product_status/4'),
+		     'link' => url('api/product_hidden'),
 		     'method' => 'POST',
-		     'quantity' => CommonProduct::countProduct(array('user_id'=>$input['user_id'], 'deleted'=>1))
+		     'quantity' => CommonProduct::countProductDeleted(array('user_id'=>$input['user_id']))
 		    ],
 		    [
 		     'name' => PRODUCT_LOG,

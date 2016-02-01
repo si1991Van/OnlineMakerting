@@ -10,9 +10,6 @@ class CommonProduct {
 	public static function getProduct($input = array())
 	{
 		$result = Product::where(function ($query) use ($input){
-			if (!empty($input['deleted'])) {
-				$query = $query->whereNotNull('deleted_at');
-			}
 			if (!empty($input['user_id'])) {
 				$query = $query->where('user_id', $input['user_id']);
 			}
@@ -49,5 +46,18 @@ class CommonProduct {
 		return $result;
 	}
 
+	public static function getProductDeleted($input = array())
+	{
+		$result = Product::onlyTrashed()
+			->where('user_id', $input['user_id'])
+			->lists('id', 'name', 'avatar', 'price', 'price_id', 'category_id', 'user_id', 'type_id', 'city_id', 'start_time', 'status', 'position', 'created_at');
+		return $result;
+	}
+
+	public static function countProductDeleted($input = array())
+	{
+		$result = self::getProductDeleted($input);
+		return count($result);
+	}
 
 }

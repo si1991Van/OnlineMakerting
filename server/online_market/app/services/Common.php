@@ -39,9 +39,13 @@ class Common {
         return $sessionId;
 	}
 
-	public static function getListArray($modelName, $selectField)
+	public static function getListArray($modelName, $selectField, $position = null)
 	{
-		$obj = $modelName::all($selectField);
+		if($position) {
+			$obj = $modelName::select($selectField)->orderBy('position', 'asc')->get();
+		} else {
+			$obj = $modelName::all($selectField);
+		}
 		$data = array();
 		foreach ($obj as $key => $value) {
 			$data[$key] = $value->toArray();
