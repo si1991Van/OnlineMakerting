@@ -22,7 +22,7 @@ class Common {
 				$sessionId = $device->session_id;
 				if(!($sessionId)) {
 					$sessionId = generateRandomString();
-	            	$device->update(['session_id' => $sessionId]);
+	            	Device::find($device->id)->update(['session_id' => $sessionId]);
 				}
 	        }
 	        else {
