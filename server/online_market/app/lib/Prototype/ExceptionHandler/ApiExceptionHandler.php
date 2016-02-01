@@ -19,4 +19,8 @@ class ApiExceptionHandler {
         return $this->makeJsonResponse(402, "User session is wrong");
     }
 
+    public function handleDeviceErrorException(){
+        return $this->makeJsonResponse(403, "DeviceID is wrong");
+    }
+
 }
