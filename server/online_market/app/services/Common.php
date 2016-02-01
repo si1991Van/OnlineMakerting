@@ -22,21 +22,21 @@ class Common {
 				$sessionId = $device->session_id;
 				if(!($sessionId)) {
 					$sessionId = generateRandomString();
-	            	Device::find($device->id)->update(['session_id' => $sessionId]);
+					Device::find($device->id)->update(['session_id' => $sessionId]);
 				}
-	        }
-	        else {
-	            if($device->session_id == $input['session_id']) {
-	                $sessionId = $input['session_id'];
-	            } else {
-	                throw new Prototype\Exceptions\UserSessionErrorException();
-	            }
-	        }
+			}
+			else {
+				if($device->session_id == $input['session_id']) {
+					$sessionId = $input['session_id'];
+				} else {
+					throw new Prototype\Exceptions\UserSessionErrorException();
+				}
+			}
 		} else {
 			$sessionId = generateRandomString();
 			Device::create(['device_id'=>$input['device_id'], 'user_id'=>$userId, 'session_id'=>$sessionId]);
 		}
-        return $sessionId;
+		return $sessionId;
 	}
 
 	public static function getListArray($modelName, $selectField, $position = null)
@@ -59,6 +59,17 @@ class Common {
 		$setting = CommonSetting::getSettingMenu();
 		$header = ['category' => $category, 'setting' => $setting];
 		return $header;
+	}
+	public static function checkSessionId($input)
+	{
+		$device = Device::where('device_id', $input['device_id'])
+						->where('session_id', $input['session_id'])
+						->where('user_id', $input['user_id'])
+						->first();
+		if($device) {
+			return true;
+		}
+		return false;
 	}
 
 }

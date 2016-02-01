@@ -37,3 +37,8 @@ define('LOGIN', 'Đăng nhập');
 define('LOGOUT', 'Đăng xuất');
 //success
 define('SUCCESS', 'Success');
+//menu setting
+define('PROMO', 'Khuyến mại');
+define('HELP', 'Hướng dẫn');
+define('SHAREAPP', 'Chia sẻ ứng dụng');
+define('CONTACT', 'Liên hệ');
