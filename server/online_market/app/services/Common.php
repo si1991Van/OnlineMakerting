@@ -1,7 +1,7 @@
 <?php
 class Common {
 
-	public static function returnData($code, $message, $userId = '', $sessionId = '', $data = null)
+	public static function returnData($code = 200, $message = SUCCESS, $userId = '', $sessionId = '', $data = null)
 	{
 		return Response::json([
 				'code' => $code,
@@ -47,6 +47,14 @@ class Common {
 			$data[$key] = $value->toArray();
 		}
 		return $data;
+	}
+
+	public static function getHeader()
+	{
+		$category = Common::getListArray('Category', ['id', 'name']);
+		$setting = CommonSetting::getSettingMenu();
+		$header = ['category' => $category, 'setting' => $setting];
+		return $header;
 	}
 
 }

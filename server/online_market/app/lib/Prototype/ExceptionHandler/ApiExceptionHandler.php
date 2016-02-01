@@ -23,4 +23,8 @@ class ApiExceptionHandler {
         return $this->makeJsonResponse(403, "DeviceID is wrong");
     }
 
+    public function handleUserRegisterException(){
+        return $this->makeJsonResponse(404, "Email is registered");
+    }
+
 }

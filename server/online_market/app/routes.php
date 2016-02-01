@@ -32,8 +32,10 @@ Route::group(['prefix' => 'admin'], function () {
 
 Route::group(['prefix' => 'api'], function () {
 	//check login
+	Route::get('/login', 'LoginController@getLogin');
 	Route::post('/login', 'LoginController@postLogin');
 	Route::post('/logout', 'LogoutController@logout');
+	Route::get('/register', 'RegisterController@index');
 	Route::post('/register', 'RegisterController@store');
 	Route::get('/', 'MainController@index');
 	//list products
@@ -65,7 +67,7 @@ Route::group(['prefix' => 'api'], function () {
 	//block user
 	Route::post('/block/{id}', 'ApiProfileController@block');
 	//list products user
-	Route::post('/product_user', 'ApiProductUserController@index');
+	Route::post('/product_user/{id}', 'ApiProductController@listProductUser');
 	//black list user
 	Route::post('/blacklist', 'ApiBlackListController@index');
 	Route::post('/blacklist/delete/{id}', 'ApiBlackListController@destroy');
@@ -82,5 +84,9 @@ Route::group(['prefix' => 'api'], function () {
 	Route::post('/chat', 'ApiChatController@post');
 	//send message
 	Route::post('/report', 'ApiReportController@post');
+	//list products status
+	Route::post('/product_status/{status}', 'ApiProductController@listStatus');
+	//list products delete
+	Route::post('/product_hidden', 'ApiProductController@listHidden');
 
 });
