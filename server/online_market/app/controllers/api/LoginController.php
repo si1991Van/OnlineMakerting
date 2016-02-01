@@ -8,4 +8,9 @@ class LoginController extends ApiController {
 		return $this->checkLogin($input);
 	}
 
+	public function getLogin()
+	{
+		return Common::returnData(200, SUCCESS);
+	}
+
 }

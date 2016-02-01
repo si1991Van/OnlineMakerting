@@ -17,4 +17,19 @@ class ApiProductController extends ApiController {
 		//
 	}
 
+	public function listStatus($status)
+	{
+		//
+	}
+
+	public function listHidden()
+	{
+		//
+	}
+
+	public function listProductUser($id)
+	{
+		//
+	}
+
 }

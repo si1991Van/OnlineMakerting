@@ -5,8 +5,8 @@
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry kind="lib" path="libs/json_simple-1.1.jar"/>
 	<classpathentry kind="src" path="/LibSmileStudio"/>
-	<classpathentry kind="lib" path="E:/AndroidIDE/sdk/platforms/android-16/android.jar"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="lib" path="F:/ProgramFile/android-sdks/platforms/android-16/android.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

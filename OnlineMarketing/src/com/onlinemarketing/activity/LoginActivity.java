@@ -61,7 +61,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		Account json;
 
 		@Override
-		protected void onPreExecute() {
+		protected void onPreExecute() { 
 			json = new Account();
 			super.onPreExecute();
 		}
