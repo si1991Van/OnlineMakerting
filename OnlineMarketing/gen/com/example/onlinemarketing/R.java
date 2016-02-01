@@ -588,7 +588,7 @@ containing a value of this type.
         public static final int powered_by_google_light=0x7f02003a;
     }
     public static final class id {
-        public static final int action_settings=0x7f0a0034;
+        public static final int action_settings=0x7f0a0033;
         public static final int automatic=0x7f0a0000;
         public static final int book_now=0x7f0a001f;
         public static final int bottom=0x7f0a000c;
@@ -602,13 +602,13 @@ containing a value of this type.
         public static final int center=0x7f0a000f;
         public static final int chkremember=0x7f0a0027;
         public static final int classic=0x7f0a0022;
-        public static final int com_facebook_body_frame=0x7f0a002d;
-        public static final int com_facebook_button_xout=0x7f0a002f;
-        public static final int com_facebook_fragment_container=0x7f0a002b;
-        public static final int com_facebook_login_activity_progress_bar=0x7f0a002c;
-        public static final int com_facebook_tooltip_bubble_view_bottom_pointer=0x7f0a0031;
-        public static final int com_facebook_tooltip_bubble_view_text_body=0x7f0a0030;
-        public static final int com_facebook_tooltip_bubble_view_top_pointer=0x7f0a002e;
+        public static final int com_facebook_body_frame=0x7f0a002c;
+        public static final int com_facebook_button_xout=0x7f0a002e;
+        public static final int com_facebook_fragment_container=0x7f0a002a;
+        public static final int com_facebook_login_activity_progress_bar=0x7f0a002b;
+        public static final int com_facebook_tooltip_bubble_view_bottom_pointer=0x7f0a0030;
+        public static final int com_facebook_tooltip_bubble_view_text_body=0x7f0a002f;
+        public static final int com_facebook_tooltip_bubble_view_top_pointer=0x7f0a002d;
         public static final int display_always=0x7f0a0001;
         public static final int grayscale=0x7f0a0023;
         public static final int holo_dark=0x7f0a0016;
@@ -618,7 +618,7 @@ containing a value of this type.
         public static final int large=0x7f0a0003;
         public static final int left=0x7f0a0010;
         public static final int match_parent=0x7f0a001d;
-        public static final int messenger_send_button=0x7f0a0033;
+        public static final int messenger_send_button=0x7f0a0032;
         public static final int monochrome=0x7f0a0024;
         public static final int never_display=0x7f0a0002;
         public static final int none=0x7f0a0013;
@@ -634,10 +634,9 @@ containing a value of this type.
         public static final int standard=0x7f0a000b;
         public static final int strict_sandbox=0x7f0a001a;
         public static final int terrain=0x7f0a0015;
-        public static final int textView1=0x7f0a0032;
+        public static final int textView1=0x7f0a0031;
         public static final int top=0x7f0a000e;
         public static final int txtpassword=0x7f0a0026;
-        public static final int txtphone=0x7f0a002a;
         public static final int txtusername=0x7f0a0025;
         public static final int unknown=0x7f0a0008;
         public static final int wrap_content=0x7f0a001e;

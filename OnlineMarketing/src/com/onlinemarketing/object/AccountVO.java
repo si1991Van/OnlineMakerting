@@ -6,7 +6,6 @@ public class AccountVO {
 	public static String address = "";
 	public static String phone = "";
 	public static String fullname = "";
-	public static String password = "";
 	public static String session = "";
 	public static String getSession() {
 		return session;

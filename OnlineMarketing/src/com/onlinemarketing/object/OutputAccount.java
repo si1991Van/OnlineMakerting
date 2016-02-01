@@ -17,9 +17,8 @@ public class OutputAccount {
 	public AccountVO getAccountVO() {
 		return AccountVO;
 	}
-	
-	public void setAccountVO(AccountVO object) {
-		AccountVO = object;
+	public void setAccountVO(AccountVO accountVO) {
+		AccountVO = accountVO;
 	}
 	public void setResult(int result) {
 		this.result = result;

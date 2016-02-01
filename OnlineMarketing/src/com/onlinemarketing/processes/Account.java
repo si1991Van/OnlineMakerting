@@ -5,9 +5,6 @@ import java.net.URLEncoder;
 import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-
 import com.lib.Debug;
 import com.onlinemarketing.config.Constan;
 import com.onlinemarketing.config.SystemConfig;
@@ -15,6 +12,8 @@ import com.onlinemarketing.object.AccountVO;
 import com.onlinemarketing.object.OutputAccount;
 import com.onlinemarketing.util.Util;
 import com.smile.android.gsm.utils.AndroidUtils;
+
+import android.content.Context;
 
 public class Account {
 	private static AccountVO objAccount;
@@ -53,7 +52,6 @@ public class Account {
 	 */
 	private static void processLogin(String email, String password) {
 		try {
-			AccountVO objAccount = new AccountVO();
 			JSONObject objjson = new JSONObject();
 			StringBuilder request = new StringBuilder(SystemConfig.apiLogin);
 			request.append("User=").append(URLEncoder.encode(email, "UTF-8"));
@@ -63,36 +61,10 @@ public class Account {
 			objjson = Util.readJsonFromUrl(request.toString());
 
 			// set result Account on WS return
-			objAccount.setEmail(email);
-			objAccount.setAddress("");
-
-			output.setAccountVO(objAccount);// setAccountVO(objAccount.setEmail(email));
 			output.setSession(objjson.get("sessionid").toString());
 			output.setMessage(objjson.get("message").toString());
 			output.setResult(Integer.parseInt(objjson.get("status").toString()));
 
-		} catch (Exception e) {
-			Debug.e(e.toString());
-		}
-	}
-
-	/**
-	 * @param chklogin
-	 *            kiểm tra có nhớ mật khẩu không
-	 */
-	public void rememberPassword(boolean chklogin, String uname,
-			String password, String sesion, Context context) {
-		try {
-			if (chklogin) {
-				SharedPreferences settings = context.getSharedPreferences(
-						Constan.getProperty("User",context.getApplicationContext()), 0);
-				SharedPreferences.Editor editor = settings.edit();
-				editor.putString("User", uname);
-				editor.putString("Pass", password);
-				editor.putString("Session", sesion);
-				editor.commit();
-			}
-			
 		} catch (Exception e) {
 			Debug.e(e.toString());
 		}
