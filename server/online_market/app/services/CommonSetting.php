@@ -4,7 +4,7 @@ class CommonSetting {
 	public static function getSettingMenu()
 	{
 		$input = Input::all();
-		if(!empty($input['session_id'])) {
+		if(Common::checkSessionId($input)) {
 	    	$setting = self::getSettingMenu2($input);
 	    } else {
 	    	$setting = self::getSettingMenu1($input);
@@ -73,6 +73,37 @@ class CommonSetting {
 		    [
 		     'name' => LOGOUT,
 		     'link' => url('api/logout'),
+		     'method' => 'POST',
+		     'quantity' => null
+		    ],
+	    );
+	    return $setting;
+	}
+
+	public static function getSettingMenu3()
+	{
+		$setting = array(
+		    [
+		     'name' => PROMO,
+		     'link' => url('api/promo'),
+		     'method' => 'POST',
+		     'quantity' => null
+		    ],
+		    [
+		     'name' => HELP,
+		     'link' => url('api/help'),
+		     'method' => 'POST',
+		     'quantity' => null
+		    ],
+		    [
+		     'name' => SHAREAPP,
+		     'link' => null,
+		     'method' => null,
+		     'quantity' => null
+		    ],
+		    [
+		     'name' => CONTACT,
+		     'link' => url('api/contact'),
 		     'method' => 'POST',
 		     'quantity' => null
 		    ],
