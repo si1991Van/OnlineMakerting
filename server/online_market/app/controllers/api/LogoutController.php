@@ -10,12 +10,16 @@ class LogoutController extends ApiController {
 	public function logout()
 	{
 		$input = Input::all();
-		if(User::find($input['user_id'])->session_id == $input['session_id']) {
-			User::find($input['user_id'])->update(['session_id'=>null]);
-			return Common::returnData(200, 'Success', $input['user_id'], '');
-        } else {
-            throw new Prototype\Exceptions\UserSessionErrorException();
-        }
+		$device = Device::where('device_id', $input['device_id'])
+						->where('user_id', $userId)
+						->first();
+		if($device) {
+			if($device->session_id == $input['session_id']) {
+                Device::find($device->id)->update(['session_id' => null]);
+                return Common::returnData(200, 'Success', $input['user_id'], '');
+            }
+		}
+		throw new Prototype\Exceptions\UserSessionErrorException();
 	}
 
 }
