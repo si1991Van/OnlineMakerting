@@ -24,7 +24,7 @@ class ApiExceptionHandler {
     }
 
     public function handleUserRegisterException(){
-        return $this->makeJsonResponse(404, "Email is registered");
+        return $this->makeJsonResponse(404, "Email is wrong or registered");
     }
 
 }
