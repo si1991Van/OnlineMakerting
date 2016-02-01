@@ -14,17 +14,28 @@ class Common {
 
 	public static function getSessionId($input, $userId)
 	{
-		if(!isset($input['session_id'])) {
-            $sessionId = generateRandomString();
-            User::find($userId)->update(['session_id' => $sessionId]);
-        }
-        else {
-            if(User::find($userId)->session_id == $input['session_id']) {
-                $sessionId = $input['session_id'];
-            } else {
-                throw new Prototype\Exceptions\UserSessionErrorException();
-            }
-        }
+		$device = Device::where('device_id', $input['device_id'])
+						->where('user_id', $userId)
+						->first();
+		if($device) {
+			if(!isset($input['session_id'])) {
+				$sessionId = $device->session_id;
+				if(!($sessionId)) {
+					$sessionId = generateRandomString();
+	            	$device->update(['session_id' => $sessionId]);
+				}
+	        }
+	        else {
+	            if($device->session_id == $input['session_id']) {
+	                $sessionId = $input['session_id'];
+	            } else {
+	                throw new Prototype\Exceptions\UserSessionErrorException();
+	            }
+	        }
+		} else {
+			$sessionId = generateRandomString();
+			Device::create(['device_id'=>$input['device_id'], 'user_id'=>$userId, 'session_id'=>$sessionId]);
+		}
         return $sessionId;
 	}
 
