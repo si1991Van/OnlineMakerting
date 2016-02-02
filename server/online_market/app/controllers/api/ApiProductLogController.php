@@ -42,7 +42,7 @@ class ApiProductLogController extends ApiController {
 				->where('follow_id', $input['user_id'])
 				->where('type_favorite', TYPE_FAVORITE_SAVE)
 				->delete();
-		return Common::returnData(200, SUCCESS, $input['user_id'], $sessionId);
+		return Common::returnData(200, DELETE_SUCCESS, $input['user_id'], $sessionId);
 	}
 
 }
