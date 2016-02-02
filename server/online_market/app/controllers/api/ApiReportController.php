@@ -7,7 +7,7 @@ class ApiReportController extends ApiController {
 	 *
 	 * @return Response
 	 */
-	public function post()
+	public function post($id)
 	{
 		//
 	}

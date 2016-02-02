@@ -7,7 +7,7 @@ class ApiSearchController extends ApiController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index($status)
 	{
 		//
 	}

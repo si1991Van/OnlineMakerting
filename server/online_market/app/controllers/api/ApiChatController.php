@@ -12,7 +12,7 @@ class ApiChatController extends ApiController {
 		//
 	}
 
-	public function post()
+	public function post($id)
 	{
 		//
 	}

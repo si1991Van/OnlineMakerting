@@ -18,7 +18,6 @@ class CreateFavoritesTable extends Migration {
             $table->string('model_name', 256)->nullable();
             $table->integer('user_id')->nullable();
             $table->integer('follow_id')->nullable();
-            $table->softDeletes();
             $table->timestamps();
         });
 	}

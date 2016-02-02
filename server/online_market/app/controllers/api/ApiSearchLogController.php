@@ -18,7 +18,7 @@ class ApiSearchLogController extends ApiController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy()
+	public function destroy($id)
 	{
 		//
 	}

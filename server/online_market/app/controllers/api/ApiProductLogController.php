@@ -9,7 +9,16 @@ class ApiProductLogController extends ApiController {
 	 */
 	public function index()
 	{
-		//
+		$input = Input::all();
+		$sessionId = Common::checkSessionId($input);
+		$favorites = CommonFavorite::getFavorite([
+													'model_name' => 'Product',
+													'follow_id' => $input['user_id'],
+													'type_favorite' => TYPE_FAVORITE_SAVE
+												]);
+		$product = Product::whereIn('id', $favorites)->select(listFieldProduct())->get();
+		$data = ['product'=>$product] + Common::getHeader();
+		return Common::returnData(200, SUCCESS, $input['user_id'], $sessionId, $data);
 	}
 
 	/**
@@ -18,9 +27,16 @@ class ApiProductLogController extends ApiController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy()
+	public function destroy($id)
 	{
-		//
+		$input = Input::all();
+		$sessionId = Common::checkSessionId($input);
+		Favorite::where('model_name', 'Product')
+				->where('model_id', $id)
+				->where('follow_id', $input['user_id'])
+				->where('type_favorite', TYPE_FAVORITE_SAVE)
+				->delete();
+		return Common::returnData(200, SUCCESS, $input['user_id'], $sessionId);
 	}
 
 }
