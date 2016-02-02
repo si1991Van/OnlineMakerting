@@ -12,13 +12,13 @@ class ApiProductController extends ApiController {
 		//
 	}
 
-	public function saved($id)
+	public function saved()
 	{
 		$input = Input::all();
-		$userId = Product::find($id)->user_id;
+		$userId = Product::find($input['product_id'])->user_id;
 		Favorite::create([
 							'model_name' => 'Product',
-							'model_id' => $id,
+							'model_id' => $input['product_id'],
 							'user_id' => $userId,
 							'follow_id' => $input['user_id'],
 							'type_favorite' => TYPE_FAVORITE_SAVE
@@ -37,9 +37,10 @@ class ApiProductController extends ApiController {
 		return CommonProduct::returnProductDeleted();
 	}
 
-	public function listProductUser($id)
+	public function listProductUser()
 	{
-		return CommonProduct::returnProduct(array('user_id'=>$id, 'status'=>1));
+		$input = Input::all();
+		return CommonProduct::returnProduct(array('user_id'=>$input['user_id'], 'status'=>1));
 	}
 
 }

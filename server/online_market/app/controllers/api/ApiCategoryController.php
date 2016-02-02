@@ -7,9 +7,10 @@ class ApiCategoryController extends ApiController {
 	 *
 	 * @return Response
 	 */
-	public function index($id)
+	public function index()
 	{
-		return CommonProduct::returnProduct(array('category_id'=>$id, 'status'=>1));
+		$input = Input::all();
+		return CommonProduct::returnProduct(array('category_id'=>$input['category_id'], 'status'=>1));
 	}
 
 }
