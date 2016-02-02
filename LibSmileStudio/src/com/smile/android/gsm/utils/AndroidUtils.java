@@ -1,7 +1,7 @@
 package com.smile.android.gsm.utils;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
@@ -17,11 +17,15 @@ import java.util.regex.Pattern;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpDelete;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.conn.util.InetAddressUtils;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.ByteArrayBuffer;
+
+import com.lib.Debug;
 
 import android.annotation.SuppressLint;
 import android.content.ComponentName;
@@ -36,9 +40,6 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.util.Base64;
-import android.util.Log;
-
-import com.lib.Debug;
 
 @SuppressLint("DefaultLocale")
 public class AndroidUtils {
@@ -46,7 +47,7 @@ public class AndroidUtils {
 	private static Matcher matcher;
 
 	/**
-	 * Trả về tên ứng dụng chứa trong file AndroidManifest.xml
+	 * Tráº£ vá»� tÃªn á»©ng dá»¥ng chá»©a trong file AndroidManifest.xml
 	 * 
 	 * @param context
 	 * @param defaultValues
@@ -76,7 +77,7 @@ public class AndroidUtils {
 	}
 
 	/**
-	 * Trả về chuỗi SHA1 tương ứng với keystore cho ứng dụng
+	 * Tráº£ vá»� chuá»—i SHA1 tÆ°Æ¡ng á»©ng vá»›i keystore cho á»©ng dá»¥ng
 	 * 
 	 * @param context
 	 * @return
@@ -98,7 +99,7 @@ public class AndroidUtils {
 	}
 
 	/**
-	 * Trả về mã Hashkey tương ứng với keystore cho ứng dụng
+	 * Tráº£ vá»� mÃ£ Hashkey tÆ°Æ¡ng á»©ng vá»›i keystore cho á»©ng dá»¥ng
 	 * 
 	 * @param context
 	 * @return
@@ -120,9 +121,9 @@ public class AndroidUtils {
 	}
 
 	/**
-	 * Trả về địa chỉ IP Address non-localhost từ giao diện mạng
-	 * NetworkInterface. Yêu cầu cấp quyền sử dụng
-	 * Manifest.permission#ACCESS_NETWORK_STATE cho ứng dụng.
+	 * Tráº£ vá»� Ä‘á»‹a chá»‰ IP Address non-localhost tá»« giao diá»‡n máº¡ng
+	 * NetworkInterface. YÃªu cáº§u cáº¥p quyá»�n sá»­ dá»¥ng
+	 * Manifest.permission#ACCESS_NETWORK_STATE cho á»©ng dá»¥ng.
 	 * 
 	 * @param useIPv4
 	 * @return
@@ -157,12 +158,12 @@ public class AndroidUtils {
 	}
 
 	/**
-	 * Trả về địa chỉ MAC của thiết bị CHÚ Ý: Yêu cầu API LEVEL 9 trở lên
+	 * Tráº£ vá»� Ä‘á»‹a chá»‰ MAC cá»§a thiáº¿t bá»‹ CHÃš Ã�: YÃªu cáº§u API LEVEL 9 trá»Ÿ lÃªn
 	 * 
 	 * @param interfaceName
 	 *            - eth0, wlan0 or NULL=use first interface
-	 * @return Trả về một chuỗi chứa địa chỉ mac nếu tìm thấy. Ngược lại trả về
-	 *         chuỗi trống nếu không tìm thấy
+	 * @return Tráº£ vá»� má»™t chuá»—i chá»©a Ä‘á»‹a chá»‰ mac náº¿u tÃ¬m tháº¥y. NgÆ°á»£c láº¡i tráº£ vá»�
+	 *         chuá»—i trá»‘ng náº¿u khÃ´ng tÃ¬m tháº¥y
 	 */
 	public static String getMACAddress(String interfaceName) {
 		try {
@@ -190,8 +191,8 @@ public class AndroidUtils {
 	}
 
 	/**
-	 * Kiểm tra xem điện thoại có thể truy cập Internet theo đường nào, ví như
-	 * thiết bị có kết nối internet thông qua đường truyền wifi hay mobile hay
+	 * Kiá»ƒm tra xem Ä‘iá»‡n thoáº¡i cÃ³ thá»ƒ truy cáº­p Internet theo Ä‘Æ°á»�ng nÃ o, vÃ­ nhÆ°
+	 * thiáº¿t bá»‹ cÃ³ káº¿t ná»‘i internet thÃ´ng qua Ä‘Æ°á»�ng truyá»�n wifi hay mobile hay
 	 * bluetooth...
 	 * 
 	 * @param context
@@ -215,8 +216,8 @@ public class AndroidUtils {
 	}
 
 	/**
-	 * Hàm lấy địa chỉ MAC của wifi. Yêu cầu cấp quyền sử dụng
-	 * Manifest.permission#ACCESS_NETWORK_STATE cho ứng dụng.
+	 * HÃ m láº¥y Ä‘á»‹a chá»‰ MAC cá»§a wifi. YÃªu cáº§u cáº¥p quyá»�n sá»­ dá»¥ng
+	 * Manifest.permission#ACCESS_NETWORK_STATE cho á»©ng dá»¥ng.
 	 * 
 	 * @param context
 	 * @return
@@ -229,9 +230,9 @@ public class AndroidUtils {
 	}
 
 	/**
-	 * Kiểm tra điện thoại đã kết
+	 * Kiá»ƒm tra Ä‘iá»‡n thoáº¡i Ä‘Ã£ káº¿t
 	 * 
-	 * nối mạng (Internet) hay chưa?
+	 * ná»‘i máº¡ng (Internet) hay chÆ°a?
 	 * 
 	 * @param context
 	 * @return
@@ -260,8 +261,8 @@ public class AndroidUtils {
 	}
 
 	/**
-	 * Kiểm tra xem điện thoại có thể truy cập Internet qua sóng của nhà mạng
-	 * (GPRS, 3G, HIPRI, UTMS, etc.) hay không?
+	 * Kiá»ƒm tra xem Ä‘iá»‡n thoáº¡i cÃ³ thá»ƒ truy cáº­p Internet qua sÃ³ng cá»§a nhÃ  máº¡ng
+	 * (GPRS, 3G, HIPRI, UTMS, etc.) hay khÃ´ng?
 	 * 
 	 * @param context
 	 * @return
@@ -273,9 +274,9 @@ public class AndroidUtils {
 	}
 
 	/**
-	 * Kiểm tra xem ứng dụng đã cấp quyền truy cập nào đó hay chưa? Nếu ứng dụng
-	 * được cấp quyền thì có thể lấy các thông tin hoặc sử dụng các thông tin đó
-	 * trên thiết bị của người dùng.
+	 * Kiá»ƒm tra xem á»©ng dá»¥ng Ä‘Ã£ cáº¥p quyá»�n truy cáº­p nÃ o Ä‘Ã³ hay chÆ°a? Náº¿u á»©ng dá»¥ng
+	 * Ä‘Æ°á»£c cáº¥p quyá»�n thÃ¬ cÃ³ thá»ƒ láº¥y cÃ¡c thÃ´ng tin hoáº·c sá»­ dá»¥ng cÃ¡c thÃ´ng tin Ä‘Ã³
+	 * trÃªn thiáº¿t bá»‹ cá»§a ngÆ°á»�i dÃ¹ng.
 	 * 
 	 * @param context
 	 * @param permission
@@ -289,7 +290,7 @@ public class AndroidUtils {
 	}
 
 	/**
-	 * Kiểm tra một Activity có trong file manifest hay chưa?
+	 * Kiá»ƒm tra má»™t Activity cÃ³ trong file manifest hay chÆ°a?
 	 * 
 	 * @param context
 	 * @param mClass
@@ -303,7 +304,7 @@ public class AndroidUtils {
 	}
 
 	/**
-	 * Kiểm tra một Service có trong file manifest hay chưa?
+	 * Kiá»ƒm tra má»™t Service cÃ³ trong file manifest hay chÆ°a?
 	 * 
 	 * @param context
 	 * @param mClass
@@ -317,9 +318,9 @@ public class AndroidUtils {
 	}
 
 	/**
-	 * Kiểm tra đang chạy máy ảo hay máy thật
+	 * Kiá»ƒm tra Ä‘ang cháº¡y mÃ¡y áº£o hay mÃ¡y tháº­t
 	 * 
-	 * @return false là máy thật | true là máy ảo
+	 * @return false lÃ  mÃ¡y tháº­t | true lÃ  mÃ¡y áº£o
 	 */
 	public static boolean isRunningOnEmulator() {
 		String model = Build.MODEL;
@@ -371,11 +372,11 @@ public class AndroidUtils {
 	}
 
 	/**
-	 * Mã hóa MD5
+	 * MÃ£ hÃ³a MD5
 	 * 
 	 * @param text
-	 *            chuỗi String Chuyền vào
-	 * @return trả về MD5
+	 *            chuá»—i String Chuyá»�n vÃ o
+	 * @return tráº£ vá»� MD5
 	 * @throws NoSuchAlgorithmException
 	 * @throws UnsupportedEncodingException
 	 */
@@ -415,15 +416,38 @@ public class AndroidUtils {
 	public static boolean isNotNull(String txt) {
 		return txt != null && txt.trim().length() > 0 ? true : false;
 	}
-
+	public static HttpGet httpget;
+	public static HttpPost httpPost;
+	public static HttpDelete httpDelete;
+	public static HttpResponse response ;
 	// ham connecet webservice.
-	public static String getjSonUrl(String link) {
+	
+	public static String getjSonUrl(String link, int status) {
 		StringBuffer objbuffer = new StringBuffer();
 
 		HttpClient httpcliend = new DefaultHttpClient();
-		HttpGet httpget = new HttpGet(link);
+		if (status == 1) {
+		 	 httpget = new HttpGet(link);
+		}
+		if (status == 2) {
+			 httpPost = new HttpPost(link);
+		}
+		if (status == 3) {
+			 httpDelete = new HttpDelete(link);
+		}
 		try {
-			HttpResponse response = httpcliend.execute(httpget);
+			switch (status) {
+			case 1:
+				response = httpcliend.execute(httpget);
+				break;
+			case 2:
+				response =httpcliend.execute(httpPost);
+				break;
+			case 3:
+				response =httpcliend.execute(httpDelete);
+				break;
+			}
+			
 			StatusLine statusLine = response.getStatusLine();
 			int statusCode = statusLine.getStatusCode();
 			if (statusCode == 200) {
