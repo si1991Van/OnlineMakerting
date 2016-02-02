@@ -31,12 +31,16 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::group(['prefix' => 'api'], function () {
-	//check login
+	//check login, logout
 	Route::get('/login', 'LoginController@getLogin');
 	Route::post('/login', 'LoginController@postLogin');
 	Route::post('/logout', 'LogoutController@logout');
 	Route::get('/register', 'RegisterController@index');
 	Route::post('/register', 'RegisterController@store');
+	//login by facebook or google
+	Route::post('/login_social', 'LoginController@loginSocial');
+
+	//home
 	Route::get('/', 'MainController@index');
 	//list products
 	Route::post('/category/{id}', 'ApiCategoryController@index');
