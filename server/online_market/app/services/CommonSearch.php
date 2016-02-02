@@ -10,9 +10,6 @@ class CommonSearch {
 	public static function getSearch($input = array())
 	{
 		$result = Search::where(function ($query) use ($input){
-			if (!empty($input['deleted'])) {
-				$query = $query->whereNotNull('deleted_at');
-			}
 			if (!empty($input['user_id'])) {
 				$query = $query->where('user_id', $input['user_id']);
 			}

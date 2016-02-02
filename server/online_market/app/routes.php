@@ -92,5 +92,7 @@ Route::group(['prefix' => 'api'], function () {
 	Route::post('/product_status/{status}', 'ApiProductController@listStatus');
 	//list products delete
 	Route::post('/product_hidden', 'ApiProductController@listHidden');
+	//text
+	Route::post('/text/{id}', 'ApiTextController@index');
 
 });

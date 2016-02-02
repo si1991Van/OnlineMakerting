@@ -28,6 +28,7 @@ class CommonSetting {
 		     'quantity' => null
 		    ],
 	    );
+		$setting = array_merge($setting, self::getSettingMenu3());
 	    return $setting;
 	}
 
@@ -70,28 +71,31 @@ class CommonSetting {
 		     'method' => 'POST',
 		     'quantity' => CommonSearch::countSearch(array('user_id'=>$input['user_id']))
 		    ],
-		    [
-		     'name' => LOGOUT,
-		     'link' => url('api/logout'),
-		     'method' => 'POST',
-		     'quantity' => null
-		    ],
 	    );
+		$setting = array_merge($setting, self::getSettingMenu3());
+		$setting = array_merge($setting, self::getLogoutMenu());
 	    return $setting;
 	}
-
+	public static function getLogoutMenu()
+	{
+		return [['name' => LOGOUT,
+						'link' => url('api/logout'),
+						'method' => 'POST',
+						'quantity' => null
+					]];
+	}
 	public static function getSettingMenu3()
 	{
 		$setting = array(
 		    [
 		     'name' => PROMO,
-		     'link' => url('api/promo'),
+		     'link' => url('api/text/1'),
 		     'method' => 'POST',
 		     'quantity' => null
 		    ],
 		    [
 		     'name' => HELP,
-		     'link' => url('api/help'),
+		     'link' => url('api/text/2'),
 		     'method' => 'POST',
 		     'quantity' => null
 		    ],
@@ -103,7 +107,7 @@ class CommonSetting {
 		    ],
 		    [
 		     'name' => CONTACT,
-		     'link' => url('api/contact'),
+		     'link' => url('api/text/3'),
 		     'method' => 'POST',
 		     'quantity' => null
 		    ],

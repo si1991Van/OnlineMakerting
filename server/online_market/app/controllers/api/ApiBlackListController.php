@@ -11,9 +11,12 @@ class ApiBlackListController extends ApiController {
 	{
 		$input = Input::all();
 		$sessionId = Common::checkSessionId($input);
+		if (!$sessionId) {
+			throw new Prototype\Exceptions\UserSessionErrorException();
+		}
 		$blacklist = BlackList::where('user_id', $input['user_id'])->lists('black_id');
 		$list = User::whereIn('id', $blacklist)->select(['avatar', 'username', 'id'])->get();
-		$data = ['blacklist' => $list] + Common::getHeader();
+		$data = array_merge(['blacklist'=>$list], Common::getHeader());
 		return Common::returnData(200, SUCCESS, $input['user_id'], $sessionId, $data);
 	}
 
@@ -27,6 +30,9 @@ class ApiBlackListController extends ApiController {
 	{
 		$input = Input::all();
 		$sessionId = Common::checkSessionId($input);
+		if (!$sessionId) {
+			throw new Prototype\Exceptions\UserSessionErrorException();
+		}
 		BlackList::where('user_id', $input['user_id'])
 			->where('black_id', $blackId)
 			->delete();

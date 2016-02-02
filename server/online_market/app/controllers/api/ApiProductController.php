@@ -15,11 +15,9 @@ class ApiProductController extends ApiController {
 	public function saved($id)
 	{
 		$input = Input::all();
-		$userId = Product::find($id)->user_id;
 		Favorite::create([
 							'model_name' => 'Product',
 							'model_id' => $id,
-							'user_id' => $userId,
 							'follow_id' => $input['user_id'],
 							'type_favorite' => TYPE_FAVORITE_SAVE
 						]);

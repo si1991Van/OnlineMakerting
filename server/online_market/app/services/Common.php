@@ -66,10 +66,10 @@ class Common {
 						->where('session_id', $input['session_id'])
 						->where('user_id', $input['user_id'])
 						->first();
-		if($device) {
+		if(!empty($device)) {
 			return $input['session_id'];
 		}
-		throw new Prototype\Exceptions\UserSessionErrorException();
+		return false;
 	}
 
 }

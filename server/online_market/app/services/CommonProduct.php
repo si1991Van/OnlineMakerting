@@ -64,7 +64,10 @@ class CommonProduct {
 	{
 		$input = Input::all();
 		$product = CommonProduct::getProduct($options);
-		$data = ['product'=>$product] + Common::getHeader();
+		$array = Common::getHeader();
+		if($array) {
+			$data = array_merge(['product'=>$product], Common::getHeader());
+		}
 		return Common::returnData(200, SUCCESS, $input['user_id'], $input['session_id'], $data);
 	}
 
@@ -72,7 +75,7 @@ class CommonProduct {
 	{
 		$input = Input::all();
 		$product = CommonProduct::getProductDeleted($input);
-		$data = ['product'=>$product] + Common::getHeader();
+		$data = array_merge(['product'=>$product], Common::getHeader());
 		return Common::returnData(200, SUCCESS, $input['user_id'], $input['session_id'], $data);
 	}
 
