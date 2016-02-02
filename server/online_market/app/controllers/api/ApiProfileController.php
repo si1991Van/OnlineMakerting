@@ -17,12 +17,12 @@ class ApiProfileController extends ApiController {
 		//
 	}
 
-	public function account()
+	public function account($id)
 	{
 		//
 	}
 
-	public function block()
+	public function block($id)
 	{
 		//
 	}

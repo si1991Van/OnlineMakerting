@@ -43,53 +43,53 @@ Route::group(['prefix' => 'api'], function () {
 	//home
 	Route::get('/', 'MainController@index');
 	//list products
-	Route::post('/category', 'ApiCategoryController@index');
+	Route::post('/category/{id}', 'ApiCategoryController@index');
 	//detail product
-	Route::post('/product', 'ApiProductController@index');
-	Route::post('/product_saved', 'ApiProductController@saved');
+	Route::post('/product/{id}', 'ApiProductController@index');
+	Route::post('/product_saved/{id}', 'ApiProductController@saved');
 	//list product saved
 	Route::post('/product_log', 'ApiProductLogController@index');
-	Route::post('/product_log/delete', 'ApiProductLogController@index');
+	Route::post('/product_log/{id}/delete', 'ApiProductLogController@destroy');
 	//upload product
 	Route::get('/post_product', 'ApiPostController@index');
 	Route::post('/post_product', 'ApiPostController@post');
 	//list favorite user products
 	Route::post('/favorite', 'ApiFavoriteController@index');
-	Route::post('/favorite/delete', 'ApiFavoriteController@destroy');
+	Route::post('/favorite/{id}/delete', 'ApiFavoriteController@destroy');
 	//search products
-	Route::get('/search', 'ApiSearchController@index');
+	Route::get('/search/{status}', 'ApiSearchController@index');
 	Route::get('/search_action', 'ApiSearchController@action');
 	Route::post('/search_saved', 'ApiSearchController@saved');
 	//search log
 	Route::post('/search_log', 'ApiSearchLogController@index');
-	Route::post('/search_log/delete', 'ApiSearchLogController@destroy');
+	Route::post('/search_log/{search_id}/delete', 'ApiSearchLogController@destroy');
 	//account profile
 	Route::get('/profile', 'ApiProfileController@index');
 	Route::post('/profile', 'ApiProfileController@post');
 	//user profile
-	Route::post('/account', 'ApiProfileController@account');
+	Route::post('/account/{id}', 'ApiProfileController@account');
 	//block user
-	Route::post('/block', 'ApiProfileController@block');
+	Route::post('/block/{id}', 'ApiProfileController@block');
 	//list products user
-	Route::post('/product_user', 'ApiProductController@listProductUser');
+	Route::post('/product_user/{id}', 'ApiProductController@listProductUser');
 	//black list user
 	Route::post('/blacklist', 'ApiBlackListController@index');
-	Route::post('/blacklist/delete', 'ApiBlackListController@destroy');
+	Route::post('/blacklist/{black_id}/delete', 'ApiBlackListController@destroy');
 	//verify account
 	Route::post('/verify_account', 'ApiVerifyAccountController@index');
 	//forgot password
 	Route::post('/forgot_password', 'ApiForgotPasswordController@index');
 	//list message
 	Route::post('/message', 'ApiMessageController@index');
-	Route::post('/message/show', 'ApiMessageController@show');
-	Route::post('/message/delete', 'ApiMessageController@destroy');
+	Route::post('/message/{message_id}/show', 'ApiMessageController@show');
+	Route::post('/message/{message_id}/delete', 'ApiMessageController@destroy');
 	//chat offline
 	Route::get('/product/message', 'ApiChatController@index');
-	Route::post('/product/message', 'ApiChatController@post');
+	Route::post('/product/{id}/message', 'ApiChatController@post');
 	//send message
-	Route::post('/product/report', 'ApiReportController@post');
+	Route::post('/product/{id}/report', 'ApiReportController@post');
 	//list products status
-	Route::post('/product_status', 'ApiProductController@listStatus');
+	Route::post('/product_status/{status}', 'ApiProductController@listStatus');
 	//list products delete
 	Route::post('/product_hidden', 'ApiProductController@listHidden');
 
