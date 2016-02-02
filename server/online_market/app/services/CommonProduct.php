@@ -42,7 +42,7 @@ class CommonProduct {
 			}
 			//lat long
 
-		})->lists('id', 'name', 'avatar', 'price', 'price_id', 'category_id', 'user_id', 'type_id', 'city_id', 'start_time', 'status', 'position', 'created_at');
+		})->select(listFieldProduct())->orderBy('position', 'asc')->get();
 		return $result;
 	}
 
@@ -50,7 +50,7 @@ class CommonProduct {
 	{
 		$result = Product::onlyTrashed()
 			->where('user_id', $input['user_id'])
-			->lists('id', 'name', 'avatar', 'price', 'price_id', 'category_id', 'user_id', 'type_id', 'city_id', 'start_time', 'status', 'position', 'created_at');
+			->select(listFieldProduct())->orderBy('position', 'asc')->get();
 		return $result;
 	}
 
@@ -58,6 +58,22 @@ class CommonProduct {
 	{
 		$result = self::getProductDeleted($input);
 		return count($result);
+	}
+
+	public static function returnProduct($options = array())
+	{
+		$input = Input::all();
+		$product = CommonProduct::getProduct($options);
+		$data = ['product'=>$product] + Common::getHeader();
+		return Common::returnData(200, SUCCESS, $input['user_id'], $input['session_id'], $data);
+	}
+
+	public static function returnProductDeleted()
+	{
+		$input = Input::all();
+		$product = CommonProduct::getProductDeleted($input);
+		$data = ['product'=>$product] + Common::getHeader();
+		return Common::returnData(200, SUCCESS, $input['user_id'], $input['session_id'], $data);
 	}
 
 }

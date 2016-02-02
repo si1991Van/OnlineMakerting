@@ -42,3 +42,6 @@ define('PROMO', 'Khuyến mại');
 define('HELP', 'Hướng dẫn');
 define('SHAREAPP', 'Chia sẻ ứng dụng');
 define('CONTACT', 'Liên hệ');
+//define save or favorite
+define('TYPE_FAVORITE_SAVE', 1);
+define('TYPE_FAVORITE_LIKE', 2);
