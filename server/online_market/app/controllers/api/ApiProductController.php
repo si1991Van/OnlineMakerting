@@ -26,10 +26,10 @@ class ApiProductController extends ApiController {
 		return Common::returnData(200, SUCCESS, $input['user_id'], $input['session_id']);
 	}
 
-	public function listStatus($status)
+	public function listStatus()
 	{
 		$input = Input::all();
-		return CommonProduct::returnProduct(array('user_id'=>$input['user_id'], 'status'=>$status));
+		return CommonProduct::returnProduct(array('user_id'=>$input['user_id'], 'status'=>$input['status']));
 	}
 
 	public function listHidden()
