@@ -28,7 +28,7 @@ class ApiBlackListController extends ApiController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$input = Input::all();
 	}
 
 }

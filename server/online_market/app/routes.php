@@ -51,15 +51,15 @@ Route::group(['prefix' => 'api'], function () {
 	Route::post('/product_log', 'ApiProductLogController@index');
 	Route::post('/product_log/delete/{id}', 'ApiProductLogController@index');
 	//upload product
-	Route::get('/post', 'ApiPostController@index');
-	Route::post('/post', 'ApiPostController@post');
+	Route::get('/post_product', 'ApiPostController@index');
+	Route::post('/post_product', 'ApiPostController@post');
 	//list favorite user products
 	Route::post('/favorite', 'ApiFavoriteController@index');
 	Route::post('/favorite/delete/{id}', 'ApiFavoriteController@destroy');
 	//search products
 	Route::get('/search', 'ApiSearchController@index');
 	Route::get('/search_action', 'ApiSearchController@action');
-	Route::get('/search_saved', 'ApiSearchController@saved');
+	Route::post('/search_saved', 'ApiSearchController@saved');
 	//search log
 	Route::post('/search_log', 'ApiSearchLogController@index');
 	Route::post('/search_log/delete/{id}', 'ApiSearchLogController@destroy');
@@ -84,10 +84,10 @@ Route::group(['prefix' => 'api'], function () {
 	Route::post('/message/show/{id}', 'ApiMessageController@show');
 	Route::post('/message/delete/{id}', 'ApiMessageController@destroy');
 	//chat offline
-	Route::get('/chat', 'ApiChatController@index');
-	Route::post('/chat', 'ApiChatController@post');
+	Route::get('/product/message', 'ApiChatController@index');
+	Route::post('/product/message', 'ApiChatController@post');
 	//send message
-	Route::post('/report', 'ApiReportController@post');
+	Route::post('/product/report', 'ApiReportController@post');
 	//list products status
 	Route::post('/product_status/{status}', 'ApiProductController@listStatus');
 	//list products delete
