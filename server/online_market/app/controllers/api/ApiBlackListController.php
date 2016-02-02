@@ -7,14 +7,14 @@ class ApiBlackListController extends ApiController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index($userId)
 	{
 		$input = Input::all();
 		$sessionId = Common::checkSessionId($input);
-		$blacklist = BlackList::where('user_id', $input['user_id'])->lists('black_id');
+		$blacklist = BlackList::where('user_id', $userId)->lists('black_id');
 		$list = User::whereIn('id', $blacklist)->select(['avatar', 'username', 'id'])->get();
-		$data = ['blacklist'=>$list] + Common::getHeader();
-		return Common::returnData(200, SUCCESS, $input['user_id'], $sessionId, $data);
+		$data = ['blacklist' => $list] + Common::getHeader();
+		return Common::returnData(200, SUCCESS, $userId, $sessionId, $data);
 	}
 
 	/**
@@ -23,12 +23,14 @@ class ApiBlackListController extends ApiController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy()
+	public function destroy($userId, $blackId)
 	{
 		$input = Input::all();
 		$sessionId = Common::checkSessionId($input);
-		BlackList::find($input['black_id'])->destroy();
-		return Common::returnData(200, DELETE_SUCCESS, $input['user_id'], $sessionId, $data);
+		BlackList::where('user_id', $userId)
+			->where('black_id', $blackId)
+			->delete();
+		return Common::returnData(200, DELETE_SUCCESS, $userId, $sessionId, $data);
 	}
 
 }
