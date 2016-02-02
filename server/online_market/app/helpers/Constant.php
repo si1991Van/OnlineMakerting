@@ -37,6 +37,7 @@ define('LOGIN', 'Đăng nhập');
 define('LOGOUT', 'Đăng xuất');
 //success
 define('SUCCESS', 'Success');
+define('DELETE_SUCCESS', 'Delete success');
 //menu setting
 define('PROMO', 'Khuyến mại');
 define('HELP', 'Hướng dẫn');

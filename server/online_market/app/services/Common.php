@@ -67,9 +67,9 @@ class Common {
 						->where('user_id', $input['user_id'])
 						->first();
 		if($device) {
-			return true;
+			return $input['session_id'];
 		}
-		return false;
+		throw new Prototype\Exceptions\UserSessionErrorException();
 	}
 
 }
