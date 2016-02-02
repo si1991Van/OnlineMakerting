@@ -18,7 +18,7 @@ class ApiFavoriteController extends ApiController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function destroy($id)
+	public function destroy()
 	{
 		//
 	}
