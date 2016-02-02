@@ -8,7 +8,7 @@ class Favorite extends Eloquent
 {
 	use SoftDeletingTrait;
     protected $table = 'favorites';
-    protected $fillable = ['user_id', 'model_name', 'model_id', 'follow_id'];
+    protected $fillable = ['user_id', 'model_name', 'model_id', 'follow_id', 'type_favorite'];
     protected $dates = ['deleted_at'];
 
 }

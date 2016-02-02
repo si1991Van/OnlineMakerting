@@ -36,7 +36,7 @@ class CommonSearch {
 			}
 			//lat long
 
-		})->lists('id', 'name', 'price_id', 'category_id', 'user_id', 'type_id', 'start_date', 'lat', 'long', 'created_at');
+		})->select(listFieldSearch())->get();
 		return $result;
 	}
 
