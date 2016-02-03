@@ -3,22 +3,25 @@ package com.onlinemarketing.activity;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.example.onlinemarketing.R;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.example.onlinemarketing.R;
+
+
+
 public class SplashActivity extends BaseActivity {
 
-	private Timer myTimer = new Timer();
-	private TimerTask myTimerTask;
-	private Handler handler = new Handler();
+	TimerTask myTimerTask;
+	Handler handler = new Handler();
+	Timer myTimer = new Timer();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home);
+		
 		myTimerTask = new TimerTask() {
 			
 			@Override

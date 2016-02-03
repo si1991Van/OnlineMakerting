@@ -85,3 +85,19 @@ function generateRandomString($length = RANDOMSTRING) {
     }
     return $randomString;
 }
+
+//list select field product
+function listFieldProduct()
+{
+	return ['id', 'name', 'avatar', 'price', 'price_id', 'category_id', 'user_id', 'type_id', 'city_id', 'start_time', 'status', 'position', 'deleted_at', 'created_at'];
+}
+
+function listFieldSearch()
+{
+	return ['id', 'name', 'price_id', 'category_id', 'user_id', 'type_id', 'start_date', 'lat', 'long', 'created_at'];
+}
+
+function listFieldUser()
+{
+	return ['id', 'facebook_id', 'google_id' , 'username', 'avatar', 'email', 'phone', 'address', 'lat', 'long', 'type', 'status', 'created_at'];
+}

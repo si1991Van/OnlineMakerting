@@ -37,8 +37,18 @@ define('LOGIN', 'Đăng nhập');
 define('LOGOUT', 'Đăng xuất');
 //success
 define('SUCCESS', 'Success');
+<<<<<<< HEAD
+=======
+define('DELETE_SUCCESS', 'Delete success');
+>>>>>>> fbcafdf7245adf47b3a509178fe26dffcce035a1
 //menu setting
 define('PROMO', 'Khuyến mại');
 define('HELP', 'Hướng dẫn');
 define('SHAREAPP', 'Chia sẻ ứng dụng');
 define('CONTACT', 'Liên hệ');
+<<<<<<< HEAD
+=======
+//define save or favorite
+define('TYPE_FAVORITE_SAVE', 1);
+define('TYPE_FAVORITE_LIKE', 2);
+>>>>>>> fbcafdf7245adf47b3a509178fe26dffcce035a1

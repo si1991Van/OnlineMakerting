@@ -18,7 +18,7 @@ class Common {
 						->where('user_id', $userId)
 						->first();
 		if($device) {
-			if(!isset($input['session_id'])) {
+			if(empty($input['session_id'])) {
 				$sessionId = $device->session_id;
 				if(!($sessionId)) {
 					$sessionId = generateRandomString();
@@ -66,8 +66,13 @@ class Common {
 						->where('session_id', $input['session_id'])
 						->where('user_id', $input['user_id'])
 						->first();
+<<<<<<< HEAD
 		if($device) {
 			return true;
+=======
+		if(!empty($device)) {
+			return $input['session_id'];
+>>>>>>> fbcafdf7245adf47b3a509178fe26dffcce035a1
 		}
 		return false;
 	}

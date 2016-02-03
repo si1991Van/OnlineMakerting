@@ -1,5 +1,13 @@
 package com.onlinemarketing.asystask;
 
+import android.os.AsyncTask;
+
+import com.lib.Debug;
+import com.onlinemarketing.config.Constan;
+import com.onlinemarketing.config.SystemConfig;
+import com.onlinemarketing.json.JsonAccount;
+import com.onlinemarketing.object.LoginRegister;
+import com.onlinemarketing.util.Message;
 import com.lib.Debug;
 import com.onlinemarketing.config.SystemConfig;
 import com.onlinemarketing.json.JsonAccount;
@@ -31,21 +39,26 @@ public class LoginRegisterAsystask extends AsyncTask<Integer, String, LoginRegis
 	@Override
 	protected LoginRegister doInBackground(Integer... params) {
 		switch (params[0]) {
-		case 1:
+		case SystemConfig.statusLogin:
 			account = json.paserRegister(Email, Pass, Device_id, SystemConfig.statusLogin);
 			Debug.e("Email: " + Email + "\nPass: " + Pass + "\nDevice_id: " + Device_id);
 			break;
-
-		case 2:
+		case SystemConfig.statusRegister:
 			account = json.paserRegister(Email, Pass, Device_id, SystemConfig.statusRegister);
 			break;
 		}
-		return null;
+		return account;
+
 	}
 
 	@Override
 	protected void onPostExecute(LoginRegister result) {
 		Debug.e("message: " + result.getMessage());
+		if(result.getCode() == Constan.getIntProperty("success")){
+			Message.showMessage(result.getMessage());
+		}else {
+			Message.showMessage(result.getMessage());
+		}
 		super.onPostExecute(result);
 	}
 
