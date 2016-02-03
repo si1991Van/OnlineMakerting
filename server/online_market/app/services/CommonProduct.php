@@ -42,7 +42,11 @@ class CommonProduct {
 			}
 			//lat long
 
+<<<<<<< HEAD
+		})->lists('id', 'name', 'avatar', 'price', 'price_id', 'category_id', 'user_id', 'type_id', 'city_id', 'start_time', 'status', 'position', 'created_at');
+=======
 		})->select(listFieldProduct())->orderBy('position', 'asc')->get();
+>>>>>>> fbcafdf7245adf47b3a509178fe26dffcce035a1
 		return $result;
 	}
 
@@ -50,7 +54,11 @@ class CommonProduct {
 	{
 		$result = Product::onlyTrashed()
 			->where('user_id', $input['user_id'])
+<<<<<<< HEAD
+			->lists('id', 'name', 'avatar', 'price', 'price_id', 'category_id', 'user_id', 'type_id', 'city_id', 'start_time', 'status', 'position', 'created_at');
+=======
 			->select(listFieldProduct())->orderBy('position', 'asc')->get();
+>>>>>>> fbcafdf7245adf47b3a509178fe26dffcce035a1
 		return $result;
 	}
 
@@ -60,11 +68,17 @@ class CommonProduct {
 		return count($result);
 	}
 
+<<<<<<< HEAD
+}
+=======
 	public static function returnProduct($options = array())
 	{
 		$input = Input::all();
 		$product = CommonProduct::getProduct($options);
-		$data = ['product'=>$product] + Common::getHeader();
+		$array = Common::getHeader();
+		if($array) {
+			$data = array_merge(['product'=>$product], Common::getHeader());
+		}
 		return Common::returnData(200, SUCCESS, $input['user_id'], $input['session_id'], $data);
 	}
 
@@ -72,8 +86,9 @@ class CommonProduct {
 	{
 		$input = Input::all();
 		$product = CommonProduct::getProductDeleted($input);
-		$data = ['product'=>$product] + Common::getHeader();
+		$data = array_merge(['product'=>$product], Common::getHeader());
 		return Common::returnData(200, SUCCESS, $input['user_id'], $input['session_id'], $data);
 	}
 
 }
+>>>>>>> fbcafdf7245adf47b3a509178fe26dffcce035a1

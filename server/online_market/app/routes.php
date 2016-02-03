@@ -110,4 +110,7 @@ Route::group(['prefix' => 'api'], function () {
 	//block account:TODO
 	Route::post('/block/{id}', 'ApiProfileController@block');
 
+	//text hardcode: policy, introduce, contact
+	Route::post('/text/{id}', 'ApiTextController@index');
+
 });

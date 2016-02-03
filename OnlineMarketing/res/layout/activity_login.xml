@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:orientation="vertical"
     android:gravity="center_horizontal"
+    android:orientation="vertical"
     tools:context="com.onlinemarketing.activity.LoginActivity" >
 
     <EditText
@@ -37,15 +37,15 @@
         android:layout_width="fill_parent"
         android:layout_height="1dp"
         android:background="#006600" />
-    
-	<CheckBox 
-	    android:id="@+id/chkremember"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:text="Remember password"
-	    android:textColor="#000000"
-	    android:gravity="center"
-	    />
+
+    <CheckBox
+        android:id="@+id/chkremember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Remember password"
+        android:textColor="#000000" />
+
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -55,23 +55,60 @@
             android:id="@+id/btnlogin"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginTop="5dp"
+            android:layout_weight="1"
             android:background="#3c8dbc"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
             android:text="Login"
             android:textSize="18sp" />
+
         <Button
             android:id="@+id/btnRegister"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:layout_marginTop="5dp"
+            android:layout_weight="1"
             android:background="#CC0000"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
             android:text="Register"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSkip"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#F5B800"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="Skip"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/googlebtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="1"
+            android:paddingTop="20dp" />
+
+        <Button
+            android:id="@+id/btnFace"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/holo_blue_bright"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="FaceBook"
+            android:layout_marginTop="20dp"
             android:textSize="18sp" />
     </LinearLayout>
 

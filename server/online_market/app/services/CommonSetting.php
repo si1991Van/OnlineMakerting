@@ -28,6 +28,10 @@ class CommonSetting {
 		     'quantity' => null
 		    ],
 	    );
+<<<<<<< HEAD
+=======
+		$setting = array_merge($setting, self::getSettingMenu3());
+>>>>>>> fbcafdf7245adf47b3a509178fe26dffcce035a1
 	    return $setting;
 	}
 
@@ -70,6 +74,7 @@ class CommonSetting {
 		     'method' => 'POST',
 		     'quantity' => CommonSearch::countSearch(array('user_id'=>$input['user_id']))
 		    ],
+<<<<<<< HEAD
 		    [
 		     'name' => LOGOUT,
 		     'link' => url('api/logout'),
@@ -80,18 +85,41 @@ class CommonSetting {
 	    return $setting;
 	}
 
+=======
+	    );
+		$setting = array_merge($setting, self::getSettingMenu3());
+		$setting = array_merge($setting, self::getLogoutMenu());
+	    return $setting;
+	}
+	public static function getLogoutMenu()
+	{
+		return [['name' => LOGOUT,
+						'link' => url('api/logout'),
+						'method' => 'POST',
+						'quantity' => null
+					]];
+	}
+>>>>>>> fbcafdf7245adf47b3a509178fe26dffcce035a1
 	public static function getSettingMenu3()
 	{
 		$setting = array(
 		    [
 		     'name' => PROMO,
+<<<<<<< HEAD
 		     'link' => url('api/promo'),
+=======
+		     'link' => url('api/text/1'),
+>>>>>>> fbcafdf7245adf47b3a509178fe26dffcce035a1
 		     'method' => 'POST',
 		     'quantity' => null
 		    ],
 		    [
 		     'name' => HELP,
+<<<<<<< HEAD
 		     'link' => url('api/help'),
+=======
+		     'link' => url('api/text/2'),
+>>>>>>> fbcafdf7245adf47b3a509178fe26dffcce035a1
 		     'method' => 'POST',
 		     'quantity' => null
 		    ],
@@ -103,7 +131,11 @@ class CommonSetting {
 		    ],
 		    [
 		     'name' => CONTACT,
+<<<<<<< HEAD
 		     'link' => url('api/contact'),
+=======
+		     'link' => url('api/text/3'),
+>>>>>>> fbcafdf7245adf47b3a509178fe26dffcce035a1
 		     'method' => 'POST',
 		     'quantity' => null
 		    ],

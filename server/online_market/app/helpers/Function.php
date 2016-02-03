@@ -94,6 +94,10 @@ function listFieldProduct()
 
 function listFieldSearch()
 {
-	return ['id', 'name', 'price_id', 'category_id', 'user_id', 'type_id', 'start_date', 'lat', 'long', 'deleted_at', 'created_at'];
+	return ['id', 'name', 'price_id', 'category_id', 'user_id', 'type_id', 'start_date', 'lat', 'long', 'created_at'];
 }
 
+function listFieldUser()
+{
+	return ['id', 'facebook_id', 'google_id' , 'username', 'avatar', 'email', 'phone', 'address', 'lat', 'long', 'type', 'status', 'created_at'];
+}

@@ -2,6 +2,7 @@ package com.onlinemarketing.activity;
 
 import com.example.onlinemarketing.R;
 import com.onlinemarketing.asystask.LoginRegisterAsystask;
+import com.onlinemarketing.config.SystemConfig;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -24,13 +25,13 @@ public class RegisterActivity extends Activity implements OnClickListener{
 		txtpass = (EditText) findViewById(R.id.txtpassword);
 		register = (Button) findViewById(R.id.btnRegister);
 		register.setOnClickListener(this);
-		account = new LoginRegisterAsystask(txtusername.getText().toString(), txtpass.getText().toString(), "987710727ACFAB0C0B00E82DEFAD0085");
+		account = new LoginRegisterAsystask(txtusername.getText().toString(), txtpass.getText().toString(), SystemConfig.device_id);
 		
 	}
 
 	@Override
 	public void onClick(View v) {
-		new LoginRegisterAsystask(txtusername.getText().toString(), txtpass.getText().toString(), "987710727ACFAB0C0B00E82DEFAD0085").execute(2);
+		new LoginRegisterAsystask(txtusername.getText().toString(), txtpass.getText().toString(), SystemConfig.device_id).execute(2);
 	}
 
 	
