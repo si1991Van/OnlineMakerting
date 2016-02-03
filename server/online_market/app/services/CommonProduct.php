@@ -42,7 +42,11 @@ class CommonProduct {
 			}
 			//lat long
 
+<<<<<<< HEAD
+		})->lists('id', 'name', 'avatar', 'price', 'price_id', 'category_id', 'user_id', 'type_id', 'city_id', 'start_time', 'status', 'position', 'created_at');
+=======
 		})->select(listFieldProduct())->orderBy('position', 'asc')->get();
+>>>>>>> fbcafdf7245adf47b3a509178fe26dffcce035a1
 		return $result;
 	}
 
@@ -50,7 +54,11 @@ class CommonProduct {
 	{
 		$result = Product::onlyTrashed()
 			->where('user_id', $input['user_id'])
+<<<<<<< HEAD
+			->lists('id', 'name', 'avatar', 'price', 'price_id', 'category_id', 'user_id', 'type_id', 'city_id', 'start_time', 'status', 'position', 'created_at');
+=======
 			->select(listFieldProduct())->orderBy('position', 'asc')->get();
+>>>>>>> fbcafdf7245adf47b3a509178fe26dffcce035a1
 		return $result;
 	}
 
@@ -60,6 +68,9 @@ class CommonProduct {
 		return count($result);
 	}
 
+<<<<<<< HEAD
+}
+=======
 	public static function returnProduct($options = array())
 	{
 		$input = Input::all();
@@ -80,3 +91,4 @@ class CommonProduct {
 	}
 
 }
+>>>>>>> fbcafdf7245adf47b3a509178fe26dffcce035a1

@@ -40,4 +40,19 @@ class ApiProductController extends ApiController {
 		return CommonProduct::returnProduct(array('user_id'=>$id, 'status'=>1));
 	}
 
+	public function listStatus($status)
+	{
+		//
+	}
+
+	public function listHidden()
+	{
+		//
+	}
+
+	public function listProductUser($id)
+	{
+		//
+	}
+
 }
