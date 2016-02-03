@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.example.onlinemarketing.R;
+import com.lib.Debug;
+import com.smile.android.gsm.utils.AndroidUtils;
 
 
 
@@ -20,8 +22,8 @@ public class SplashActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_home);
-		
+		setContentView(R.layout.activity_splash);
+		Debug.e(AndroidUtils.getHashKey(this));
 		myTimerTask = new TimerTask() {
 			
 			@Override

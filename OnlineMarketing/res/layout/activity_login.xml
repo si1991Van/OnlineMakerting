@@ -93,11 +93,23 @@
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/googlebtn"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
+            android:layout_weight="1"
             android:paddingTop="20dp" />
-        
+
+        <Button
+            android:id="@+id/btnFace"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@android:color/holo_blue_bright"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:text="FaceBook"
+            android:layout_marginTop="20dp"
+            android:textSize="18sp" />
     </LinearLayout>
 
 </LinearLayout>

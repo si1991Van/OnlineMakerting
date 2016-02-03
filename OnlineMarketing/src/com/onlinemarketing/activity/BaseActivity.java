@@ -20,7 +20,8 @@ public class BaseActivity extends Activity{
 	
 	public boolean isConnect(){
 		Constan.context = getApplicationContext();
-		SystemConfig.device_id = AndroidDeviceInfo.getDeviceID(this, "");
+		SystemConfig.device_id = AndroidDeviceInfo.getAndroidID(this);
+		
 		boolean isconnect = AndroidUtils.isConnectedToInternet(this);
 		if (!isconnect) {
 			
