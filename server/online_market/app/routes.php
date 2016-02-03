@@ -31,79 +31,86 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::group(['prefix' => 'api'], function () {
-<<<<<<< HEAD
-	//check login
-=======
-	//check login, logout
->>>>>>> fbcafdf7245adf47b3a509178fe26dffcce035a1
+	//check login, logout -> finish
 	Route::get('/login', 'LoginController@getLogin');
 	Route::post('/login', 'LoginController@postLogin');
 	Route::post('/logout', 'LogoutController@logout');
 	Route::get('/register', 'RegisterController@index');
 	Route::post('/register', 'RegisterController@store');
-	//login by facebook or google
+	//login by facebook or google->finish
 	Route::post('/login_social', 'LoginController@loginSocial');
 
-	//home
+	//home->finish
 	Route::get('/', 'MainController@index');
-	//list products
+	
+	//list products following category->finish
 	Route::post('/category/{id}', 'ApiCategoryController@index');
+	
 	//detail product
 	Route::post('/product/{id}', 'ApiProductController@index');
 	Route::post('/product_saved/{id}', 'ApiProductController@saved');
-	//list product saved
+	
+	//list product saved->finish
 	Route::post('/product_log', 'ApiProductLogController@index');
 	Route::post('/product_log/{id}/delete', 'ApiProductLogController@destroy');
+	
 	//upload product
 	Route::get('/post_product', 'ApiPostController@index');
 	Route::post('/post_product', 'ApiPostController@post');
-	//list favorite user products
+	
+	//list favorite user products->finish
 	Route::post('/favorite', 'ApiFavoriteController@index');
 	Route::post('/favorite/{id}/delete', 'ApiFavoriteController@destroy');
+	
 	//search products
 	Route::get('/search/{status}', 'ApiSearchController@index');
 	Route::get('/search_action', 'ApiSearchController@action');
 	Route::post('/search_saved', 'ApiSearchController@saved');
+	
 	//search log
 	Route::post('/search_log', 'ApiSearchLogController@index');
 	Route::post('/search_log/{search_id}/delete', 'ApiSearchLogController@destroy');
-	//account profile
+	
+	//user profile->TODO
 	Route::get('/profile', 'ApiProfileController@index');
 	Route::post('/profile', 'ApiProfileController@post');
-	//user profile
-	Route::post('/account/{id}', 'ApiProfileController@account');
-	//block user
-	Route::post('/block/{id}', 'ApiProfileController@block');
-	//list products user
+	//verify user->later
+	Route::post('/verify_phone', 'ApiVerifyAccountController@index');
+
+	//list products user->finish
 	Route::post('/product_user/{id}', 'ApiProductController@listProductUser');
-	//black list user
+	
+	//black list user->finish
 	Route::post('/blacklist', 'ApiBlackListController@index');
 	Route::post('/blacklist/{black_id}/delete', 'ApiBlackListController@destroy');
-	//verify account
-	Route::post('/verify_account', 'ApiVerifyAccountController@index');
+	
 	//forgot password
 	Route::post('/forgot_password', 'ApiForgotPasswordController@index');
+	
 	//list message
 	Route::post('/message', 'ApiMessageController@index');
 	Route::post('/message/{message_id}/show', 'ApiMessageController@show');
 	Route::post('/message/{message_id}/delete', 'ApiMessageController@destroy');
+	
 	//chat offline
 	Route::get('/product/message', 'ApiChatController@index');
 	Route::post('/product/{id}/message', 'ApiChatController@post');
+	
 	//send message
-<<<<<<< HEAD
-	Route::post('/report', 'ApiReportController@post');
-=======
 	Route::post('/product/{id}/report', 'ApiReportController@post');
->>>>>>> fbcafdf7245adf47b3a509178fe26dffcce035a1
-	//list products status
+	
+	//list products status->finish
 	Route::post('/product_status/{status}', 'ApiProductController@listStatus');
-	//list products delete
+	
+	//list products hidden->finish
 	Route::post('/product_hidden', 'ApiProductController@listHidden');
-<<<<<<< HEAD
-=======
-	//text
+
+	//list product of account:TODO
+	Route::post('/account/{id}', 'ApiProfileController@account');
+	//block account:TODO
+	Route::post('/block/{id}', 'ApiProfileController@block');
+
+	//text hardcode: policy, introduce, contact
 	Route::post('/text/{id}', 'ApiTextController@index');
->>>>>>> fbcafdf7245adf47b3a509178fe26dffcce035a1
 
 });
