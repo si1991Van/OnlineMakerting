@@ -591,8 +591,8 @@ containing a value of this type.
         public static final int powered_by_google_light=0x7f02003c;
     }
     public static final class id {
-        public static final int action_example=0x7f04003b;
-        public static final int action_settings=0x7f04003a;
+        public static final int action_example=0x7f040045;
+        public static final int action_settings=0x7f040044;
         public static final int automatic=0x7f040000;
         public static final int book_now=0x7f040021;
         public static final int bottom=0x7f04000c;
@@ -602,6 +602,10 @@ containing a value of this type.
         public static final int btnSkip=0x7f04002d;
         public static final int btnlogin=0x7f04002b;
         public static final int button=0x7f04000a;
+        public static final int button1=0x7f040039;
+        public static final int button2=0x7f04003a;
+        public static final int button3=0x7f04003b;
+        public static final int button4=0x7f04003c;
         public static final int buyButton=0x7f04001b;
         public static final int buy_now=0x7f040020;
         public static final int buy_with_google=0x7f04001f;
@@ -624,10 +628,17 @@ containing a value of this type.
         public static final int holo_light=0x7f040017;
         public static final int hybrid=0x7f040015;
         public static final int inline=0x7f04000d;
+        public static final int item_img_trangChu=0x7f04003d;
+        public static final int item_txt_KhoangCach=0x7f040041;
+        public static final int item_txt_giaSP=0x7f04003f;
+        public static final int item_txt_ngay=0x7f040040;
+        public static final int item_txt_tenSP=0x7f04003e;
+        public static final int item_txt_view=0x7f040042;
         public static final int large=0x7f040005;
         public static final int left=0x7f040010;
+        public static final int listHomePage=0x7f040038;
         public static final int match_parent=0x7f04001d;
-        public static final int messenger_send_button=0x7f040039;
+        public static final int messenger_send_button=0x7f040043;
         public static final int monochrome=0x7f040024;
         public static final int navigation_drawer=0x7f040027;
         public static final int never_display=0x7f040002;
@@ -639,7 +650,6 @@ containing a value of this type.
         public static final int right=0x7f040011;
         public static final int sandbox=0x7f040019;
         public static final int satellite=0x7f040013;
-        public static final int section_label=0x7f040038;
         public static final int selectionDetails=0x7f04001c;
         public static final int small=0x7f040003;
         public static final int standard=0x7f040009;
@@ -666,12 +676,15 @@ containing a value of this type.
         public static final int dialog_message=0x7f030007;
         public static final int fragment_home_page=0x7f030008;
         public static final int fragment_navigation_home=0x7f030009;
-        public static final int messenger_button_send_blue_large=0x7f03000a;
-        public static final int messenger_button_send_blue_round=0x7f03000b;
-        public static final int messenger_button_send_blue_small=0x7f03000c;
-        public static final int messenger_button_send_white_large=0x7f03000d;
-        public static final int messenger_button_send_white_round=0x7f03000e;
-        public static final int messenger_button_send_white_small=0x7f03000f;
+        public static final int item_home_page=0x7f03000a;
+        public static final int item_trang_chu=0x7f03000b;
+        public static final int item_trang_chu_mesh=0x7f03000c;
+        public static final int messenger_button_send_blue_large=0x7f03000d;
+        public static final int messenger_button_send_blue_round=0x7f03000e;
+        public static final int messenger_button_send_blue_small=0x7f03000f;
+        public static final int messenger_button_send_white_large=0x7f030010;
+        public static final int messenger_button_send_white_round=0x7f030011;
+        public static final int messenger_button_send_white_small=0x7f030012;
     }
     public static final class menu {
         public static final int global=0x7f0a0000;

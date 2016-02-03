@@ -1,22 +1,26 @@
 package com.example.onlinemarketing;
 
-import android.app.Activity;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.lib.Debug;
+import com.onlinemarketing.adapter.HomePageAdapter;
+import com.onlinemarketing.asystask.HomeAsystask;
+import com.onlinemarketing.object.ProductVO;
 
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
+import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.widget.DrawerLayout;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
+import android.widget.ListView;
 
 public class HomePageActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
@@ -108,7 +112,11 @@ public class HomePageActivity extends Activity implements NavigationDrawerFragme
 		 * fragment.
 		 */
 		private static final String ARG_SECTION_NUMBER = "section_number";
-
+		private ListView listview;
+		private HomePageAdapter adapter;
+		private HomeAsystask asystask;
+		Context context;
+		List<ProductVO> list= new ArrayList<ProductVO>();
 		/**
 		 * Returns a new instance of this fragment for the given section number.
 		 */
@@ -126,6 +134,12 @@ public class HomePageActivity extends Activity implements NavigationDrawerFragme
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 			View rootView = inflater.inflate(R.layout.fragment_home_page, container, false);
+			context = rootView.getContext();
+			asystask = (HomeAsystask) new HomeAsystask().execute();
+			listview = (ListView) rootView.findViewById(R.id.listHomePage);
+			Debug.e("list" + list);
+			adapter = new HomePageAdapter(context, R.layout.item_trang_chu, list);
+			listview.setAdapter(adapter);
 			return rootView;
 		}
 

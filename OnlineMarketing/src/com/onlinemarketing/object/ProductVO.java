@@ -46,7 +46,7 @@ public class ProductVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-
+ 
 	public String getAvatar() {
 		return avatar;
 	}

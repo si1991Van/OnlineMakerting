@@ -20,7 +20,7 @@ public class JsonProduct {
 	JSONObject jsonObject;
 	StringBuilder request;
 
-	public OutputProduct paserProduct(String user_id, String session_id, String device_id, int indext) {
+	public OutputProduct paserProduct(String user_id, String session_id, String device_id) {
 		OutputProduct obj = new OutputProduct();
 		// check email password
 		
@@ -31,7 +31,7 @@ public class JsonProduct {
 					request.append("&device_id=").append(URLEncoder.encode(device_id, "UTF-8"));
 
 					Debug.e("Link Home: " + request.toString());
-					String str = AndroidUtils.getjSonUrl(request.toString(), SystemConfig.httppost);
+					String str = AndroidUtils.getjSonUrl(request.toString(), SystemConfig.httpget);
 					Debug.e("Str: " + str);
 					jsonObject = new JSONObject(str);
 					obj.setCode(jsonObject.getInt("code"));					
@@ -49,7 +49,7 @@ public class JsonProduct {
 							ProductVO objproduct = new ProductVO();
 							objproduct.setId(objjson_product.getInt("id"));
 							objproduct.setName(objjson_product.get("name").toString());
-							objproduct.setAvatar(objjson_product.get("avatar").toString());
+							objproduct.setAvatar("http://192.168.3.151/images/products/avatar/"+objjson_product.get("avatar").toString());
 							objproduct.setPrice(objjson_product.get("price").toString());
 							objproduct.setPrice_id(objjson_product.getInt("price_id"));
 							objproduct.setCategory_id(objjson_product.getInt("category_id"));
@@ -62,6 +62,7 @@ public class JsonProduct {
 							objproduct.setDelete_at(objjson_product.get("deleted_at").toString());
 							objproduct.setCreate_at(objjson_product.get("created_at").toString());
 							arrProduct.add(objproduct);
+							Debug.e("objproduct: " + objproduct.getAvatar());
 						}
 						//set category
 						JSONArray objcategory = jsonData.getJSONArray("category");
