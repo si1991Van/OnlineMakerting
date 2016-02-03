@@ -9,18 +9,7 @@ class RegisterController extends ApiController {
 	 */
 	public function index()
 	{
-		//
-	}
-
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
-	public function create()
-	{
-		//
+		return Common::returnData(200, SUCCESS);
 	}
 
 
@@ -31,60 +20,20 @@ class RegisterController extends ApiController {
 	 */
 	public function store()
 	{
-		$input = Input::all();
-		$input['password'] = Hash::make($input['password']);
-		$userId = User::create($input)->id;
-		$sessionId = Common::getSessionId($input, $userId);
-		return Common::returnData(200, 'Success', $userId, $sessionId);
+		$rules = array(
+            'email'      => 'required|email|unique:users',
+            'password'   => 'required',
+        );
+        $input = Input::all();
+        $validator = Validator::make($input, $rules);
+        if ($validator->fails()) {
+            throw new Prototype\Exceptions\UserRegisterException();
+        } else {
+        	$input['password'] = Hash::make($input['password']);
+			$userId = User::create($input)->id;
+			$sessionId = Common::getSessionId($input, $userId);
+			return Common::returnData(200, SUCCESS, $userId, $sessionId);
+        }
 	}
-
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-
 
 }
