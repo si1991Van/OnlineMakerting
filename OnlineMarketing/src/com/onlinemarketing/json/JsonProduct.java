@@ -81,7 +81,6 @@ public class JsonProduct {
 							objSetting.setLink(objjson_setting.get("link").toString());
 							objSetting.setMethod(objjson_setting.get("method").toString());
 							objSetting.setQuantily(objjson_setting.get("quantity").toString());
-							
 						}
 						obj.setProductVO(arrProduct);
 						obj.setCategoryVO(arrCategory);
