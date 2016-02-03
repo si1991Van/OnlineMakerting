@@ -18,7 +18,7 @@ public class JsonAccount {
 	public LoginRegister paserRegister(String email, String pass, String device_id, int indext) {
 		LoginRegister obj = new LoginRegister();
 		// check email password
-		if(AndroidUtils.isNotNull(email)|| AndroidUtils.isNotNull(pass)){
+		if(AndroidUtils.isNotNull(email) && AndroidUtils.isNotNull(pass)){
 			if(AndroidUtils.validate(email)){
 				try {
 					if (indext == Constan.getIntProperty("statusRegister")) {

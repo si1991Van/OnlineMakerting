@@ -21,6 +21,7 @@ class DatabaseSeeder extends Seeder {
 		$this->call('FavoriteTableSeeder');
 		$this->call('ApiMessageTableSeeder');
 		$this->call('BlackListTableSeeder');
+		$this->call('TextTableSeeder');
 
 	}
 

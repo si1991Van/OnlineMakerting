@@ -8,6 +8,12 @@ import com.onlinemarketing.config.SystemConfig;
 import com.onlinemarketing.json.JsonAccount;
 import com.onlinemarketing.object.LoginRegister;
 import com.onlinemarketing.util.Message;
+import com.lib.Debug;
+import com.onlinemarketing.config.SystemConfig;
+import com.onlinemarketing.json.JsonAccount;
+import com.onlinemarketing.object.LoginRegister;
+
+import android.os.AsyncTask;
 
 public class LoginRegisterAsystask extends AsyncTask<Integer, String, LoginRegister> {
 
@@ -37,12 +43,12 @@ public class LoginRegisterAsystask extends AsyncTask<Integer, String, LoginRegis
 			account = json.paserRegister(Email, Pass, Device_id, SystemConfig.statusLogin);
 			Debug.e("Email: " + Email + "\nPass: " + Pass + "\nDevice_id: " + Device_id);
 			break;
-
 		case SystemConfig.statusRegister:
 			account = json.paserRegister(Email, Pass, Device_id, SystemConfig.statusRegister);
 			break;
 		}
 		return account;
+
 	}
 
 	@Override

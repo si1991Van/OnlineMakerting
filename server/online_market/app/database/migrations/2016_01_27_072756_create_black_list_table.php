@@ -17,7 +17,6 @@ class CreateBlackListTable extends Migration {
             $table->string('user_id', 256)->nullable();
             $table->string('black_id', 256)->nullable();
             $table->integer('kind')->nullable();
-            $table->softDeletes();
             $table->timestamps();
         });
 	}

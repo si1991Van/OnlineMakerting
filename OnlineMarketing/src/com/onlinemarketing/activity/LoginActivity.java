@@ -13,6 +13,8 @@ import com.onlinemarketing.config.Constan;
 import com.onlinemarketing.config.SystemConfig;
 import com.onlinemarketing.object.OutputAccount;
 import com.smile.android.gsm.utils.AndroidDeviceInfo;
+import com.onlinemarketing.asystask.LoginRegisterAsystask;
+import com.onlinemarketing.object.OutputAccount;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -40,6 +42,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	SignInButton btngoogle;
 	private PlusClient mPlusClient;  
 	private int REQUEST_CODE_RESOLVE_ERR=301;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -51,29 +54,30 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		btngoogle = (SignInButton) findViewById(R.id.googlebtn);
 		btnlogin.setOnClickListener(this);
 		btnRegister.setOnClickListener(this);
+		btngoogle.setOnClickListener(this);
 		account = new LoginRegisterAsystask(txtusername.getText().toString().trim(), txtpass.getText().toString().trim(), SystemConfig.device_id);
 		
 		//process login google
-		btngoogle.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				if (!mPlusClient.isConnected()) {
-
-					mPlusClient.connect();
-					showMsg("signed in google+");					
-
-				} 
-				else if (mPlusClient.isConnected()) {
-					{
-						mPlusClient.clearDefaultAccount();
-						mPlusClient.disconnect();
-						showMsg("signed  out of google+");
-
-					}
-				}
-			}
-		});
+//		btngoogle.setOnClickListener(new View.OnClickListener() {
+//
+//			@Override
+//			public void onClick(View v) {
+//				if (!mPlusClient.isConnected()) {
+//
+//					mPlusClient.connect();
+//					showMsg("signed in google+");					
+//
+//				} 
+//				else if (mPlusClient.isConnected()) {
+//					{
+//						mPlusClient.clearDefaultAccount();
+//						mPlusClient.disconnect();
+//						showMsg("signed  out of google+");
+//
+//					}
+//				}
+//			}
+//		});
 		
 		mPlusClient=new PlusClient.Builder(getApplicationContext(), new ConnectionCallbacks() {
 			
@@ -107,6 +111,9 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		        }
 			}
 		}).build();
+		btnlogin.setOnClickListener(this);
+		btnRegister.setOnClickListener(this);
+		account = new LoginRegisterAsystask(txtusername.getText().toString().trim(), txtpass.getText().toString().trim(), "987710727ACFAB0C0B00E82DEFAD0085");
 	}
 
 	@Override
@@ -119,10 +126,10 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 			startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
 			break;
 		case R.id.btnSkip:
-			startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+//			startActivity(new Intent(LoginActivity.this, HomeActivity.class));
 			break;
 		
-		default:
+		case R.id.googlebtn:
 			break;
 		}
 	}

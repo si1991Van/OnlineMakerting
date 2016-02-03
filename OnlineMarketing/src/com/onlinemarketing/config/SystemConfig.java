@@ -15,6 +15,7 @@ public class SystemConfig {
 	public static int httpget = 1;
 	public static int httppost = 2;
 	public static int httpDelete = 3;
+
 	
 	public static final String apiConfirmPass = "http://abc.vn/altp/rsPass.jsp?";
 	public static final String apiGetQuestion = "http://abc.vn/altp/getQuestion.jsp?";

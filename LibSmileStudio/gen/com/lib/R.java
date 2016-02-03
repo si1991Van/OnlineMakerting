@@ -448,74 +448,74 @@ containing a value of this type.
         public static int zOrderOnTop=0x7f01001c;
     }
     public static final class color {
-        public static int com_facebook_blue=0x7f060000;
-        public static int com_facebook_button_background_color=0x7f060005;
-        public static int com_facebook_button_background_color_disabled=0x7f060006;
-        public static int com_facebook_button_background_color_pressed=0x7f060007;
-        public static int com_facebook_button_like_background_color_selected=0x7f060008;
-        public static int com_facebook_button_login_silver_background_color=0x7f060009;
-        public static int com_facebook_button_login_silver_background_color_pressed=0x7f06000a;
-        public static int com_facebook_button_send_background_color=0x7f06000b;
-        public static int com_facebook_button_send_background_color_pressed=0x7f06000c;
-        public static int com_facebook_likeboxcountview_border_color=0x7f060002;
-        public static int com_facebook_likeboxcountview_text_color=0x7f060003;
-        public static int com_facebook_likeview_text_color=0x7f060001;
-        public static int com_facebook_share_button_text_color=0x7f060004;
-        public static int common_action_bar_splitter=0x7f060016;
+        public static int com_facebook_blue=0x7f070000;
+        public static int com_facebook_button_background_color=0x7f070005;
+        public static int com_facebook_button_background_color_disabled=0x7f070006;
+        public static int com_facebook_button_background_color_pressed=0x7f070007;
+        public static int com_facebook_button_like_background_color_selected=0x7f070008;
+        public static int com_facebook_button_login_silver_background_color=0x7f070009;
+        public static int com_facebook_button_login_silver_background_color_pressed=0x7f07000a;
+        public static int com_facebook_button_send_background_color=0x7f07000b;
+        public static int com_facebook_button_send_background_color_pressed=0x7f07000c;
+        public static int com_facebook_likeboxcountview_border_color=0x7f070002;
+        public static int com_facebook_likeboxcountview_text_color=0x7f070003;
+        public static int com_facebook_likeview_text_color=0x7f070001;
+        public static int com_facebook_share_button_text_color=0x7f070004;
+        public static int common_action_bar_splitter=0x7f070016;
         /**  Sign-in Button Colors 
          */
-        public static int common_signin_btn_dark_text_default=0x7f06000d;
-        public static int common_signin_btn_dark_text_disabled=0x7f06000f;
-        public static int common_signin_btn_dark_text_focused=0x7f060010;
-        public static int common_signin_btn_dark_text_pressed=0x7f06000e;
-        public static int common_signin_btn_default_background=0x7f060015;
-        public static int common_signin_btn_light_text_default=0x7f060011;
-        public static int common_signin_btn_light_text_disabled=0x7f060013;
-        public static int common_signin_btn_light_text_focused=0x7f060014;
-        public static int common_signin_btn_light_text_pressed=0x7f060012;
-        public static int common_signin_btn_text_dark=0x7f060024;
-        public static int common_signin_btn_text_light=0x7f060025;
-        public static int wallet_bright_foreground_disabled_holo_light=0x7f06001c;
+        public static int common_signin_btn_dark_text_default=0x7f07000d;
+        public static int common_signin_btn_dark_text_disabled=0x7f07000f;
+        public static int common_signin_btn_dark_text_focused=0x7f070010;
+        public static int common_signin_btn_dark_text_pressed=0x7f07000e;
+        public static int common_signin_btn_default_background=0x7f070015;
+        public static int common_signin_btn_light_text_default=0x7f070011;
+        public static int common_signin_btn_light_text_disabled=0x7f070013;
+        public static int common_signin_btn_light_text_focused=0x7f070014;
+        public static int common_signin_btn_light_text_pressed=0x7f070012;
+        public static int common_signin_btn_text_dark=0x7f070024;
+        public static int common_signin_btn_text_light=0x7f070025;
+        public static int wallet_bright_foreground_disabled_holo_light=0x7f07001c;
         /** 
          Wallet colors to support consistent Wallet fragment holo dark UI in client application
          regardless of the theme and device type
     
          */
-        public static int wallet_bright_foreground_holo_dark=0x7f060017;
-        public static int wallet_bright_foreground_holo_light=0x7f06001d;
-        public static int wallet_dim_foreground_disabled_holo_dark=0x7f060019;
-        public static int wallet_dim_foreground_holo_dark=0x7f060018;
-        public static int wallet_dim_foreground_inverse_disabled_holo_dark=0x7f06001b;
-        public static int wallet_dim_foreground_inverse_holo_dark=0x7f06001a;
-        public static int wallet_highlighted_text_holo_dark=0x7f060021;
-        public static int wallet_highlighted_text_holo_light=0x7f060020;
-        public static int wallet_hint_foreground_holo_dark=0x7f06001f;
-        public static int wallet_hint_foreground_holo_light=0x7f06001e;
-        public static int wallet_holo_blue_light=0x7f060022;
-        public static int wallet_link_text_light=0x7f060023;
-        public static int wallet_primary_text_holo_light=0x7f060026;
-        public static int wallet_secondary_text_holo_dark=0x7f060027;
+        public static int wallet_bright_foreground_holo_dark=0x7f070017;
+        public static int wallet_bright_foreground_holo_light=0x7f07001d;
+        public static int wallet_dim_foreground_disabled_holo_dark=0x7f070019;
+        public static int wallet_dim_foreground_holo_dark=0x7f070018;
+        public static int wallet_dim_foreground_inverse_disabled_holo_dark=0x7f07001b;
+        public static int wallet_dim_foreground_inverse_holo_dark=0x7f07001a;
+        public static int wallet_highlighted_text_holo_dark=0x7f070021;
+        public static int wallet_highlighted_text_holo_light=0x7f070020;
+        public static int wallet_hint_foreground_holo_dark=0x7f07001f;
+        public static int wallet_hint_foreground_holo_light=0x7f07001e;
+        public static int wallet_holo_blue_light=0x7f070022;
+        public static int wallet_link_text_light=0x7f070023;
+        public static int wallet_primary_text_holo_light=0x7f070026;
+        public static int wallet_secondary_text_holo_dark=0x7f070027;
     }
     public static final class dimen {
-        public static int com_facebook_likeboxcountview_border_radius=0x7f070005;
-        public static int com_facebook_likeboxcountview_border_width=0x7f070006;
-        public static int com_facebook_likeboxcountview_caret_height=0x7f070004;
-        public static int com_facebook_likeboxcountview_caret_width=0x7f070003;
-        public static int com_facebook_likeboxcountview_text_padding=0x7f070008;
-        public static int com_facebook_likeboxcountview_text_size=0x7f070007;
-        public static int com_facebook_likeview_edge_padding=0x7f070001;
-        public static int com_facebook_likeview_internal_padding=0x7f070002;
-        public static int com_facebook_likeview_text_size=0x7f070000;
-        public static int com_facebook_profilepictureview_preset_size_large=0x7f07000b;
-        public static int com_facebook_profilepictureview_preset_size_normal=0x7f07000a;
-        public static int com_facebook_profilepictureview_preset_size_small=0x7f070009;
-        public static int com_facebook_share_button_compound_drawable_padding=0x7f07000c;
-        public static int com_facebook_share_button_padding_bottom=0x7f07000d;
-        public static int com_facebook_share_button_padding_left=0x7f07000e;
-        public static int com_facebook_share_button_padding_right=0x7f07000f;
-        public static int com_facebook_share_button_padding_top=0x7f070010;
-        public static int com_facebook_share_button_text_size=0x7f070011;
-        public static int com_facebook_tooltip_horizontal_padding=0x7f070012;
+        public static int com_facebook_likeboxcountview_border_radius=0x7f080005;
+        public static int com_facebook_likeboxcountview_border_width=0x7f080006;
+        public static int com_facebook_likeboxcountview_caret_height=0x7f080004;
+        public static int com_facebook_likeboxcountview_caret_width=0x7f080003;
+        public static int com_facebook_likeboxcountview_text_padding=0x7f080008;
+        public static int com_facebook_likeboxcountview_text_size=0x7f080007;
+        public static int com_facebook_likeview_edge_padding=0x7f080001;
+        public static int com_facebook_likeview_internal_padding=0x7f080002;
+        public static int com_facebook_likeview_text_size=0x7f080000;
+        public static int com_facebook_profilepictureview_preset_size_large=0x7f08000b;
+        public static int com_facebook_profilepictureview_preset_size_normal=0x7f08000a;
+        public static int com_facebook_profilepictureview_preset_size_small=0x7f080009;
+        public static int com_facebook_share_button_compound_drawable_padding=0x7f08000c;
+        public static int com_facebook_share_button_padding_bottom=0x7f08000d;
+        public static int com_facebook_share_button_padding_left=0x7f08000e;
+        public static int com_facebook_share_button_padding_right=0x7f08000f;
+        public static int com_facebook_share_button_padding_top=0x7f080010;
+        public static int com_facebook_share_button_text_size=0x7f080011;
+        public static int com_facebook_tooltip_horizontal_padding=0x7f080012;
     }
     public static final class drawable {
         public static int com_facebook_button_background=0x7f020000;
@@ -578,54 +578,54 @@ containing a value of this type.
         public static int powered_by_google_light=0x7f020039;
     }
     public static final class id {
-        public static int automatic=0x7f090000;
-        public static int book_now=0x7f09001f;
-        public static int bottom=0x7f09000c;
-        public static int box_count=0x7f090009;
-        public static int button=0x7f09000a;
-        public static int buyButton=0x7f09001b;
-        public static int buy_now=0x7f090020;
-        public static int buy_with_google=0x7f090021;
-        public static int center=0x7f09000f;
-        public static int classic=0x7f090022;
-        public static int com_facebook_body_frame=0x7f090027;
-        public static int com_facebook_button_xout=0x7f090029;
-        public static int com_facebook_fragment_container=0x7f090025;
-        public static int com_facebook_login_activity_progress_bar=0x7f090026;
-        public static int com_facebook_tooltip_bubble_view_bottom_pointer=0x7f09002b;
-        public static int com_facebook_tooltip_bubble_view_text_body=0x7f09002a;
-        public static int com_facebook_tooltip_bubble_view_top_pointer=0x7f090028;
-        public static int display_always=0x7f090001;
-        public static int grayscale=0x7f090023;
-        public static int holo_dark=0x7f090016;
-        public static int holo_light=0x7f090017;
-        public static int hybrid=0x7f090012;
-        public static int inline=0x7f09000d;
-        public static int large=0x7f090003;
-        public static int left=0x7f090010;
-        public static int match_parent=0x7f09001d;
-        public static int messenger_send_button=0x7f09002c;
-        public static int monochrome=0x7f090024;
-        public static int never_display=0x7f090002;
-        public static int none=0x7f090013;
-        public static int normal=0x7f090004;
-        public static int open_graph=0x7f090006;
-        public static int page=0x7f090007;
-        public static int production=0x7f090018;
-        public static int right=0x7f090011;
-        public static int sandbox=0x7f090019;
-        public static int satellite=0x7f090014;
-        public static int selectionDetails=0x7f09001c;
-        public static int small=0x7f090005;
-        public static int standard=0x7f09000b;
-        public static int strict_sandbox=0x7f09001a;
-        public static int terrain=0x7f090015;
-        public static int top=0x7f09000e;
-        public static int unknown=0x7f090008;
-        public static int wrap_content=0x7f09001e;
+        public static int automatic=0x7f040000;
+        public static int book_now=0x7f040021;
+        public static int bottom=0x7f04000c;
+        public static int box_count=0x7f04000b;
+        public static int button=0x7f04000a;
+        public static int buyButton=0x7f04001b;
+        public static int buy_now=0x7f040020;
+        public static int buy_with_google=0x7f04001f;
+        public static int center=0x7f04000f;
+        public static int classic=0x7f040022;
+        public static int com_facebook_body_frame=0x7f040027;
+        public static int com_facebook_button_xout=0x7f040029;
+        public static int com_facebook_fragment_container=0x7f040025;
+        public static int com_facebook_login_activity_progress_bar=0x7f040026;
+        public static int com_facebook_tooltip_bubble_view_bottom_pointer=0x7f04002b;
+        public static int com_facebook_tooltip_bubble_view_text_body=0x7f04002a;
+        public static int com_facebook_tooltip_bubble_view_top_pointer=0x7f040028;
+        public static int display_always=0x7f040001;
+        public static int grayscale=0x7f040023;
+        public static int holo_dark=0x7f040016;
+        public static int holo_light=0x7f040017;
+        public static int hybrid=0x7f040015;
+        public static int inline=0x7f04000d;
+        public static int large=0x7f040005;
+        public static int left=0x7f040010;
+        public static int match_parent=0x7f04001d;
+        public static int messenger_send_button=0x7f04002c;
+        public static int monochrome=0x7f040024;
+        public static int never_display=0x7f040002;
+        public static int none=0x7f040012;
+        public static int normal=0x7f040004;
+        public static int open_graph=0x7f040007;
+        public static int page=0x7f040008;
+        public static int production=0x7f040018;
+        public static int right=0x7f040011;
+        public static int sandbox=0x7f040019;
+        public static int satellite=0x7f040013;
+        public static int selectionDetails=0x7f04001c;
+        public static int small=0x7f040003;
+        public static int standard=0x7f040009;
+        public static int strict_sandbox=0x7f04001a;
+        public static int terrain=0x7f040014;
+        public static int top=0x7f04000e;
+        public static int unknown=0x7f040006;
+        public static int wrap_content=0x7f04001e;
     }
     public static final class integer {
-        public static int google_play_services_version=0x7f080000;
+        public static int google_play_services_version=0x7f090000;
     }
     public static final class layout {
         public static int com_facebook_activity_layout=0x7f030000;
@@ -639,123 +639,123 @@ containing a value of this type.
         public static int messenger_button_send_white_small=0x7f030008;
     }
     public static final class string {
-        public static int app_name=0x7f040031;
-        public static int auth_client_needs_enabling_title=0x7f040012;
-        public static int auth_client_needs_installation_title=0x7f040013;
-        public static int auth_client_needs_update_title=0x7f040014;
-        public static int auth_client_play_services_err_notification_msg=0x7f040015;
-        public static int auth_client_requested_by_msg=0x7f040016;
-        public static int auth_client_using_bad_version_title=0x7f040011;
-        public static int com_facebook_image_download_unknown_error=0x7f04000e;
-        public static int com_facebook_internet_permission_error_message=0x7f04000c;
-        public static int com_facebook_internet_permission_error_title=0x7f04000b;
-        public static int com_facebook_like_button_liked=0x7f040002;
-        public static int com_facebook_like_button_not_liked=0x7f040001;
-        public static int com_facebook_loading=0x7f04000a;
-        public static int com_facebook_loginview_cancel_action=0x7f040009;
-        public static int com_facebook_loginview_log_in_button=0x7f040004;
-        public static int com_facebook_loginview_log_in_button_long=0x7f040005;
-        public static int com_facebook_loginview_log_out_action=0x7f040008;
-        public static int com_facebook_loginview_log_out_button=0x7f040003;
-        public static int com_facebook_loginview_logged_in_as=0x7f040006;
-        public static int com_facebook_loginview_logged_in_using_facebook=0x7f040007;
-        public static int com_facebook_send_button_text=0x7f040010;
-        public static int com_facebook_share_button_text=0x7f04000f;
-        public static int com_facebook_tooltip_default=0x7f04000d;
+        public static int app_name=0x7f050031;
+        public static int auth_client_needs_enabling_title=0x7f050012;
+        public static int auth_client_needs_installation_title=0x7f050013;
+        public static int auth_client_needs_update_title=0x7f050014;
+        public static int auth_client_play_services_err_notification_msg=0x7f050015;
+        public static int auth_client_requested_by_msg=0x7f050016;
+        public static int auth_client_using_bad_version_title=0x7f050011;
+        public static int com_facebook_image_download_unknown_error=0x7f05000e;
+        public static int com_facebook_internet_permission_error_message=0x7f05000c;
+        public static int com_facebook_internet_permission_error_title=0x7f05000b;
+        public static int com_facebook_like_button_liked=0x7f050002;
+        public static int com_facebook_like_button_not_liked=0x7f050001;
+        public static int com_facebook_loading=0x7f05000a;
+        public static int com_facebook_loginview_cancel_action=0x7f050009;
+        public static int com_facebook_loginview_log_in_button=0x7f050004;
+        public static int com_facebook_loginview_log_in_button_long=0x7f050005;
+        public static int com_facebook_loginview_log_out_action=0x7f050008;
+        public static int com_facebook_loginview_log_out_button=0x7f050003;
+        public static int com_facebook_loginview_logged_in_as=0x7f050006;
+        public static int com_facebook_loginview_logged_in_using_facebook=0x7f050007;
+        public static int com_facebook_send_button_text=0x7f050010;
+        public static int com_facebook_share_button_text=0x7f05000f;
+        public static int com_facebook_tooltip_default=0x7f05000d;
         /**  Button in confirmation dialog to enable Google Play services.  Clicking it
         will direct user to application settings of Google Play services where they
         can enable it [CHAR LIMIT=40] 
          */
-        public static int common_google_play_services_enable_button=0x7f040022;
+        public static int common_google_play_services_enable_button=0x7f050022;
         /**  Message in confirmation dialog informing user they need to enable
         Google Play services in application settings [CHAR LIMIT=NONE] 
          */
-        public static int common_google_play_services_enable_text=0x7f040021;
+        public static int common_google_play_services_enable_text=0x7f050021;
         /**  Title of confirmation dialog informing user they need to enable
         Google Play services in application settings [CHAR LIMIT=40] 
          */
-        public static int common_google_play_services_enable_title=0x7f040020;
+        public static int common_google_play_services_enable_title=0x7f050020;
         /**   Requested by string saying which app requested the notification. [CHAR LIMIT=42] 
          */
-        public static int common_google_play_services_error_notification_requested_by_msg=0x7f04001b;
+        public static int common_google_play_services_error_notification_requested_by_msg=0x7f05001b;
         /**  Button in confirmation dialog for installing Google Play services [CHAR LIMIT=40] 
          */
-        public static int common_google_play_services_install_button=0x7f04001f;
+        public static int common_google_play_services_install_button=0x7f05001f;
         /**  (For phones) Message in confirmation dialog informing user that
         they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
          */
-        public static int common_google_play_services_install_text_phone=0x7f04001d;
+        public static int common_google_play_services_install_text_phone=0x7f05001d;
         /**  (For tablets) Message in confirmation dialog informing user that
         they need to install Google Play services (from Play Store) [CHAR LIMIT=NONE] 
          */
-        public static int common_google_play_services_install_text_tablet=0x7f04001e;
+        public static int common_google_play_services_install_text_tablet=0x7f05001e;
         /**  Title of confirmation dialog informing user that they need to install
         Google Play services (from Play Store) [CHAR LIMIT=40] 
          */
-        public static int common_google_play_services_install_title=0x7f04001c;
+        public static int common_google_play_services_install_title=0x7f05001c;
         /**  Message in confirmation dialog informing the user that they provided an invalid account. [CHAR LIMIT=NONE] 
          */
-        public static int common_google_play_services_invalid_account_text=0x7f040028;
+        public static int common_google_play_services_invalid_account_text=0x7f050028;
         /**  Title of confirmation dialog informing the user that they provided an invalid account. [CHAR LIMIT=40] 
          */
-        public static int common_google_play_services_invalid_account_title=0x7f040027;
+        public static int common_google_play_services_invalid_account_title=0x7f050027;
         /**   Title for notification shown when GooglePlayServices needs to be enabled for an
         application to work. [CHAR LIMIT=70] 
          */
-        public static int common_google_play_services_needs_enabling_title=0x7f04001a;
+        public static int common_google_play_services_needs_enabling_title=0x7f05001a;
         /**  Message in confirmation dialog informing the user that a network error occurred. [CHAR LIMIT=NONE] 
          */
-        public static int common_google_play_services_network_error_text=0x7f040026;
+        public static int common_google_play_services_network_error_text=0x7f050026;
         /**  Title of confirmation dialog informing the user that a network error occurred. [CHAR LIMIT=40] 
          */
-        public static int common_google_play_services_network_error_title=0x7f040025;
+        public static int common_google_play_services_network_error_title=0x7f050025;
         /**   Title for notification shown when GooglePlayServices needs to be installed
         for an application to work. [CHAR LIMIT=70] 
          */
-        public static int common_google_play_services_notification_needs_installation_title=0x7f040018;
+        public static int common_google_play_services_notification_needs_installation_title=0x7f050018;
         /**   Title for notification shown when GooglePlayServices needs to be updated for an
         application to work. [CHAR LIMIT=70] 
          */
-        public static int common_google_play_services_notification_needs_update_title=0x7f040019;
+        public static int common_google_play_services_notification_needs_update_title=0x7f050019;
         /**   Title for notification shown when GooglePlayServices is unavailable [CHAR LIMIT=42] 
          */
-        public static int common_google_play_services_notification_ticker=0x7f040017;
+        public static int common_google_play_services_notification_ticker=0x7f050017;
         /**  Message in confirmation dialog informing user there is an unknown issue in Google Play
         services [CHAR LIMIT=NONE] 
          */
-        public static int common_google_play_services_unknown_issue=0x7f040029;
+        public static int common_google_play_services_unknown_issue=0x7f050029;
         /**  Message in confirmation dialog informing user that date on the device is not correct,
     causing certificate checks to fail. [CHAR LIMIT=NONE] 
          */
-        public static int common_google_play_services_unsupported_date_text=0x7f04002c;
+        public static int common_google_play_services_unsupported_date_text=0x7f05002c;
         /**  Message in confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=NONE] 
          */
-        public static int common_google_play_services_unsupported_text=0x7f04002b;
+        public static int common_google_play_services_unsupported_text=0x7f05002b;
         /**  Title of confirmation dialog informing user that Google Play services is not supported on their device [CHAR LIMIT=40] 
          */
-        public static int common_google_play_services_unsupported_title=0x7f04002a;
+        public static int common_google_play_services_unsupported_title=0x7f05002a;
         /**  Button in confirmation dialog for updating Google Play services [CHAR LIMIT=40] 
          */
-        public static int common_google_play_services_update_button=0x7f04002d;
+        public static int common_google_play_services_update_button=0x7f05002d;
         /**  Message in confirmation dialog informing user that they need to update
         Google Play services (from Play Store) [CHAR LIMIT=NONE] 
          */
-        public static int common_google_play_services_update_text=0x7f040024;
+        public static int common_google_play_services_update_text=0x7f050024;
         /**  Title of confirmation dialog informing user that they need to update
         Google Play services (from Play Store) [CHAR LIMIT=40] 
          */
-        public static int common_google_play_services_update_title=0x7f040023;
+        public static int common_google_play_services_update_title=0x7f050023;
         /**  Sign-in button text [CHAR LIMIT=15] 
          */
-        public static int common_signin_button_text=0x7f04002e;
+        public static int common_signin_button_text=0x7f05002e;
         /**  Long form sign-in button text [CHAR LIMIT=30] 
          */
-        public static int common_signin_button_text_long=0x7f04002f;
-        public static int messenger_send_button_text=0x7f040000;
+        public static int common_signin_button_text_long=0x7f05002f;
+        public static int messenger_send_button_text=0x7f050000;
         /**  Text on a placeholder buy button when Google Play services is not
          available or up-to-date 
          */
-        public static int wallet_buy_button_place_holder=0x7f040030;
+        public static int wallet_buy_button_place_holder=0x7f050030;
     }
     public static final class style {
         /** 
@@ -779,42 +779,42 @@ containing a value of this type.
     
  API 14 theme customizations can go here. 
          */
-        public static int AppBaseTheme=0x7f05001a;
+        public static int AppBaseTheme=0x7f06001a;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static int AppTheme=0x7f05001b;
-        public static int MessengerButton=0x7f050000;
-        public static int MessengerButton_Blue=0x7f050001;
-        public static int MessengerButton_Blue_Large=0x7f050002;
-        public static int MessengerButton_Blue_Small=0x7f050003;
-        public static int MessengerButton_White=0x7f050004;
-        public static int MessengerButton_White_Large=0x7f050005;
-        public static int MessengerButton_White_Small=0x7f050006;
-        public static int MessengerButtonText=0x7f050007;
-        public static int MessengerButtonText_Blue=0x7f050008;
-        public static int MessengerButtonText_Blue_Large=0x7f050009;
-        public static int MessengerButtonText_Blue_Small=0x7f05000a;
-        public static int MessengerButtonText_White=0x7f05000b;
-        public static int MessengerButtonText_White_Large=0x7f05000c;
-        public static int MessengerButtonText_White_Small=0x7f05000d;
-        public static int Theme_IAPTheme=0x7f050015;
-        public static int WalletFragmentDefaultButtonTextAppearance=0x7f050018;
-        public static int WalletFragmentDefaultDetailsHeaderTextAppearance=0x7f050017;
-        public static int WalletFragmentDefaultDetailsTextAppearance=0x7f050016;
+        public static int AppTheme=0x7f06001b;
+        public static int MessengerButton=0x7f060000;
+        public static int MessengerButton_Blue=0x7f060001;
+        public static int MessengerButton_Blue_Large=0x7f060002;
+        public static int MessengerButton_Blue_Small=0x7f060003;
+        public static int MessengerButton_White=0x7f060004;
+        public static int MessengerButton_White_Large=0x7f060005;
+        public static int MessengerButton_White_Small=0x7f060006;
+        public static int MessengerButtonText=0x7f060007;
+        public static int MessengerButtonText_Blue=0x7f060008;
+        public static int MessengerButtonText_Blue_Large=0x7f060009;
+        public static int MessengerButtonText_Blue_Small=0x7f06000a;
+        public static int MessengerButtonText_White=0x7f06000b;
+        public static int MessengerButtonText_White_Large=0x7f06000c;
+        public static int MessengerButtonText_White_Small=0x7f06000d;
+        public static int Theme_IAPTheme=0x7f060015;
+        public static int WalletFragmentDefaultButtonTextAppearance=0x7f060018;
+        public static int WalletFragmentDefaultDetailsHeaderTextAppearance=0x7f060017;
+        public static int WalletFragmentDefaultDetailsTextAppearance=0x7f060016;
         /** 
          Default style of the wallet fragment that will be used if not set explicitly
          when fragment is created
     
          */
-        public static int WalletFragmentDefaultStyle=0x7f050019;
-        public static int com_facebook_button=0x7f05000f;
-        public static int com_facebook_button_like=0x7f050010;
-        public static int com_facebook_button_send=0x7f050013;
-        public static int com_facebook_button_share=0x7f050014;
-        public static int com_facebook_loginview_default_style=0x7f050011;
-        public static int com_facebook_loginview_silver_style=0x7f050012;
-        public static int tooltip_bubble_text=0x7f05000e;
+        public static int WalletFragmentDefaultStyle=0x7f060019;
+        public static int com_facebook_button=0x7f06000f;
+        public static int com_facebook_button_like=0x7f060010;
+        public static int com_facebook_button_send=0x7f060013;
+        public static int com_facebook_button_share=0x7f060014;
+        public static int com_facebook_loginview_default_style=0x7f060011;
+        public static int com_facebook_loginview_silver_style=0x7f060012;
+        public static int tooltip_bubble_text=0x7f06000e;
     }
     public static final class styleable {
         /** Attributes that can be used with a AdsAttrs.
@@ -855,7 +855,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name com.lib:adSize
         */
-        public static int AdsAttrs_adSize = 0;
+        public static final int AdsAttrs_adSize = 0;
         /**
           <p>
           @attr description
@@ -875,7 +875,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name com.lib:adSizes
         */
-        public static int AdsAttrs_adSizes = 1;
+        public static final int AdsAttrs_adSizes = 1;
         /**
           <p>
           @attr description
@@ -891,7 +891,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name com.lib:adUnitId
         */
-        public static int AdsAttrs_adUnitId = 2;
+        public static final int AdsAttrs_adUnitId = 2;
         /** Attributes that can be used with a MapAttrs.
            <p>Includes the following attributes:</p>
            <table>
@@ -947,7 +947,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:cameraBearing
         */
-        public static int MapAttrs_cameraBearing = 1;
+        public static final int MapAttrs_cameraBearing = 1;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#cameraTargetLat}
           attribute's value can be found in the {@link #MapAttrs} array.
@@ -961,7 +961,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:cameraTargetLat
         */
-        public static int MapAttrs_cameraTargetLat = 2;
+        public static final int MapAttrs_cameraTargetLat = 2;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#cameraTargetLng}
           attribute's value can be found in the {@link #MapAttrs} array.
@@ -975,7 +975,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:cameraTargetLng
         */
-        public static int MapAttrs_cameraTargetLng = 3;
+        public static final int MapAttrs_cameraTargetLng = 3;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#cameraTilt}
           attribute's value can be found in the {@link #MapAttrs} array.
@@ -989,7 +989,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:cameraTilt
         */
-        public static int MapAttrs_cameraTilt = 4;
+        public static final int MapAttrs_cameraTilt = 4;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#cameraZoom}
           attribute's value can be found in the {@link #MapAttrs} array.
@@ -1003,7 +1003,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:cameraZoom
         */
-        public static int MapAttrs_cameraZoom = 5;
+        public static final int MapAttrs_cameraZoom = 5;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#mapType}
           attribute's value can be found in the {@link #MapAttrs} array.
@@ -1023,7 +1023,7 @@ containing a value of this type.
 </table>
           @attr name com.lib:mapType
         */
-        public static int MapAttrs_mapType = 0;
+        public static final int MapAttrs_mapType = 0;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#uiCompass}
           attribute's value can be found in the {@link #MapAttrs} array.
@@ -1037,7 +1037,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:uiCompass
         */
-        public static int MapAttrs_uiCompass = 6;
+        public static final int MapAttrs_uiCompass = 6;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#uiRotateGestures}
           attribute's value can be found in the {@link #MapAttrs} array.
@@ -1051,7 +1051,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:uiRotateGestures
         */
-        public static int MapAttrs_uiRotateGestures = 7;
+        public static final int MapAttrs_uiRotateGestures = 7;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#uiScrollGestures}
           attribute's value can be found in the {@link #MapAttrs} array.
@@ -1065,7 +1065,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:uiScrollGestures
         */
-        public static int MapAttrs_uiScrollGestures = 8;
+        public static final int MapAttrs_uiScrollGestures = 8;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#uiTiltGestures}
           attribute's value can be found in the {@link #MapAttrs} array.
@@ -1079,7 +1079,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:uiTiltGestures
         */
-        public static int MapAttrs_uiTiltGestures = 9;
+        public static final int MapAttrs_uiTiltGestures = 9;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#uiZoomControls}
           attribute's value can be found in the {@link #MapAttrs} array.
@@ -1093,7 +1093,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:uiZoomControls
         */
-        public static int MapAttrs_uiZoomControls = 10;
+        public static final int MapAttrs_uiZoomControls = 10;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#uiZoomGestures}
           attribute's value can be found in the {@link #MapAttrs} array.
@@ -1107,7 +1107,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:uiZoomGestures
         */
-        public static int MapAttrs_uiZoomGestures = 11;
+        public static final int MapAttrs_uiZoomGestures = 11;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#useViewLifecycle}
           attribute's value can be found in the {@link #MapAttrs} array.
@@ -1121,7 +1121,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:useViewLifecycle
         */
-        public static int MapAttrs_useViewLifecycle = 12;
+        public static final int MapAttrs_useViewLifecycle = 12;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#zOrderOnTop}
           attribute's value can be found in the {@link #MapAttrs} array.
@@ -1135,7 +1135,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:zOrderOnTop
         */
-        public static int MapAttrs_zOrderOnTop = 13;
+        public static final int MapAttrs_zOrderOnTop = 13;
         /**  Attributes for the WalletFragment &lt;fragment&gt; tag 
            <p>Includes the following attributes:</p>
            <table>
@@ -1174,7 +1174,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name com.lib:environment
         */
-        public static int WalletFragmentOptions_environment = 1;
+        public static final int WalletFragmentOptions_environment = 1;
         /**
           <p>
           @attr description
@@ -1193,7 +1193,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name com.lib:fragmentMode
         */
-        public static int WalletFragmentOptions_fragmentMode = 3;
+        public static final int WalletFragmentOptions_fragmentMode = 3;
         /**
           <p>
           @attr description
@@ -1205,7 +1205,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name com.lib:fragmentStyle
         */
-        public static int WalletFragmentOptions_fragmentStyle = 2;
+        public static final int WalletFragmentOptions_fragmentStyle = 2;
         /**
           <p>
           @attr description
@@ -1224,7 +1224,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name com.lib:theme
         */
-        public static int WalletFragmentOptions_theme = 0;
+        public static final int WalletFragmentOptions_theme = 0;
         /**  Attributes that may be specified in a style resource to customize the look and feel of
          WalletFragment 
            <p>Includes the following attributes:</p>
@@ -1280,7 +1280,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name com.lib:buyButtonAppearance
         */
-        public static int WalletFragmentStyle_buyButtonAppearance = 3;
+        public static final int WalletFragmentStyle_buyButtonAppearance = 3;
         /**
           <p>
           @attr description
@@ -1309,7 +1309,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name com.lib:buyButtonHeight
         */
-        public static int WalletFragmentStyle_buyButtonHeight = 0;
+        public static final int WalletFragmentStyle_buyButtonHeight = 0;
         /**
           <p>
           @attr description
@@ -1329,7 +1329,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name com.lib:buyButtonText
         */
-        public static int WalletFragmentStyle_buyButtonText = 2;
+        public static final int WalletFragmentStyle_buyButtonText = 2;
         /**
           <p>
           @attr description
@@ -1358,7 +1358,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name com.lib:buyButtonWidth
         */
-        public static int WalletFragmentStyle_buyButtonWidth = 1;
+        public static final int WalletFragmentStyle_buyButtonWidth = 1;
         /**
           <p>
           @attr description
@@ -1372,7 +1372,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name com.lib:maskedWalletDetailsBackground
         */
-        public static int WalletFragmentStyle_maskedWalletDetailsBackground = 6;
+        public static final int WalletFragmentStyle_maskedWalletDetailsBackground = 6;
         /**
           <p>
           @attr description
@@ -1386,7 +1386,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name com.lib:maskedWalletDetailsButtonBackground
         */
-        public static int WalletFragmentStyle_maskedWalletDetailsButtonBackground = 8;
+        public static final int WalletFragmentStyle_maskedWalletDetailsButtonBackground = 8;
         /**
           <p>
           @attr description
@@ -1398,7 +1398,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name com.lib:maskedWalletDetailsButtonTextAppearance
         */
-        public static int WalletFragmentStyle_maskedWalletDetailsButtonTextAppearance = 7;
+        public static final int WalletFragmentStyle_maskedWalletDetailsButtonTextAppearance = 7;
         /**
           <p>
           @attr description
@@ -1410,7 +1410,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name com.lib:maskedWalletDetailsHeaderTextAppearance
         */
-        public static int WalletFragmentStyle_maskedWalletDetailsHeaderTextAppearance = 5;
+        public static final int WalletFragmentStyle_maskedWalletDetailsHeaderTextAppearance = 5;
         /**
           <p>
           @attr description
@@ -1429,7 +1429,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name com.lib:maskedWalletDetailsLogoImageType
         */
-        public static int WalletFragmentStyle_maskedWalletDetailsLogoImageType = 10;
+        public static final int WalletFragmentStyle_maskedWalletDetailsLogoImageType = 10;
         /**
           <p>
           @attr description
@@ -1446,7 +1446,7 @@ containing a value of this type.
           <p>This is a private symbol.
           @attr name com.lib:maskedWalletDetailsLogoTextColor
         */
-        public static int WalletFragmentStyle_maskedWalletDetailsLogoTextColor = 9;
+        public static final int WalletFragmentStyle_maskedWalletDetailsLogoTextColor = 9;
         /**
           <p>
           @attr description
@@ -1458,7 +1458,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           <p>This is a private symbol.
           @attr name com.lib:maskedWalletDetailsTextAppearance
         */
-        public static int WalletFragmentStyle_maskedWalletDetailsTextAppearance = 4;
+        public static final int WalletFragmentStyle_maskedWalletDetailsTextAppearance = 4;
         /** Attributes that can be used with a com_facebook_like_view.
            <p>Includes the following attributes:</p>
            <table>
@@ -1500,7 +1500,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 </table>
           @attr name com.lib:com_facebook_auxiliary_view_position
         */
-        public static int com_facebook_like_view_com_facebook_auxiliary_view_position = 4;
+        public static final int com_facebook_like_view_com_facebook_auxiliary_view_position = 4;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#com_facebook_foreground_color}
           attribute's value can be found in the {@link #com_facebook_like_view} array.
@@ -1515,7 +1515,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:com_facebook_foreground_color
         */
-        public static int com_facebook_like_view_com_facebook_foreground_color = 0;
+        public static final int com_facebook_like_view_com_facebook_foreground_color = 0;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#com_facebook_horizontal_alignment}
           attribute's value can be found in the {@link #com_facebook_like_view} array.
@@ -1533,7 +1533,7 @@ containing a value of this type.
 </table>
           @attr name com.lib:com_facebook_horizontal_alignment
         */
-        public static int com_facebook_like_view_com_facebook_horizontal_alignment = 5;
+        public static final int com_facebook_like_view_com_facebook_horizontal_alignment = 5;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#com_facebook_object_id}
           attribute's value can be found in the {@link #com_facebook_like_view} array.
@@ -1547,7 +1547,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:com_facebook_object_id
         */
-        public static int com_facebook_like_view_com_facebook_object_id = 1;
+        public static final int com_facebook_like_view_com_facebook_object_id = 1;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#com_facebook_object_type}
           attribute's value can be found in the {@link #com_facebook_like_view} array.
@@ -1565,7 +1565,7 @@ containing a value of this type.
 </table>
           @attr name com.lib:com_facebook_object_type
         */
-        public static int com_facebook_like_view_com_facebook_object_type = 2;
+        public static final int com_facebook_like_view_com_facebook_object_type = 2;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#com_facebook_style}
           attribute's value can be found in the {@link #com_facebook_like_view} array.
@@ -1583,7 +1583,7 @@ containing a value of this type.
 </table>
           @attr name com.lib:com_facebook_style
         */
-        public static int com_facebook_like_view_com_facebook_style = 3;
+        public static final int com_facebook_like_view_com_facebook_style = 3;
         /** Attributes that can be used with a com_facebook_login_view.
            <p>Includes the following attributes:</p>
            <table>
@@ -1616,7 +1616,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:com_facebook_confirm_logout
         */
-        public static int com_facebook_login_view_com_facebook_confirm_logout = 0;
+        public static final int com_facebook_login_view_com_facebook_confirm_logout = 0;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#com_facebook_login_text}
           attribute's value can be found in the {@link #com_facebook_login_view} array.
@@ -1630,7 +1630,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:com_facebook_login_text
         */
-        public static int com_facebook_login_view_com_facebook_login_text = 1;
+        public static final int com_facebook_login_view_com_facebook_login_text = 1;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#com_facebook_logout_text}
           attribute's value can be found in the {@link #com_facebook_login_view} array.
@@ -1644,7 +1644,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:com_facebook_logout_text
         */
-        public static int com_facebook_login_view_com_facebook_logout_text = 2;
+        public static final int com_facebook_login_view_com_facebook_logout_text = 2;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#com_facebook_tooltip_mode}
           attribute's value can be found in the {@link #com_facebook_login_view} array.
@@ -1662,7 +1662,7 @@ containing a value of this type.
 </table>
           @attr name com.lib:com_facebook_tooltip_mode
         */
-        public static int com_facebook_login_view_com_facebook_tooltip_mode = 3;
+        public static final int com_facebook_login_view_com_facebook_tooltip_mode = 3;
         /** Attributes that can be used with a com_facebook_profile_picture_view.
            <p>Includes the following attributes:</p>
            <table>
@@ -1691,7 +1691,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name com.lib:com_facebook_is_cropped
         */
-        public static int com_facebook_profile_picture_view_com_facebook_is_cropped = 1;
+        public static final int com_facebook_profile_picture_view_com_facebook_is_cropped = 1;
         /**
           <p>This symbol is the offset where the {@link com.lib.R.attr#com_facebook_preset_size}
           attribute's value can be found in the {@link #com_facebook_profile_picture_view} array.
@@ -1709,6 +1709,6 @@ containing a value of this type.
 </table>
           @attr name com.lib:com_facebook_preset_size
         */
-        public static int com_facebook_profile_picture_view_com_facebook_preset_size = 0;
+        public static final int com_facebook_profile_picture_view_com_facebook_preset_size = 0;
     };
 }

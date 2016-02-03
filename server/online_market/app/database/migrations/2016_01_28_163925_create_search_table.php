@@ -22,7 +22,6 @@ class CreateSearchTable extends Migration {
             $table->integer('start_date')->nullable();
             $table->integer('lat')->nullable();
             $table->integer('long')->nullable();
-            $table->softDeletes();
             $table->timestamps();
         });
 	}
