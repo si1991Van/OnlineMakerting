@@ -91,9 +91,9 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 			public void onConnected(Bundle arg0) {
 				// TODO Auto-generated method stub
 				Person person=mPlusClient.getCurrentPerson();	
-			    showMsg(person.getDisplayName());
-			    showMsg(person.getId());
-			    showMsg(person.getGender()+"");
+			    Debug.showAlert(LoginActivity.this, String.valueOf(person.getDisplayName()));
+			    Debug.showAlert(LoginActivity.this, String.valueOf(person.getId()));
+			    Debug.showAlert(LoginActivity.this, String.valueOf(person.getGender()));
 			}
 		}, new OnConnectionFailedListener() {
 			
@@ -130,14 +130,11 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 			break;
 		
 		case R.id.googlebtn:
+			Debug.showAlert(this, "phê vl");
 			break;
 		}
 	}
 
-	void showMsg(String string)
-	{
-		Toast.makeText(getApplicationContext(), string, Toast.LENGTH_SHORT).show();
-	}
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
