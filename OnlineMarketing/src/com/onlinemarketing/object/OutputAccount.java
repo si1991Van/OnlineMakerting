@@ -12,6 +12,17 @@ public class OutputAccount {
 	private String session;
 	private int code, user_Id;
 	private AccountVO AccountVO;
+	
+	public OutputAccount(int result, String message, String session, int code,
+			int user_Id, com.onlinemarketing.object.AccountVO accountVO) {
+		super();
+		this.result = result;
+		this.message = message;
+		this.session = session;
+		this.code = code;
+		this.user_Id = user_Id;
+		AccountVO = accountVO;
+	}
 	public int getResult() {
 		return result;
 	}

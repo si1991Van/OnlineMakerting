@@ -1,11 +1,13 @@
 package com.onlinemarketing.object;
 
+import java.util.ArrayList;
+
 public class OutputProduct {
 	private int code, user_Id;
 	private String message, session_id;
-	private ProductVO[] productVO;
-	private CategoryVO[] categoryVO;
-	private SettingVO[] settingVO;
+	private ArrayList<ProductVO> productVO;
+	private ArrayList<CategoryVO> categoryVO;
+	private ArrayList<SettingVO> settingVO;
 	public int getCode() {
 		return code;
 	}
@@ -30,24 +32,25 @@ public class OutputProduct {
 	public void setSession_id(String session_id) {
 		this.session_id = session_id;
 	}
-	public ProductVO[] getProductVO() {
+	public ArrayList<ProductVO> getProductVO() {
 		return productVO;
 	}
-	public void setProductVO(ProductVO[] productVO) {
+	public void setProductVO(ArrayList<ProductVO> productVO) {
 		this.productVO = productVO;
 	}
-	public CategoryVO[] getCategoryVO() {
+	public ArrayList<CategoryVO> getCategoryVO() {
 		return categoryVO;
 	}
-	public void setCategoryVO(CategoryVO[] categoryVO) {
+	public void setCategoryVO(ArrayList<CategoryVO> categoryVO) {
 		this.categoryVO = categoryVO;
 	}
-	public SettingVO[] getSettingVO() {
+	public ArrayList<SettingVO> getSettingVO() {
 		return settingVO;
 	}
-	public void setSettingVO(SettingVO[] settingVO) {
+	public void setSettingVO(ArrayList<SettingVO> settingVO) {
 		this.settingVO = settingVO;
 	}
+	
 	
 	
 }

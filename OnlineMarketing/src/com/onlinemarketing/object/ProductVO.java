@@ -4,8 +4,10 @@ public class ProductVO {
 	private int id;
 	private String name;
 	private String avatar;
-	private float price;
+	private String price;
+	private int price_id;
 	private int category_id;
+	private int user_id;
 	private int type_id;
 	private int city_id;
 	private String startdate;
@@ -13,7 +15,22 @@ public class ProductVO {
 	private int position;
 	private String delete_at;
 	private String create_at;
+	
+	public int getUser_id() {
+		return user_id;
+	}
 
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
+
+	public int getPrice_id() {
+		return price_id;
+	}
+
+	public void setPrice_id(int price_id) {
+		this.price_id = price_id;
+	}
 	public int getId() {
 		return id;
 	}
@@ -38,11 +55,11 @@ public class ProductVO {
 		this.avatar = avatar;
 	}
 
-	public float getPrice() {
+	public String getPrice() {
 		return price;
 	}
 
-	public void setPrice(float price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 
