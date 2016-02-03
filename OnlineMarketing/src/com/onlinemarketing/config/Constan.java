@@ -10,7 +10,7 @@ import android.content.res.AssetManager;
 
 import com.lib.Debug;
 
-public class Constan extends Activity{
+public class Constan{
 	public static Context context;
 	
 	public static int getIntProperty(String key) {
