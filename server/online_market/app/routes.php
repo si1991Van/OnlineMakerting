@@ -42,35 +42,41 @@ Route::group(['prefix' => 'api'], function () {
 
 	//home->finish
 	Route::get('/', 'MainController@index');
-	
+
+	//setting
+	Route::get('/setting', 'ApiSettingController@index');
+
+	//list category
+	Route::get('/category', 'ApiCategoryController@index');
+
 	//list products following category->finish
 	Route::post('/category/{id}', 'ApiCategoryController@index');
-	
+
 	//detail product
 	Route::post('/product/{id}', 'ApiProductController@index');
 	Route::post('/product_saved/{id}', 'ApiProductController@saved');
-	
+
 	//list product saved->finish
 	Route::post('/product_log', 'ApiProductLogController@index');
 	Route::post('/product_log/{id}/delete', 'ApiProductLogController@destroy');
-	
+
 	//upload product
 	Route::get('/post_product', 'ApiPostController@index');
 	Route::post('/post_product', 'ApiPostController@post');
-	
+
 	//list favorite user products->finish
 	Route::post('/favorite', 'ApiFavoriteController@index');
 	Route::post('/favorite/{id}/delete', 'ApiFavoriteController@destroy');
-	
+
 	//search products
 	Route::get('/search/{status}', 'ApiSearchController@index');
 	Route::get('/search_action', 'ApiSearchController@action');
 	Route::post('/search_saved', 'ApiSearchController@saved');
-	
+
 	//search log
 	Route::post('/search_log', 'ApiSearchLogController@index');
 	Route::post('/search_log/{search_id}/delete', 'ApiSearchLogController@destroy');
-	
+
 	//user profile->TODO
 	Route::get('/profile', 'ApiProfileController@index');
 	Route::post('/profile', 'ApiProfileController@post');
@@ -79,29 +85,29 @@ Route::group(['prefix' => 'api'], function () {
 
 	//list products user->finish
 	Route::post('/product_user/{id}', 'ApiProductController@listProductUser');
-	
+
 	//black list user->finish
 	Route::post('/blacklist', 'ApiBlackListController@index');
 	Route::post('/blacklist/{black_id}/delete', 'ApiBlackListController@destroy');
-	
+
 	//forgot password
 	Route::post('/forgot_password', 'ApiForgotPasswordController@index');
-	
+
 	//list message
 	Route::post('/message', 'ApiMessageController@index');
 	Route::post('/message/{message_id}/show', 'ApiMessageController@show');
 	Route::post('/message/{message_id}/delete', 'ApiMessageController@destroy');
-	
+
 	//chat offline
 	Route::get('/product/message', 'ApiChatController@index');
 	Route::post('/product/{id}/message', 'ApiChatController@post');
-	
+
 	//send message
 	Route::post('/product/{id}/report', 'ApiReportController@post');
-	
+
 	//list products status->finish
 	Route::post('/product_status/{status}', 'ApiProductController@listStatus');
-	
+
 	//list products hidden->finish
 	Route::post('/product_hidden', 'ApiProductController@listHidden');
 
