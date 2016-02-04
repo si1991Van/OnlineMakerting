@@ -10,8 +10,7 @@ import com.onlinemarketing.object.ProductVO;
 
 import android.os.AsyncTask;
 
-public class HomeAsystask extends AsyncTask<Void, Void, List<ProductVO>> {
-	List<ProductVO> productvo;
+public class HomeAsystask extends AsyncTask<Void, Void, OutputProduct> {
 	OutputProduct outputProduct;
 	String Device_id;
 	JsonProduct product;
@@ -20,9 +19,9 @@ public class HomeAsystask extends AsyncTask<Void, Void, List<ProductVO>> {
 		super();
 	}
 
-	public HomeAsystask(List<ProductVO> oOputproduct) {
+	public HomeAsystask(OutputProduct oOputproduct) {
 		super();
-		this.productvo = oOputproduct;
+		this.outputProduct = oOputproduct;
 	}
 
 	@Override
@@ -32,14 +31,13 @@ public class HomeAsystask extends AsyncTask<Void, Void, List<ProductVO>> {
 	}
 
 	@Override
-	protected List<ProductVO> doInBackground(Void... params) {
-		outputProduct = product.paserProduct(SystemConfig.user_id, SystemConfig.session_id, SystemConfig.device_id);
-		productvo = outputProduct.getProductVO();
-		return productvo;
+	protected OutputProduct doInBackground(Void... params) {
+		SystemConfig.oOputproduct = product.paserProduct(SystemConfig.user_id, SystemConfig.session_id, SystemConfig.device_id);
+		return SystemConfig.oOputproduct;
 	}
 
 	@Override
-	protected void onPostExecute(List<ProductVO> result) {
+	protected void onPostExecute(OutputProduct result) {
 		// TODO Auto-generated method stub
 		super.onPostExecute(result);
 	}

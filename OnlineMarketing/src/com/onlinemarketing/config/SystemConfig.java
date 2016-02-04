@@ -4,7 +4,7 @@ import com.onlinemarketing.object.OutputProduct;
 
 public class SystemConfig {
 
-	public static final String API = "http://192.168.3.151/api/";
+	public static final String API = "localhost:8883/online_market/public/api/";
 
 	public static final String Login = "login?";
 	public static final String Register = "register?";
@@ -14,7 +14,7 @@ public class SystemConfig {
 	public static String user_id = "";
 	public static String session_id = "";
 	public static String Email, Pass;
-	public static final OutputProduct oOputproduct = new OutputProduct() ;
+	public static  OutputProduct oOputproduct ;
 	// method
 	public static int httpget = 1;
 	public static int httppost = 2;
