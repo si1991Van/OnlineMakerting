@@ -9,11 +9,8 @@ import org.json.JSONObject;
 import com.lib.Debug;
 import com.onlinemarketing.config.Constan;
 import com.onlinemarketing.config.SystemConfig;
-import com.onlinemarketing.object.CategoryVO;
-import com.onlinemarketing.object.LoginRegister;
 import com.onlinemarketing.object.OutputProduct;
 import com.onlinemarketing.object.ProductVO;
-import com.onlinemarketing.object.SettingVO;
 import com.smile.android.gsm.utils.AndroidUtils;
 
 public class JsonProduct {
@@ -37,13 +34,9 @@ public class JsonProduct {
 					obj.setCode(jsonObject.getInt("code"));					
 					obj.setMessage(jsonObject.getString("message"));
 					obj.setSession_id(jsonObject.getString("session_id"));
-					JSONObject jsonData = jsonObject.getJSONObject("data");
+					JSONArray jsonProduct = jsonObject.getJSONArray("data");
 					if (obj.getCode() == Constan.getIntProperty("success")) {
-						// set product
-						JSONArray jsonProduct = jsonData.getJSONArray("product");
 						ArrayList<ProductVO> arrProduct = new ArrayList<ProductVO>();
-						ArrayList<SettingVO> arrSetting = new ArrayList<SettingVO>();
-						ArrayList<CategoryVO> arrCategory = new ArrayList<CategoryVO>();
 						for (int i = 0; i < jsonProduct.length(); i++) {
 							JSONObject objjson_product = jsonProduct.getJSONObject(i);
 							ProductVO objproduct = new ProductVO();
@@ -64,28 +57,7 @@ public class JsonProduct {
 							arrProduct.add(objproduct);
 							Debug.e("objproduct: " + objproduct.getAvatar());
 						}
-						//set category
-						JSONArray objcategory = jsonData.getJSONArray("category");
-						for (int i = 0; i < objcategory.length(); i++) {
-							JSONObject objjson_category = objcategory.getJSONObject(i);
-							CategoryVO objCategory = new CategoryVO();
-							objCategory.setId(objjson_category.getInt("id"));
-							objCategory.setName(objjson_category.get("name").toString());
-							arrCategory.add(objCategory);
-						}
-						//set setting
-						JSONArray objsetting = jsonData.getJSONArray("setting");
-						for (int i = 0; i < objsetting.length(); i++) {
-							JSONObject objjson_setting = objsetting.getJSONObject(i);
-							SettingVO objSetting = new SettingVO();
-							objSetting.setName(objjson_setting.get("name").toString());
-							objSetting.setLink(objjson_setting.get("link").toString());
-							objSetting.setMethod(objjson_setting.get("method").toString());
-							objSetting.setQuantily(objjson_setting.get("quantity").toString());
-						}
-						obj.setProductVO(arrProduct);
-						obj.setCategoryVO(arrCategory);
-						obj.setSettingVO(arrSetting);
+						SystemConfig.oOputproduct.setProductVO(arrProduct);
 					}
 					
 				} catch (Exception e) {
@@ -93,7 +65,7 @@ public class JsonProduct {
 				}
 			
 		
-		return obj;
+		return SystemConfig.oOputproduct;
 
 	}
 }

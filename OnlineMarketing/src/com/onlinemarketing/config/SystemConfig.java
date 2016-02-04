@@ -14,7 +14,7 @@ public class SystemConfig {
 	public static String user_id = "";
 	public static String session_id = "";
 	public static String Email, Pass;
-	public static OutputProduct oOputproduct;
+	public static final OutputProduct oOputproduct = new OutputProduct() ;
 	// method
 	public static int httpget = 1;
 	public static int httppost = 2;

@@ -6,6 +6,7 @@ import java.util.List;
 import com.lib.Debug;
 import com.onlinemarketing.adapter.HomePageAdapter;
 import com.onlinemarketing.asystask.HomeAsystask;
+import com.onlinemarketing.config.SystemConfig;
 import com.onlinemarketing.object.OutputProduct;
 import com.onlinemarketing.object.ProductVO;
 
@@ -117,8 +118,7 @@ public class HomePageActivity extends Activity implements NavigationDrawerFragme
 		private HomePageAdapter adapter;
 		private HomeAsystask asystask;
 		Context context;
-		List<ProductVO> list= new ArrayList<ProductVO>();
-		OutputProduct obj = new OutputProduct();
+		List<ProductVO> list;
 		/**
 		 * Returns a new instance of this fragment for the given section number.
 		 */
@@ -139,9 +139,11 @@ public class HomePageActivity extends Activity implements NavigationDrawerFragme
 			context = rootView.getContext();
 			asystask = (HomeAsystask) new HomeAsystask().execute();
 			listview = (ListView) rootView.findViewById(R.id.listHomePage);
-			list = obj.getProductVO();
-			Debug.e("list" + list);
-			adapter = new HomePageAdapter(context, R.layout.item_trang_chu, list);
+			
+			list= new ArrayList<ProductVO>();
+			list = SystemConfig.oOputproduct.getProductVO();
+			Debug.e("list: " + list);
+			adapter = new HomePageAdapter(context, R.layout.item_home_page, list);
 			listview.setAdapter(adapter);
 			return rootView;
 		}

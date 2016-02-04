@@ -1,13 +1,18 @@
 package com.onlinemarketing.asystask;
 
-import android.os.AsyncTask;
+import java.util.List;
 
 import com.onlinemarketing.config.SystemConfig;
 import com.onlinemarketing.json.JsonProduct;
+import com.onlinemarketing.json.JsonProduct2;
 import com.onlinemarketing.object.OutputProduct;
+import com.onlinemarketing.object.ProductVO;
 
-public class HomeAsystask extends AsyncTask<Void, Void, OutputProduct> {
-	OutputProduct oOputproduct;
+import android.os.AsyncTask;
+
+public class HomeAsystask extends AsyncTask<Void, Void, List<ProductVO>> {
+	List<ProductVO> productvo;
+	OutputProduct outputProduct;
 	String Device_id;
 	JsonProduct product;
 	
@@ -15,9 +20,9 @@ public class HomeAsystask extends AsyncTask<Void, Void, OutputProduct> {
 		super();
 	}
 
-	public HomeAsystask(OutputProduct oOputproduct) {
+	public HomeAsystask(List<ProductVO> oOputproduct) {
 		super();
-		this.oOputproduct = oOputproduct;
+		this.productvo = oOputproduct;
 	}
 
 	@Override
@@ -27,13 +32,14 @@ public class HomeAsystask extends AsyncTask<Void, Void, OutputProduct> {
 	}
 
 	@Override
-	protected OutputProduct doInBackground(Void... params) {
-		oOputproduct = product.paserProduct(SystemConfig.user_id, SystemConfig.session_id, SystemConfig.device_id);
-		return oOputproduct;
+	protected List<ProductVO> doInBackground(Void... params) {
+		outputProduct = product.paserProduct(SystemConfig.user_id, SystemConfig.session_id, SystemConfig.device_id);
+		productvo = outputProduct.getProductVO();
+		return productvo;
 	}
 
 	@Override
-	protected void onPostExecute(OutputProduct result) {
+	protected void onPostExecute(List<ProductVO> result) {
 		// TODO Auto-generated method stub
 		super.onPostExecute(result);
 	}

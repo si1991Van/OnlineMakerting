@@ -1,5 +1,8 @@
 package com.onlinemarketing.object;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 public class ProductVO {
 	private int id;
 	private String name;
@@ -15,7 +18,29 @@ public class ProductVO {
 	private int position;
 	private String delete_at;
 	private String create_at;
-	
+
+	public void getJson(JSONObject object) {
+		try {
+			id = object.getInt("id");
+			name = object.get("name").toString();
+			avatar = "http://192.168.3.151/images/products/avatar/"+object.get("avatar").toString();
+			price = object.get("price").toString();
+			price_id = object.getInt("price_id");
+			category_id = object.getInt("category_id");
+			user_id = object.getInt("user_id");
+			type_id = object.getInt("type_id");
+			city_id = object.getInt("city_id");
+			startdate = object.get("start_time").toString();
+			status = object.getInt("status");
+			position = object.getInt("position");
+			delete_at = object.get("deleted_at").toString();
+			create_at = object.get("created_at").toString();
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
 	public int getUser_id() {
 		return user_id;
 	}
@@ -31,6 +56,7 @@ public class ProductVO {
 	public void setPrice_id(int price_id) {
 		this.price_id = price_id;
 	}
+
 	public int getId() {
 		return id;
 	}
@@ -46,7 +72,7 @@ public class ProductVO {
 	public void setName(String name) {
 		this.name = name;
 	}
- 
+
 	public String getAvatar() {
 		return avatar;
 	}
