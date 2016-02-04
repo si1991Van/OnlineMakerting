@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class OutputProduct {
 	private int code, user_Id;
 	private String message, session_id;
-	private ArrayList<ProductVO> productVO;
+	public ArrayList<ProductVO> productVO;
 	private ArrayList<CategoryVO> categoryVO;
 	private ArrayList<SettingVO> settingVO;
 	public int getCode() {
