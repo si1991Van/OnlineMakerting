@@ -4,7 +4,7 @@ import com.onlinemarketing.object.OutputProduct;
 
 public class SystemConfig {
 
-	public static final String API = "localhost:8883/online_market/public/api/";
+	public static final String API = "http://localhost:8000/api/";
 
 	public static final String Login = "login?";
 	public static final String Register = "register?";
