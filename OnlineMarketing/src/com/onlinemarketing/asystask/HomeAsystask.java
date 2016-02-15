@@ -32,7 +32,7 @@ public class HomeAsystask extends AsyncTask<Void, Void, OutputProduct> {
 
 	@Override
 	protected OutputProduct doInBackground(Void... params) {
-		SystemConfig.oOputproduct = product.paserProduct(SystemConfig.user_id, SystemConfig.session_id, SystemConfig.device_id);
+		SystemConfig.oOputproduct = product.paserProduct("", "", SystemConfig.device_id);
 		return SystemConfig.oOputproduct;
 	}
 
