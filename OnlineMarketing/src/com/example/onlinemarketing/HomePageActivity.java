@@ -118,7 +118,7 @@ public class HomePageActivity extends Activity implements NavigationDrawerFragme
 		private HomePageAdapter adapter;
 		private HomeAsystask asystask;
 		Context context;
-		List<ProductVO> list;
+		List<ProductVO> list = new ArrayList<ProductVO>();
 		/**
 		 * Returns a new instance of this fragment for the given section number.
 		 */
