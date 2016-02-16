@@ -30,6 +30,7 @@ public class HomePageActivity extends Activity implements NavigationDrawerFragme
 	 * Fragment managing the behaviors, interactions and presentation of the
 	 * navigation drawer.
 	 */
+	private HomeAsystask asystask;
 	private NavigationDrawerFragment mNavigationDrawerFragment;
 
 	/**
@@ -42,7 +43,7 @@ public class HomePageActivity extends Activity implements NavigationDrawerFragme
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home_page);
-
+		asystask = new HomeAsystask();
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager()
 				.findFragmentById(R.id.navigation_drawer);
 		mTitle = getTitle();
@@ -116,7 +117,7 @@ public class HomePageActivity extends Activity implements NavigationDrawerFragme
 		private static final String ARG_SECTION_NUMBER = "section_number";
 		private ListView listview;
 		private HomePageAdapter adapter;
-		private HomeAsystask asystask;
+		
 		Context context;
 		List<ProductVO> list = new ArrayList<ProductVO>();
 		/**
@@ -137,10 +138,11 @@ public class HomePageActivity extends Activity implements NavigationDrawerFragme
 		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 			View rootView = inflater.inflate(R.layout.fragment_home_page, container, false);
 			context = rootView.getContext();
-			asystask = (HomeAsystask) new HomeAsystask().execute();
+			new HomeAsystask().execute();
 			listview = (ListView) rootView.findViewById(R.id.listHomePage);
 			
 			list= new ArrayList<ProductVO>();
+		
 			list = SystemConfig.oOputproduct.getProductVO();
 			Debug.e("list: " + list);
 			adapter = new HomePageAdapter(context, R.layout.item_home_page, list);

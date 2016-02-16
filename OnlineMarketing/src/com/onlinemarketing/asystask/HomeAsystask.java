@@ -15,11 +15,6 @@ public class HomeAsystask extends AsyncTask<Void, Void, OutputProduct> {
 		super();
 	}
 
-	public HomeAsystask(OutputProduct oOputproduct) {
-		super();
-		this.outputProduct = oOputproduct;
-	}
-
 	@Override
 	protected void onPreExecute() {
 		product = new JsonProduct();
@@ -35,6 +30,7 @@ public class HomeAsystask extends AsyncTask<Void, Void, OutputProduct> {
 	@Override
 	protected void onPostExecute(OutputProduct result) {
 		// TODO Auto-generated method stub
-		super.onPostExecute(result);
+		SystemConfig.oOputproduct = result;
+		super.onPostExecute(SystemConfig.oOputproduct);
 	}
 }

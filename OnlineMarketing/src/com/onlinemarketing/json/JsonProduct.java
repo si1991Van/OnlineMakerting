@@ -25,7 +25,7 @@ public class JsonProduct {
 					request = new StringBuilder(SystemConfig.API );
 					request.append("?user_id=").append(URLEncoder.encode("", "UTF-8"));
 					request.append("&session_id=").append(URLEncoder.encode("", "UTF-8"));
-					request.append("&device_id=").append(URLEncoder.encode(device_id, "UTF-8"));
+					request.append("&device_id=").append(URLEncoder.encode("", "UTF-8"));
 
 					Debug.e("Link Home: " + request.toString());
 					String str = AndroidUtils.getjSonUrl(request.toString(), SystemConfig.httpget);
