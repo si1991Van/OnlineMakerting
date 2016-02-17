@@ -15,7 +15,7 @@ public class JsonAccount {
 	JSONObject jsonObject;
 	StringBuilder request;
 
-	public LoginRegister paserRegister(String email, String pass, String device_id, int indext) {
+	public LoginRegister paserRegister(String email, String pass, String device_id,String user_id, String session_id, int indext) {
 		LoginRegister obj = new LoginRegister();
 		// check email password
 		if(AndroidUtils.isNotNull(email) && AndroidUtils.isNotNull(pass)){
@@ -29,7 +29,9 @@ public class JsonAccount {
 					request.append("email=").append(email);
 					request.append("&password=").append(URLEncoder.encode(pass, "UTF-8"));
 					request.append("&device_id=").append(URLEncoder.encode(device_id, "UTF-8"));
-
+					
+					request.append("&user_id=").append(URLEncoder.encode(user_id, "UTF-8"));
+					request.append("&session_id=").append(URLEncoder.encode(session_id, "UTF-8"));
 					Debug.e("Link: " + request.toString());
 					String str = AndroidUtils.getjSonUrl(request.toString(), SystemConfig.httppost);
 					Debug.e("Str: " + str);

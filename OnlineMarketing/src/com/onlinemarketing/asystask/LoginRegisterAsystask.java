@@ -14,11 +14,13 @@ public class LoginRegisterAsystask extends AsyncTask<Integer, String, LoginRegis
 	JsonAccount json;
 	LoginRegister account;
 
-	public LoginRegisterAsystask(String email, String pass, String device_id) {
+	public LoginRegisterAsystask(String email, String pass, String device_id, String user_id, String session_id) {
 		super();
 		SystemConfig.Email = email;
 		SystemConfig.Pass = pass;
 		SystemConfig.device_id = device_id;
+		SystemConfig.user_id = user_id;
+		SystemConfig.session_id = session_id;
 	}
 
 	@Override
@@ -33,10 +35,10 @@ public class LoginRegisterAsystask extends AsyncTask<Integer, String, LoginRegis
 	protected LoginRegister doInBackground(Integer... params) {
 		switch (params[0]) {
 		case SystemConfig.statusLogin:
-			account = json.paserRegister(SystemConfig.Email, SystemConfig.Pass, SystemConfig.device_id, SystemConfig.statusLogin);
+			account = json.paserRegister(SystemConfig.Email, SystemConfig.Pass, SystemConfig.device_id, SystemConfig.user_id, SystemConfig.session_id ,SystemConfig.statusLogin);
 			break;
 		case SystemConfig.statusRegister:
-			account = json.paserRegister(SystemConfig.Email, SystemConfig.Pass, SystemConfig.device_id, SystemConfig.statusRegister);
+			account = json.paserRegister(SystemConfig.Email, SystemConfig.Pass, SystemConfig.device_id , SystemConfig.user_id, SystemConfig.session_id, SystemConfig.statusRegister);
 			break;
 		}
 		return account;

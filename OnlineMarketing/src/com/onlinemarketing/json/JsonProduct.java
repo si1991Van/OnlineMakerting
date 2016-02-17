@@ -42,7 +42,7 @@ public class JsonProduct {
 							ProductVO objproduct = new ProductVO();
 							objproduct.setId(objjson_product.getInt("id"));
 							objproduct.setName(objjson_product.get("name").toString());
-							objproduct.setAvatar("http://192.168.3.151/images/products/avatar/"+objjson_product.get("avatar").toString());
+							objproduct.setAvatar("http://192.168.3.150/images/products/avatar/"+objjson_product.get("avatar").toString());
 							objproduct.setPrice(objjson_product.get("price").toString());
 							objproduct.setPrice_id(objjson_product.getInt("price_id"));
 							objproduct.setCategory_id(objjson_product.getInt("category_id"));
@@ -57,7 +57,7 @@ public class JsonProduct {
 							arrProduct.add(objproduct);
 							Debug.e("objproduct: " + objproduct.getAvatar());
 						}
-						SystemConfig.oOputproduct.setProductVO(arrProduct);
+						obj.setProductVO(arrProduct);
 					}
 					
 				} catch (Exception e) {
@@ -65,7 +65,7 @@ public class JsonProduct {
 				}
 			
 		
-		return SystemConfig.oOputproduct;
+		return obj;
 
 	}
 }

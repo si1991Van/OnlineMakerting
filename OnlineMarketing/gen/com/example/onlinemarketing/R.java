@@ -591,8 +591,8 @@ containing a value of this type.
         public static final int powered_by_google_light=0x7f02003c;
     }
     public static final class id {
-        public static final int action_example=0x7f040045;
-        public static final int action_settings=0x7f040044;
+        public static final int action_example=0x7f040044;
+        public static final int action_settings=0x7f040043;
         public static final int automatic=0x7f040000;
         public static final int book_now=0x7f040021;
         public static final int bottom=0x7f04000c;
@@ -629,16 +629,15 @@ containing a value of this type.
         public static final int hybrid=0x7f040015;
         public static final int inline=0x7f04000d;
         public static final int item_img_trangChu=0x7f04003d;
-        public static final int item_txt_KhoangCach=0x7f040041;
         public static final int item_txt_giaSP=0x7f04003f;
         public static final int item_txt_ngay=0x7f040040;
         public static final int item_txt_tenSP=0x7f04003e;
-        public static final int item_txt_view=0x7f040042;
+        public static final int item_txt_view=0x7f040041;
         public static final int large=0x7f040005;
         public static final int left=0x7f040010;
         public static final int listHomePage=0x7f040038;
         public static final int match_parent=0x7f04001d;
-        public static final int messenger_send_button=0x7f040043;
+        public static final int messenger_send_button=0x7f040042;
         public static final int monochrome=0x7f040024;
         public static final int navigation_drawer=0x7f040027;
         public static final int never_display=0x7f040002;

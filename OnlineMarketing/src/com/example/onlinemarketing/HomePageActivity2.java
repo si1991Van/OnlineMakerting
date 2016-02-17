@@ -3,13 +3,10 @@ package com.example.onlinemarketing;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.onlinemarketing.HomePageActivity.PlaceholderFragment;
 import com.lib.Debug;
 import com.onlinemarketing.adapter.HomePageAdapter;
 import com.onlinemarketing.asystask.HomeAsystask;
 import com.onlinemarketing.config.SystemConfig;
-import com.onlinemarketing.json.JsonProduct;
-import com.onlinemarketing.object.OutputProduct;
 import com.onlinemarketing.object.ProductVO;
 
 import android.app.ActionBar;
@@ -17,7 +14,6 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Context;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
@@ -27,12 +23,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-public class HomePageActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+public class HomePageActivity2 extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
 	/**
 	 * Fragment managing the behaviors, interactions and presentation of the
 	 * navigation drawer.
 	 */
+	static HomeAsystask asystask;
 	private NavigationDrawerFragment mNavigationDrawerFragment;
 
 	/**
@@ -45,7 +42,7 @@ public class HomePageActivity extends Activity implements NavigationDrawerFragme
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home_page);
-		new HomeAsystask().execute();
+
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager()
 				.findFragmentById(R.id.navigation_drawer);
 		mTitle = getTitle();
@@ -121,6 +118,7 @@ public class HomePageActivity extends Activity implements NavigationDrawerFragme
 		public static HomePageAdapter adapter;
 
 		Context context;
+		
 
 		/**
 		 * Returns a new instance of this fragment for the given section number.
@@ -137,7 +135,7 @@ public class HomePageActivity extends Activity implements NavigationDrawerFragme
 		}
 
 		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		public synchronized View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 			View rootView = inflater.inflate(R.layout.fragment_home_page, container, false);
 			context = rootView.getContext();
 			Debug.e("vãi lồn: 111111111111111111111111111111");
@@ -147,54 +145,24 @@ public class HomePageActivity extends Activity implements NavigationDrawerFragme
 				Debug.e("vãi lồn: 222222222222222222222222222222");
 				List<ProductVO> list = new ArrayList<ProductVO>();
 				list = SystemConfig.oOputproduct.getProductVO();
-				Debug.e("vãi lồn: 33333333333333333");
+				Debug.e("vãi lồn: 33333333333333333"  );
 				adapter = new HomePageAdapter(context, R.layout.item_trang_chu, list);
 				Debug.e("vãi lồn: 4444444444444444444444444444444444444444");
 				listview.setAdapter(adapter);
-				
+				asystask = new HomeAsystask();
 			} catch (Exception ex) {
 				Debug.e(ex.toString());
 			}
-
+			
 			return rootView;
 		}
 
 		@Override
 		public void onAttach(Activity activity) {
 			super.onAttach(activity);
-			((HomePageActivity) activity).onSectionAttached(getArguments().getInt(ARG_SECTION_NUMBER));
-		
-		}
-
-		public class HomeAsystask extends AsyncTask<Void, Void, OutputProduct> {
-			OutputProduct outputProduct;
-			String Device_id;
-			JsonProduct product;
-			@Override
-			protected void onPreExecute() {
-				product = new JsonProduct();
-				super.onPreExecute();
-			}
-
-			@Override
-			protected OutputProduct doInBackground(Void... params) {
-				Debug.e("vãi căc: 000000000000000000000000000000000");
-				SystemConfig.oOputproduct = product.paserProduct("", "", SystemConfig.device_id);
-				return SystemConfig.oOputproduct;
-			}
-
-			@Override
-			protected void onPostExecute(OutputProduct result) {
-				Debug.e("vãi căc: 11111111111111111111111111111111111");
-				if (SystemConfig.oOputproduct.getProductVO().isEmpty()) {
-					adapter.addAll(SystemConfig.oOputproduct.getProductVO());
-					adapter.notifyDataSetChanged();
-					Debug.e("vãi căc: 3333333333333333333333333333333");
-				}
-				Debug.e("vãi căc: 4444444444444444444444444444444444444");
-				SystemConfig.oOputproduct = result;
-				super.onPostExecute(SystemConfig.oOputproduct);
-			}
+			((HomePageActivity2) activity).onSectionAttached(getArguments().getInt(ARG_SECTION_NUMBER));
+			new HomeAsystask().execute();
 		}
 	}
+
 }

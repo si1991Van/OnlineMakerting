@@ -203,7 +203,7 @@ public final class R {
 		public static final int large = 0x7f040005;
 		public static final int left = 0x7f040010;
 		public static final int match_parent = 0x7f04001d;
-		public static final int messenger_send_button = 0x7f040043;
+		public static final int messenger_send_button = 0x7f040042;
 		public static final int monochrome = 0x7f040024;
 		public static final int never_display = 0x7f040002;
 		public static final int none = 0x7f040012;

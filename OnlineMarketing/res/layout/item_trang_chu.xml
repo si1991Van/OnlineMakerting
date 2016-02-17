@@ -48,15 +48,6 @@
                 android:text="29/06/2015"
                 android:textSize="10sp" />
         </LinearLayout>
-
-
-            <TextView
-                android:id="@+id/item_txt_KhoangCach"
-                android:layout_width="fill_parent"
-                android:layout_weight="1.75"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="1.3km"/>
     </LinearLayout>
 
     <View
