@@ -17,19 +17,25 @@ public class JsonProduct {
 	JSONObject jsonObject;
 	StringBuilder request;
 
-	public OutputProduct paserProduct(String user_id, String session_id, String device_id) {
+	public OutputProduct paserProduct(String user_id, String session_id, String device_id, int id,int status) {
 		OutputProduct obj = new OutputProduct();
+		String str = null ;
 		// check email password
 		
 				try {
 					request = new StringBuilder(SystemConfig.API );
+					if(status == SystemConfig.statusCategoryProduct)
+						request.append(SystemConfig.Category+"/"+ id);
 					request.append("?user_id=").append(URLEncoder.encode("", "UTF-8"));
 					request.append("&session_id=").append(URLEncoder.encode("", "UTF-8"));
-					request.append("&device_id=").append(URLEncoder.encode("", "UTF-8"));
+					request.append("&device_id=").append(URLEncoder.encode(device_id, "UTF-8"));
 
 					Debug.e("Link Home: " + request.toString());
-					String str = AndroidUtils.getjSonUrl(request.toString(), SystemConfig.httpget);
-					Debug.e("Str: " + str);
+					if(status == SystemConfig.statusCategoryProduct)
+					    str = AndroidUtils.getjSonUrl(request.toString(), SystemConfig.httppost);
+					else 
+						str = AndroidUtils.getjSonUrl(request.toString(), SystemConfig.httpget);
+					//Debug.e("Str: " + str);
 					jsonObject = new JSONObject(str);
 					obj.setCode(jsonObject.getInt("code"));					
 					obj.setMessage(jsonObject.getString("message"));
@@ -42,7 +48,7 @@ public class JsonProduct {
 							ProductVO objproduct = new ProductVO();
 							objproduct.setId(objjson_product.getInt("id"));
 							objproduct.setName(objjson_product.get("name").toString());
-							objproduct.setAvatar("http://192.168.3.151/images/products/avatar/"+objjson_product.get("avatar").toString());
+							objproduct.setAvatar("http://192.168.3.150/images/products/avatar/"+objjson_product.get("avatar").toString());
 							objproduct.setPrice(objjson_product.get("price").toString());
 							objproduct.setPrice_id(objjson_product.getInt("price_id"));
 							objproduct.setCategory_id(objjson_product.getInt("category_id"));
@@ -57,7 +63,7 @@ public class JsonProduct {
 							arrProduct.add(objproduct);
 							Debug.e("objproduct: " + objproduct.getAvatar());
 						}
-						SystemConfig.oOputproduct.setProductVO(arrProduct);
+						obj.setProductVO(arrProduct);
 					}
 					
 				} catch (Exception e) {
@@ -65,7 +71,7 @@ public class JsonProduct {
 				}
 			
 		
-		return SystemConfig.oOputproduct;
+		return obj;
 
 	}
 }

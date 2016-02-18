@@ -4,14 +4,13 @@ import com.example.onlinemarketing.R;
 import com.onlinemarketing.asystask.LoginRegisterAsystask;
 import com.onlinemarketing.config.SystemConfig;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class RegisterActivity extends Activity implements OnClickListener{
+public class RegisterActivity extends BaseActivity implements OnClickListener{
 
 	EditText txtusername, txtpass;
 	Button register;
@@ -25,13 +24,13 @@ public class RegisterActivity extends Activity implements OnClickListener{
 		txtpass = (EditText) findViewById(R.id.txtpassword);
 		register = (Button) findViewById(R.id.btnRegister);
 		register.setOnClickListener(this);
-		account = new LoginRegisterAsystask(txtusername.getText().toString(), txtpass.getText().toString(), SystemConfig.device_id);
+		account = new LoginRegisterAsystask(txtusername.getText().toString(), txtpass.getText().toString(), "","",SystemConfig.device_id);
 		
 	}
 
 	@Override
 	public void onClick(View v) {
-		new LoginRegisterAsystask(txtusername.getText().toString(), txtpass.getText().toString(), SystemConfig.device_id).execute(2);
+		new LoginRegisterAsystask(txtusername.getText().toString(), txtpass.getText().toString(), "","",SystemConfig.device_id).execute(2);
 	}
 
 	

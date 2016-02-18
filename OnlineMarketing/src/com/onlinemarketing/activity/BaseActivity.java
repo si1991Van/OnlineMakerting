@@ -1,7 +1,5 @@
 package com.onlinemarketing.activity;
 
-import java.io.IOException;
-
 import com.lib.Debug;
 import com.onlinemarketing.config.Constan;
 import com.onlinemarketing.config.SystemConfig;
@@ -21,7 +19,7 @@ public class BaseActivity extends Activity{
 	public boolean isConnect(){
 		Constan.context = getApplicationContext();
 		SystemConfig.device_id = AndroidDeviceInfo.getAndroidID(this);
-		
+		Debug.e(SystemConfig.device_id);
 		boolean isconnect = AndroidUtils.isConnectedToInternet(this);
 		if (!isconnect) {
 			

@@ -1,15 +1,20 @@
 package com.example.onlinemarketing;
 
-import android.app.Activity;
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.ActionBar;
+import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.content.SharedPreferences;
-import android.content.res.Configuration;
-import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,9 +22,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.lib.Debug;
+import com.onlinemarketing.config.SystemConfig;
+import com.onlinemarketing.json.JsonCategory;
+import com.onlinemarketing.object.CategoryVO;
+import com.onlinemarketing.object.OutputProduct;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation
@@ -30,6 +42,8 @@ import android.widget.Toast;
  */
 public class NavigationDrawerFragment extends Fragment {
 
+	OutputProduct oOput;
+	ArrayList<CategoryVO> list = new ArrayList<CategoryVO>();
 	/**
 	 * Remember the position of the selected item.
 	 */
@@ -54,7 +68,6 @@ public class NavigationDrawerFragment extends Fragment {
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerListView;
 	private View mFragmentContainerView;
-
 	private int mCurrentSelectedPosition = 0;
 	private boolean mFromSavedInstanceState;
 	private boolean mUserLearnedDrawer;
@@ -91,6 +104,7 @@ public class NavigationDrawerFragment extends Fragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		
 		mDrawerListView = (ListView) inflater.inflate(R.layout.fragment_navigation_home, container, false);
 		mDrawerListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
@@ -98,10 +112,17 @@ public class NavigationDrawerFragment extends Fragment {
 				selectItem(position);
 			}
 		});
+		
+		int n = SystemConfig.oOputproduct.getCategoryVO().size();
+		Debug.e("dem:" + n);
+		String []title = new String[n];
+		for(int i=0; i< n; i++){
+			title[i]= SystemConfig.oOputproduct.getCategoryVO().get(i).getName();
+		Debug.e("ten category: "+ SystemConfig.oOputproduct.getCategoryVO().get(i).getName());
+		}
 		mDrawerListView.setAdapter(new ArrayAdapter<String>(getActionBar().getThemedContext(),
 				android.R.layout.simple_list_item_activated_1, android.R.id.text1,
-				new String[] { getString(R.string.title_section1), getString(R.string.title_section2),
-						getString(R.string.title_section3), }));
+				title));
 		mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
 		return mDrawerListView;
 	}
@@ -294,4 +315,5 @@ public class NavigationDrawerFragment extends Fragment {
 		 */
 		void onNavigationDrawerItemSelected(int position);
 	}
+	
 }

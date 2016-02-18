@@ -64,7 +64,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		btnFace.setOnClickListener(this);
 		btn_skip.setOnClickListener(this);
 		account = new LoginRegisterAsystask(txtusername.getText().toString().trim(),
-				txtpass.getText().toString().trim(), SystemConfig.device_id);
+				txtpass.getText().toString().trim(),"","", SystemConfig.device_id);
 		Debug.e(SystemConfig.device_id);
 		mPlusClient = new PlusClient.Builder(getApplicationContext(), new ConnectionCallbacks() {
 
@@ -105,7 +105,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		switch (v.getId()) {
 		case R.id.btnlogin:
 			new LoginRegisterAsystask(txtusername.getText().toString().trim(), txtpass.getText().toString().trim(),
-					SystemConfig.device_id).execute(1);
+					"","",SystemConfig.device_id).execute(1);
 			break;
 		case R.id.btnRegister:
 			startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
