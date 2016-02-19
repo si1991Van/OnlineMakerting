@@ -3,8 +3,8 @@ package com.onlinemarketing.object;
 import java.util.ArrayList;
 
 public class OutputProduct {
-	private int code, user_Id;
-	private String message, session_id;
+	private int code ;
+	private String message, session_id,user_Id;
 	public ArrayList<ProductVO> productVO;
 	private ArrayList<CategoryVO> categoryVO;
 	private ArrayList<SettingVO> settingVO;
@@ -14,10 +14,11 @@ public class OutputProduct {
 	public void setCode(int code) {
 		this.code = code;
 	}
-	public int getUser_Id() {
+
+	public String getUser_Id() {
 		return user_Id;
 	}
-	public void setUser_Id(int user_Id) {
+	public void setUser_Id(String user_Id) {
 		this.user_Id = user_Id;
 	}
 	public String getMessage() {

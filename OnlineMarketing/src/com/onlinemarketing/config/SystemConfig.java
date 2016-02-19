@@ -1,5 +1,6 @@
 package com.onlinemarketing.config;
 
+import com.onlinemarketing.object.LoginRegister;
 import com.onlinemarketing.object.OutputProduct;
 
 public class SystemConfig {
@@ -8,13 +9,17 @@ public class SystemConfig {
 
 	public static final String Login = "login?";
 	public static final String Register = "register?";
+	public static final String Category = "category";
 	public static final int statusLogin = 1;
 	public static final int statusRegister = 2;
+	public static final int statusHomeProduct = 1;
+	public static final int statusCategoryProduct = 2;
 	public static String device_id ;
 	public static String user_id = "";
 	public static String session_id = "";
 	public static String Email, Pass;
 	public static OutputProduct oOputproduct = new OutputProduct();
+	public static LoginRegister loginRegiter ;
 	// method
 	public static int httpget = 1;
 	public static int httppost = 2;

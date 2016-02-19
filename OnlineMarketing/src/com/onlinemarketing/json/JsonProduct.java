@@ -17,19 +17,25 @@ public class JsonProduct {
 	JSONObject jsonObject;
 	StringBuilder request;
 
-	public OutputProduct paserProduct(String user_id, String session_id, String device_id) {
+	public OutputProduct paserProduct(String user_id, String session_id, String device_id, int id,int status) {
 		OutputProduct obj = new OutputProduct();
+		String str = null ;
 		// check email password
 		
 				try {
 					request = new StringBuilder(SystemConfig.API );
+					if(status == SystemConfig.statusCategoryProduct)
+						request.append(SystemConfig.Category+"/"+ id);
 					request.append("?user_id=").append(URLEncoder.encode("", "UTF-8"));
 					request.append("&session_id=").append(URLEncoder.encode("", "UTF-8"));
 					request.append("&device_id=").append(URLEncoder.encode(device_id, "UTF-8"));
 
 					Debug.e("Link Home: " + request.toString());
-					String str = AndroidUtils.getjSonUrl(request.toString(), SystemConfig.httpget);
-					Debug.e("Str: " + str);
+					if(status == SystemConfig.statusCategoryProduct)
+					    str = AndroidUtils.getjSonUrl(request.toString(), SystemConfig.httppost);
+					else 
+						str = AndroidUtils.getjSonUrl(request.toString(), SystemConfig.httpget);
+					//Debug.e("Str: " + str);
 					jsonObject = new JSONObject(str);
 					obj.setCode(jsonObject.getInt("code"));					
 					obj.setMessage(jsonObject.getString("message"));

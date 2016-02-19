@@ -44,7 +44,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	private PlusClient mPlusClient;
 	private int REQUEST_CODE_RESOLVE_ERR = 301;
 	private CallbackManager callback = null;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		FacebookSdk.sdkInitialize(this);
@@ -64,7 +64,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		btnFace.setOnClickListener(this);
 		btn_skip.setOnClickListener(this);
 		account = new LoginRegisterAsystask(txtusername.getText().toString().trim(),
-				txtpass.getText().toString().trim(),"","", SystemConfig.device_id);
+				txtpass.getText().toString().trim(), "", "", SystemConfig.device_id);
 		Debug.e(SystemConfig.device_id);
 		mPlusClient = new PlusClient.Builder(getApplicationContext(), new ConnectionCallbacks() {
 
@@ -104,21 +104,21 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btnlogin:
-			new LoginRegisterAsystask(txtusername.getText().toString().trim(), txtpass.getText().toString().trim(),
-					"","",SystemConfig.device_id).execute(1);
+			new LoginRegisterAsystask(txtusername.getText().toString().trim(), txtpass.getText().toString().trim(), "",
+					"", SystemConfig.device_id).execute(1);
 			break;
 		case R.id.btnRegister:
 			startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
 			break;
 		case R.id.btnSkip:
-			 startActivity(new Intent(LoginActivity.this,
-			 HomePageActivity.class));
+			startActivity(new Intent(LoginActivity.this, HomePageActivity.class));
 			break;
 
 		case R.id.googlebtn:
 			if (!mPlusClient.isConnected()) {
 
 				mPlusClient.connect();
+				startActivity(new Intent(LoginActivity.this, HomePageActivity.class));
 
 			} else if (mPlusClient.isConnected()) {
 				{
@@ -133,10 +133,10 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 
 				@Override
 				public void onSuccess(LoginResult result) {
-//					Profile profile = Profile.getCurrentProfile();
+					// Profile profile = Profile.getCurrentProfile();
 					Intent intent = new Intent(LoginActivity.this, HomePageActivity.class);
-//					intent.putExtra(Account.ID, profile.getId());
-//					Debug.e("UID: " + profile.getId().toString());
+					// intent.putExtra(Account.ID, profile.getId());
+					// Debug.e("UID: " + profile.getId().toString());
 					startActivity(intent);
 					finish();
 				}
@@ -150,7 +150,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 				public void onCancel() {
 					Debug.e("Há»§y Ä‘Äƒng nháº­p");
 				}
-				
+
 			});
 			break;
 		}
@@ -164,7 +164,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		}
 		return super.onKeyDown(keyCode, event);
 	}
-	
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
