@@ -25,15 +25,20 @@ import com.lib.Debug;
 import com.onlinemarketing.adapter.HomePageAdapter;
 import com.onlinemarketing.config.SystemConfig;
 import com.onlinemarketing.json.JsonProduct;
+import com.onlinemarketing.json.JsonSetting;
 import com.onlinemarketing.object.OutputProduct;
 import com.onlinemarketing.object.ProductVO;
+import com.onlinemarketing.object.SettingVO;
 
-public class HomePageActivity extends Activity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
+public class HomePageActivity extends Activity implements
+		NavigationDrawerFragment.NavigationDrawerCallbacks {
 
 	/**
 	 * Fragment managing the behaviors, interactions and presentation of the
 	 * navigation drawer.
 	 */
+	List<SettingVO> listSetting = new ArrayList<SettingVO>();
+	static OutputProduct oOput;
 	private NavigationDrawerFragment mNavigationDrawerFragment;
 	/**
 	 * Used to store the last screen title. For use in
@@ -51,22 +56,27 @@ public class HomePageActivity extends Activity implements NavigationDrawerFragme
 				.findFragmentById(R.id.navigation_drawer);
 		mTitle = getTitle();
 		// Set up the drawer.
-		mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
+		mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
+				(DrawerLayout) findViewById(R.id.drawer_layout));
 	}
 
 	@Override
 	public void onNavigationDrawerItemSelected(int position) {
 		// update the main content by replacing fragments
 		FragmentManager fragmentManager = getFragmentManager();
-		fragmentManager.beginTransaction().replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
-				.commit();
+		fragmentManager
+				.beginTransaction()
+				.replace(R.id.container,
+						PlaceholderFragment.newInstance(position + 1)).commit();
 	}
 
 	public void onSectionAttached(int number) {
-		
+
 		// Debug.e("vao roi");
-		mTitle = SystemConfig.oOputproduct.getCategoryVO().get(number - 1).getName();
-		id_category = SystemConfig.oOputproduct.getCategoryVO().get(number - 1).getId();
+		mTitle = SystemConfig.oOputproduct.getCategoryVO().get(number - 1)
+				.getName();
+		id_category = SystemConfig.oOputproduct.getCategoryVO().get(number - 1)
+				.getId();
 		Debug.e("id category:" + id_category);
 		status = SystemConfig.statusCategoryProduct;
 
@@ -87,6 +97,7 @@ public class HomePageActivity extends Activity implements NavigationDrawerFragme
 			// decide what to show in the action bar.
 			getMenuInflater().inflate(R.menu.home_page, menu);
 			restoreActionBar();
+			
 			return true;
 		}
 		return super.onCreateOptionsMenu(menu);
@@ -94,20 +105,46 @@ public class HomePageActivity extends Activity implements NavigationDrawerFragme
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
+			new SettingAsystask().execute();
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
 	}
 
+	public class SettingAsystask extends
+			AsyncTask<Integer, Integer, OutputProduct> {
+		String Device_id;
+		JsonSetting setting;
+		
+
+		@Override
+		protected void onPreExecute() {
+			setting = new JsonSetting();
+			super.onPreExecute();
+		}
+
+		@Override
+		protected OutputProduct doInBackground(Integer... params) {
+			oOput = setting.paserSetting(SystemConfig.user_id,
+					SystemConfig.session_id, SystemConfig.device_id);
+
+			listSetting = oOput.getSettingVO();
+			return null;
+		}
+
+		@Override
+		protected void onPostExecute(OutputProduct result) {
+
+		}
+	}
+
 	/**
 	 * A placeholder fragment containing a simple view.
 	 */
-	public static class PlaceholderFragment extends Fragment implements OnItemClickListener {
+	public static class PlaceholderFragment extends Fragment implements
+			OnItemClickListener {
 		/**
 		 * The fragment argument representing the section number for this
 		 * fragment.
@@ -116,7 +153,7 @@ public class HomePageActivity extends Activity implements NavigationDrawerFragme
 		ListView listview;
 		HomePageAdapter adapter;
 		List<ProductVO> list = new ArrayList<ProductVO>();
-		OutputProduct oOput;
+
 		Context context;
 		View rootView;
 		ProgressDialog progressDialog;
@@ -133,8 +170,10 @@ public class HomePageActivity extends Activity implements NavigationDrawerFragme
 		}
 
 		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-			rootView = inflater.inflate(R.layout.fragment_home_page, container, false);
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+				Bundle savedInstanceState) {
+			rootView = inflater.inflate(R.layout.fragment_home_page, container,
+					false);
 			context = rootView.getContext();
 			listview = (ListView) rootView.findViewById(R.id.listHomePage);
 			listview.setOnItemClickListener(this);
@@ -146,15 +185,16 @@ public class HomePageActivity extends Activity implements NavigationDrawerFragme
 		@Override
 		public void onAttach(Activity activity) {
 			super.onAttach(activity);
-			((HomePageActivity) activity).onSectionAttached(getArguments().getInt(ARG_SECTION_NUMBER));
+			((HomePageActivity) activity).onSectionAttached(getArguments()
+					.getInt(ARG_SECTION_NUMBER));
 			// ((HomePageActivity)
 			// activity).onSectionAttached(SystemConfig.statusHomeProduct);
 			Debug.e("click lan ");
 
 		}
 
-		public class HomeAsystask extends AsyncTask<Integer, Integer, OutputProduct> {
-			OutputProduct outputProduct;
+		public class HomeAsystask extends
+				AsyncTask<Integer, Integer, OutputProduct> {
 			String Device_id;
 			JsonProduct product;
 
@@ -178,10 +218,14 @@ public class HomePageActivity extends Activity implements NavigationDrawerFragme
 			protected OutputProduct doInBackground(Integer... params) {
 				switch (params[0]) {
 				case SystemConfig.statusHomeProduct:
-					oOput = product.paserProduct("", "", SystemConfig.device_id, 0, SystemConfig.statusHomeProduct);
+					oOput = product.paserProduct("", "",
+							SystemConfig.device_id, 0,
+							SystemConfig.statusHomeProduct);
 					break;
 				case SystemConfig.statusCategoryProduct:
-					oOput = product.paserProduct("", "", SystemConfig.device_id, HomePageActivity.id_category,
+					oOput = product.paserProduct("", "",
+							SystemConfig.device_id,
+							HomePageActivity.id_category,
 							SystemConfig.statusCategoryProduct);
 					break;
 				default:
@@ -189,12 +233,13 @@ public class HomePageActivity extends Activity implements NavigationDrawerFragme
 				}
 
 				list = oOput.getProductVO();
-				return outputProduct;
+				return null;
 			}
 
 			@Override
 			protected void onPostExecute(OutputProduct result) {
-				adapter = new HomePageAdapter(context, R.layout.item_trang_chu, list);
+				adapter = new HomePageAdapter(context, R.layout.item_trang_chu,
+						list);
 				listview.setAdapter(adapter);
 				progressDialog.dismiss();
 
@@ -202,7 +247,8 @@ public class HomePageActivity extends Activity implements NavigationDrawerFragme
 		}
 
 		@Override
-		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+				long arg3) {
 			Debug.showAlert(context, "Vãi cường");
 
 		}

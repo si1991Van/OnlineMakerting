@@ -589,6 +589,7 @@ containing a value of this type.
         public static final int messenger_button_white_bg_selector=0x7f02003a;
         public static final int powered_by_google_dark=0x7f02003b;
         public static final int powered_by_google_light=0x7f02003c;
+        public static final int setting=0x7f02003d;
     }
     public static final class id {
         public static final int action_example=0x7f0a0044;

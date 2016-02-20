@@ -165,6 +165,7 @@ int drawable messenger_button_white_bg_round 0x7f020039
 int drawable messenger_button_white_bg_selector 0x7f02003a
 int drawable powered_by_google_dark 0x7f02003b
 int drawable powered_by_google_light 0x7f02003c
+int drawable setting 0x7f02003d
 int id action_example 0x7f0a0044
 int id action_settings 0x7f0a0043
 int id automatic 0x7f0a0000
