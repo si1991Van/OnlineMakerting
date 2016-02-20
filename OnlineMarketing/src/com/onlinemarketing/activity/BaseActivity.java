@@ -31,6 +31,7 @@ public class BaseActivity extends Activity{
 		@SuppressWarnings("deprecation")
 		AlertDialog.Builder alertDialog = new AlertDialog.Builder(BaseActivity.this, AlertDialog.THEME_HOLO_LIGHT);
 		try {
+//			alertDialog.setCancelable(false);
 			alertDialog.setTitle(Constan.getProperty("ErrorConnectInterNet"));
 			alertDialog.setMessage(Constan.getProperty("ErrorConnectInterNetMessage"))
 					.setCancelable(false).setPositiveButton(Constan.getProperty("Cancel"), new DialogInterface.OnClickListener() {
