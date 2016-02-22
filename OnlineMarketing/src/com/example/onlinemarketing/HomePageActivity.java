@@ -109,6 +109,9 @@ public class HomePageActivity extends Activity implements
 		return super.onOptionsItemSelected(item);
 	}
 
+	public void findByID(View view){
+		
+	}
 	public class SettingAsystask extends
 			AsyncTask<Integer, Integer, OutputProduct> {
 		String Device_id;
