@@ -1,9 +1,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <item
+   <item
         android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:showAsAction="never"
-        android:title="@string/action_settings"/>
-
+        android:icon="@drawable/setting"
+        android:showAsAction="withText|ifRoom"
+        />
 </menu>
