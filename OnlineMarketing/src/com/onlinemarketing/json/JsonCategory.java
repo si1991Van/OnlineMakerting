@@ -33,10 +33,8 @@ public class JsonCategory {
 			request.append("&device_id=").append(
 					URLEncoder.encode("", "UTF-8"));
 
-			Debug.e("Link Home: " + request.toString());
 			String str = AndroidUtils.getjSonUrl(request.toString(),
 					SystemConfig.httppost);
-			Debug.e("Str: " + str);
 			jsonObject = new JSONObject(str);
 			list_category.setCode(jsonObject.getInt("code"));
 			list_category.setMessage(jsonObject.getString("message"));

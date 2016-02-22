@@ -187,13 +187,13 @@ public final class R {
 		public static final int buy_with_google = 0x7f0a0021;
 		public static final int center = 0x7f0a000f;
 		public static final int classic = 0x7f0a0022;
-		public static final int com_facebook_body_frame = 0x7f0a0032;
-		public static final int com_facebook_button_xout = 0x7f0a0034;
-		public static final int com_facebook_fragment_container = 0x7f0a0030;
-		public static final int com_facebook_login_activity_progress_bar = 0x7f0a0031;
-		public static final int com_facebook_tooltip_bubble_view_bottom_pointer = 0x7f0a0036;
-		public static final int com_facebook_tooltip_bubble_view_text_body = 0x7f0a0035;
-		public static final int com_facebook_tooltip_bubble_view_top_pointer = 0x7f0a0033;
+		public static final int com_facebook_body_frame = 0x7f0a0035;
+		public static final int com_facebook_button_xout = 0x7f0a0037;
+		public static final int com_facebook_fragment_container = 0x7f0a0033;
+		public static final int com_facebook_login_activity_progress_bar = 0x7f0a0034;
+		public static final int com_facebook_tooltip_bubble_view_bottom_pointer = 0x7f0a0039;
+		public static final int com_facebook_tooltip_bubble_view_text_body = 0x7f0a0038;
+		public static final int com_facebook_tooltip_bubble_view_top_pointer = 0x7f0a0036;
 		public static final int display_always = 0x7f0a0001;
 		public static final int grayscale = 0x7f0a0023;
 		public static final int holo_dark = 0x7f0a0016;
@@ -203,7 +203,7 @@ public final class R {
 		public static final int large = 0x7f0a0003;
 		public static final int left = 0x7f0a0010;
 		public static final int match_parent = 0x7f0a001d;
-		public static final int messenger_send_button = 0x7f0a0042;
+		public static final int messenger_send_button = 0x7f0a0045;
 		public static final int monochrome = 0x7f0a0024;
 		public static final int never_display = 0x7f0a0002;
 		public static final int none = 0x7f0a0013;
@@ -227,15 +227,15 @@ public final class R {
 		public static final int google_play_services_version = 0x7f080000;
 	}
 	public static final class layout {
-		public static final int com_facebook_activity_layout = 0x7f030004;
-		public static final int com_facebook_login_fragment = 0x7f030005;
-		public static final int com_facebook_tooltip_bubble = 0x7f030006;
-		public static final int messenger_button_send_blue_large = 0x7f03000d;
-		public static final int messenger_button_send_blue_round = 0x7f03000e;
-		public static final int messenger_button_send_blue_small = 0x7f03000f;
-		public static final int messenger_button_send_white_large = 0x7f030010;
-		public static final int messenger_button_send_white_round = 0x7f030011;
-		public static final int messenger_button_send_white_small = 0x7f030012;
+		public static final int com_facebook_activity_layout = 0x7f030005;
+		public static final int com_facebook_login_fragment = 0x7f030006;
+		public static final int com_facebook_tooltip_bubble = 0x7f030007;
+		public static final int messenger_button_send_blue_large = 0x7f03000e;
+		public static final int messenger_button_send_blue_round = 0x7f03000f;
+		public static final int messenger_button_send_blue_small = 0x7f030010;
+		public static final int messenger_button_send_white_large = 0x7f030011;
+		public static final int messenger_button_send_white_round = 0x7f030012;
+		public static final int messenger_button_send_white_small = 0x7f030013;
 	}
 	public static final class string {
 		public static final int app_name = 0x7f040031;

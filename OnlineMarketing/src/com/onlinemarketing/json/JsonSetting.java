@@ -29,9 +29,8 @@ public class JsonSetting {
 					request.append("&session_id=").append(URLEncoder.encode(session_id, "UTF-8"));
 					request.append("&device_id=").append(URLEncoder.encode(device_id, "UTF-8"));
 
-					Debug.e("Link Home: " + request.toString());
 					str = AndroidUtils.getjSonUrl(request.toString(), SystemConfig.httppost);
-					Debug.e("Str: " + str);
+					Debug.e("Str: "+str);
 					jsonObject = new JSONObject(str);
 					obj.setCode(jsonObject.getInt("code"));					
 					obj.setMessage(jsonObject.getString("message"));
