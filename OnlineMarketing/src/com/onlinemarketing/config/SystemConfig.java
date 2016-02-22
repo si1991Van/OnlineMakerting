@@ -10,6 +10,7 @@ public class SystemConfig {
 	public static final String Login = "login?";
 	public static final String Register = "register?";
 	public static final String Category = "category";
+	public static final String Setting = "setting";
 	public static final int statusLogin = 1;
 	public static final int statusRegister = 2;
 	public static final int statusHomeProduct = 1;
