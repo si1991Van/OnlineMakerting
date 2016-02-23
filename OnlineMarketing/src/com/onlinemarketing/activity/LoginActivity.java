@@ -104,8 +104,10 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btnlogin:
-			new LoginRegisterAsystask(txtusername.getText().toString().trim(), txtpass.getText().toString().trim(),
-					SystemConfig.device_id, "", "").execute(SystemConfig.statusLogin);
+			if (isConnect()) {
+				new LoginRegisterAsystask(txtusername.getText().toString().trim(), txtpass.getText().toString().trim(),
+						SystemConfig.device_id, "", "").execute(SystemConfig.statusLogin);
+			}
 			break;
 		case R.id.btnRegister:
 			startActivity(new Intent(LoginActivity.this, RegisterActivity.class));
