@@ -32,7 +32,7 @@ public class JsonAccount {
 					
 					request.append("&user_id=").append(URLEncoder.encode(user_id, "UTF-8"));
 					request.append("&session_id=").append(URLEncoder.encode(session_id, "UTF-8"));
-					Debug.e("Link: " + request.toString());
+					Debug.e("link: " + request.toString());
 					String str = AndroidUtils.getjSonUrl(request.toString(), SystemConfig.httppost);
 					Debug.e("Str: " + str);
 					jsonObject = new JSONObject(str);

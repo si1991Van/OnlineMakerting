@@ -1,6 +1,7 @@
 package com.onlinemarketing.activity;
 
 import com.example.onlinemarketing.R;
+import com.lib.Debug;
 import com.onlinemarketing.asystask.LoginRegisterAsystask;
 import com.onlinemarketing.config.SystemConfig;
 
@@ -24,13 +25,16 @@ public class RegisterActivity extends BaseActivity implements OnClickListener{
 		txtpass = (EditText) findViewById(R.id.txtpassword);
 		register = (Button) findViewById(R.id.btnRegister);
 		register.setOnClickListener(this);
-		account = new LoginRegisterAsystask(txtusername.getText().toString(), txtpass.getText().toString(), "","",SystemConfig.device_id);
+		account = new LoginRegisterAsystask(txtusername.getText().toString(), txtpass.getText().toString(),SystemConfig.device_id, "","");
 		
 	}
 
 	@Override
 	public void onClick(View v) {
-		new LoginRegisterAsystask(txtusername.getText().toString(), txtpass.getText().toString(), "","",SystemConfig.device_id).execute(2);
+		if (isConnect()) {
+			Debug.e("SystemConfig.device_id: "+ SystemConfig.device_id);
+			new LoginRegisterAsystask(txtusername.getText().toString(), txtpass.getText().toString(),SystemConfig.device_id, "","").execute(SystemConfig.statusRegister);
+		}
 	}
 
 	

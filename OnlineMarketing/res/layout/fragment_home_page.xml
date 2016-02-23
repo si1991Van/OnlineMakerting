@@ -18,25 +18,25 @@
         android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/btnHome_FragmentCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Home" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnChat_FragmentCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Chat" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btnFavorite_FragmentCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Yêu THích" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/btnProfile_FragmentCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Profile" />

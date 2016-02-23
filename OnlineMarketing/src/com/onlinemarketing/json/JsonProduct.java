@@ -30,12 +30,10 @@ public class JsonProduct {
 					request.append("&session_id=").append(URLEncoder.encode("", "UTF-8"));
 					request.append("&device_id=").append(URLEncoder.encode(device_id, "UTF-8"));
 
-					Debug.e("Link Home: " + request.toString());
 					if(status == SystemConfig.statusCategoryProduct)
 					    str = AndroidUtils.getjSonUrl(request.toString(), SystemConfig.httppost);
 					else 
 						str = AndroidUtils.getjSonUrl(request.toString(), SystemConfig.httpget);
-					//Debug.e("Str: " + str);
 					jsonObject = new JSONObject(str);
 					obj.setCode(jsonObject.getInt("code"));					
 					obj.setMessage(jsonObject.getString("message"));

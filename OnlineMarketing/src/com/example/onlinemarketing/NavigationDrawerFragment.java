@@ -92,6 +92,7 @@ public class NavigationDrawerFragment extends Fragment {
 
 		// Select either the default item (0) or the last selected item.
 		selectItem(mCurrentSelectedPosition);
+		
 	}
 
 	@Override
@@ -114,7 +115,6 @@ public class NavigationDrawerFragment extends Fragment {
 		});
 		
 		int n = SystemConfig.oOputproduct.getCategoryVO().size();
-		Debug.e("dem:" + n);
 		String []title = new String[n];
 		for(int i=0; i< n; i++){
 			title[i]= SystemConfig.oOputproduct.getCategoryVO().get(i).getName();

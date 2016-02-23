@@ -10,6 +10,7 @@ public class ProfileActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		setContentView(R.layout.activity_profile);
 		super.onCreate(savedInstanceState);
+		 
 	}
 
 }

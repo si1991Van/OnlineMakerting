@@ -19,10 +19,9 @@ public class BaseActivity extends Activity{
 	public boolean isConnect(){
 		Constan.context = getApplicationContext();
 		SystemConfig.device_id = AndroidDeviceInfo.getAndroidID(this);
-		Debug.e(SystemConfig.device_id);
+		Debug.e("DeviceId: " + SystemConfig.device_id);
 		boolean isconnect = AndroidUtils.isConnectedToInternet(this);
 		if (!isconnect) {
-			
 			showProgressDialogCheckInternet();
 		}
 		return isconnect;
