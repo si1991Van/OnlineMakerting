@@ -41,6 +41,11 @@
             android:label="@string/title_activity_register"
             android:theme="@android:style/Theme.Black.NoTitleBar" >
         </activity>
+        <activity
+            android:name="com.onlinemarketing.activity.ProfileActivity"
+            android:label="@string/title_activity_register"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+        </activity>
 
         <meta-data
             android:name="com.google.android.gms.version"

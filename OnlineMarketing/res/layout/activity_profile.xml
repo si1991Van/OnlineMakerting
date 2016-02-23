@@ -21,22 +21,61 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical" >
-            
-            <EditText 
+
+            <EditText
                 android:id="@+id/editName_profile"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:hint="Họ Tên"
-                android:inputType="text"
-                />
-            <EditText 
+                android:inputType="text" />
+
+            <EditText
                 android:id="@+id/editEmail_profile"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
-                android:inputType="text"
-                />
+                android:inputType="text" />
         </LinearLayout>
     </LinearLayout>
+
+    <EditText
+        android:id="@+id/editPhone_profile"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Phone"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/btnApprovePhone_profile"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Xác minh sdt" />
+
+    <EditText
+        android:id="@+id/editAddress_profile"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Địa chỉ"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editPass_profile"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mật khẩu"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/editConfigPass_profile"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nhập lại mật khẩu"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/btnSave_profile"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Cập nhật" />
 
 </LinearLayout>
