@@ -19,13 +19,15 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 
 import com.lib.Debug;
+import com.lib.SharedPreferencesUtils;
+import com.onlinemarketing.activity.BaseActivity;
 import com.onlinemarketing.config.SystemConfig;
 import com.onlinemarketing.fragment.FragmentCategory;
 import com.onlinemarketing.json.JsonSetting;
 import com.onlinemarketing.object.OutputProduct;
 import com.onlinemarketing.object.SettingVO;
 
-public class HomePageActivity extends Activity implements
+public class HomePageActivity extends BaseActivity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
 
 	/**
@@ -49,6 +51,8 @@ public class HomePageActivity extends Activity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_home_page);
+		SharedPreferencesUtils.getString(this, SystemConfig.USER_ID);
+		SharedPreferencesUtils.getString(this, SystemConfig.SESSION_ID);
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getFragmentManager()
 				.findFragmentById(R.id.navigation_drawer);
 		mTitle = getTitle();
@@ -144,7 +148,6 @@ public class HomePageActivity extends Activity implements
 
 	public class SettingAsystask extends
 			AsyncTask<Integer, Integer, OutputProduct> {
-		String Device_id;
 		JsonSetting setting;
 
 		@Override

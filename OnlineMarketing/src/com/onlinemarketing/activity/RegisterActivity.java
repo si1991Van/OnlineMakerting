@@ -25,7 +25,7 @@ public class RegisterActivity extends BaseActivity implements OnClickListener{
 		txtpass = (EditText) findViewById(R.id.txtpassword);
 		register = (Button) findViewById(R.id.btnRegister);
 		register.setOnClickListener(this);
-		account = new LoginRegisterAsystask(txtusername.getText().toString(), txtpass.getText().toString(),SystemConfig.device_id, "","");
+		account = new LoginRegisterAsystask(txtusername.getText().toString(), txtpass.getText().toString(),SystemConfig.device_id, "","",false,this);
 		
 	}
 
@@ -33,7 +33,7 @@ public class RegisterActivity extends BaseActivity implements OnClickListener{
 	public void onClick(View v) {
 		if (isConnect()) {
 			Debug.e("SystemConfig.device_id: "+ SystemConfig.device_id);
-			new LoginRegisterAsystask(txtusername.getText().toString(), txtpass.getText().toString(),SystemConfig.device_id, "","").execute(SystemConfig.statusRegister);
+			new LoginRegisterAsystask(txtusername.getText().toString(), txtpass.getText().toString(),SystemConfig.device_id, "","",false,this).execute(SystemConfig.statusRegister);
 		}
 	}
 

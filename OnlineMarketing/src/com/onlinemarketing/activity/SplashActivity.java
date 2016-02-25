@@ -7,10 +7,11 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
-import android.widget.ArrayAdapter;
 
+import com.example.onlinemarketing.HomePageActivity;
 import com.example.onlinemarketing.R;
 import com.lib.Debug;
+import com.lib.SharedPreferencesUtils;
 import com.onlinemarketing.config.SystemConfig;
 import com.onlinemarketing.json.JsonCategory;
 import com.onlinemarketing.object.OutputProduct;
@@ -58,9 +59,24 @@ public class SplashActivity extends BaseActivity {
 		@Override
 		protected void onPostExecute(OutputProduct result) {
 			if (!SystemConfig.oOputproduct.getCategoryVO().isEmpty()) {
-				Intent intent = new Intent(SplashActivity.this,
-						LoginActivity.class);
-				startActivity(intent);
+				if (SharedPreferencesUtils.getBoolean(SplashActivity.this,
+						SystemConfig.CHECKLOGIN)) {
+					SharedPreferencesUtils.getString(SplashActivity.this,
+							SystemConfig.USER_ID);
+					SharedPreferencesUtils.getString(SplashActivity.this,
+							SystemConfig.SESSION_ID);
+					SystemConfig.user_id = String.valueOf(SharedPreferencesUtils.getString(SplashActivity.this, SystemConfig.USER_ID));
+					SystemConfig.session_id = SharedPreferencesUtils.getString(SplashActivity.this, SystemConfig.SESSION_ID);
+					Intent intent = new Intent(SplashActivity.this,
+							HomePageActivity.class);
+					startActivity(intent);
+					finish();
+				} else {
+					Intent intent = new Intent(SplashActivity.this,
+							LoginActivity.class);
+					startActivity(intent);
+					finish();
+				}
 			}
 		}
 	}
