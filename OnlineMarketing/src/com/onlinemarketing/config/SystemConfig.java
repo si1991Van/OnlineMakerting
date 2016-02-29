@@ -6,17 +6,27 @@ import com.onlinemarketing.object.OutputProduct;
 public class SystemConfig {
 
 	public static final String API = "http://192.168.3.150/api/";
-
+//  tên các method 
 	public static final String Login = "login?";
 	public static final String Register = "register?";
 	public static final String Category = "category";
 	public static final String Setting = "setting";
 	public static final String Profile = "profile";
+	public static final String Produc_Save = "product_saved";
+	public static final String Product_User = "product_user";
+	public static final String Product = "product";
+	public static final String Report = "report";
+	public static final String BackList ="blacklist";
+	public static final String Delete ="delete";
+	
 	
 	public static final int statusLogin = 1;
 	public static final int statusRegister = 2;
 	public static final int statusHomeProduct = 1;
 	public static final int statusCategoryProduct = 2;
+	public static final int statusProductSave = 1;
+	public static final int statusErrorReport = 2;
+	
 	public static String device_id ;
 	public static String user_id = "";
 	public static String session_id = "";

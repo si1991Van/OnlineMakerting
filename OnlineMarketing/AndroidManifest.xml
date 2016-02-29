@@ -14,6 +14,7 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -87,6 +88,18 @@
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:theme="@android:style/Theme.Translucent" />
         <!-- End -->
+        <activity
+            android:name="com.onlinemarketing.activity.ProductDetailActivity"
+            android:label="@string/title_activity_product_detail" >
+        </activity>
+        <activity
+            android:name="com.onlinemarketing.activity.PosterDetailActivity"
+            android:label="@string/title_activity_poster_detail" >
+        </activity>
+        <activity
+            android:name="com.onlinemarketing.activity.BackListActivity"
+            android:label="@string/title_activity_back_list" >
+        </activity>
     </application>
 
 </manifest>

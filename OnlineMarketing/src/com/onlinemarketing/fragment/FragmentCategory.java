@@ -26,6 +26,7 @@ import com.lib.Debug;
 import com.lib.SharedPreferencesUtils;
 import com.onlinemarketing.activity.BaseFragment;
 import com.onlinemarketing.activity.LoginActivity;
+import com.onlinemarketing.activity.ProductDetailActivity;
 import com.onlinemarketing.activity.ProfileActivity;
 import com.onlinemarketing.adapter.HomePageAdapter;
 import com.onlinemarketing.config.Constan;
@@ -66,10 +67,6 @@ public class FragmentCategory extends Fragment implements OnItemClickListener,
 	public void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-//		SharedPreferencesUtils.getString(context, SystemConfig.USER_ID);
-//		SharedPreferencesUtils.getString(context, SystemConfig.SESSION_ID);
-//		Debug.e("ID SharedPre---------------: "+SharedPreferencesUtils.getString(context, SystemConfig.USER_ID));
-//		Debug.e("session SharedPre---------------: "+SharedPreferencesUtils.getString(context, SystemConfig.SESSION_ID));
 	}
 
 	@Override
@@ -156,7 +153,7 @@ public class FragmentCategory extends Fragment implements OnItemClickListener,
 
 	@Override
 	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		Debug.showAlert(context, "Vãi cường");
+		startActivity(new Intent(context, ProductDetailActivity.class));
 
 	}
 
