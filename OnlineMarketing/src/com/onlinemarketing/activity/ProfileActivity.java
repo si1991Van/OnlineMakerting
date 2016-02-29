@@ -89,11 +89,7 @@ public class ProfileActivity extends BaseActivity implements OnClickListener {
 			break;
 		}
 	}
-	//su ly upload immage
-	private void onActivityResult() {
-		// TODO Auto-generated method stub
-
-	}
+	
 
 	public ContentResolver getGallery() {
 		  Intent i = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
