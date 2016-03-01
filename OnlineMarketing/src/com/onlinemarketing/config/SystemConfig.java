@@ -4,8 +4,7 @@ import com.onlinemarketing.object.LoginRegister;
 import com.onlinemarketing.object.OutputProduct;
 
 public class SystemConfig {
-
-	public static final String API = "http://192.168.3.150/api/";
+	public static final String API = "onlinemakerting.tk/api/";
 //  tên các method 
 	public static final String Login = "login?";
 	public static final String Register = "register?";
@@ -18,6 +17,7 @@ public class SystemConfig {
 	public static final String Report = "report";
 	public static final String BackList ="blacklist";
 	public static final String Delete ="delete";
+	public static final String Favorite ="favorite";
 	
 	
 	public static final int statusLogin = 1;
@@ -26,6 +26,8 @@ public class SystemConfig {
 	public static final int statusCategoryProduct = 2;
 	public static final int statusProductSave = 1;
 	public static final int statusErrorReport = 2;
+	public static final int statusProfile = 1;
+	public static final int statusFavorite = 2;
 	
 	public static String device_id ;
 	public static String user_id = "";

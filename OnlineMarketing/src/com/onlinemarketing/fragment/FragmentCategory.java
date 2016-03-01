@@ -169,16 +169,17 @@ public class FragmentCategory extends Fragment implements OnItemClickListener,
 		case R.id.btnChat_FragmentCategory:
 			break;
 		case R.id.btnFavorite_FragmentCategory:
+			new getProfileAsystask().execute(SystemConfig.statusFavorite);
 			break;
 		case R.id.btnProfile_FragmentCategory:
-			new getProfileAsystask().execute();
+			new getProfileAsystask().execute(SystemConfig.statusProfile);
 			break;
 		}
 	}
 
-	public class getProfileAsystask extends AsyncTask<String, String, OutputProduct> {
+	public class getProfileAsystask extends AsyncTask<Integer, String, OutputProduct> {
 		JsonProfile profile;
-		ProfileVO listProfile = new ProfileVO();
+		ArrayList<ProfileVO> listProfile = new ArrayList<ProfileVO>();
 		
 		@Override
 		protected void onPreExecute() {
@@ -187,10 +188,20 @@ public class FragmentCategory extends Fragment implements OnItemClickListener,
 		}
 
 		@Override
-		protected OutputProduct doInBackground(String... params) {
-			HomePageActivity.oOput = profile.paserProfile(SystemConfig.user_id, SystemConfig.session_id, SystemConfig.device_id);
-			listProfile = HomePageActivity.oOput.getProfileVO();
-			SystemConfig.oOputproduct.setProfileVO(listProfile);
+		protected OutputProduct doInBackground(Integer... params) {
+			switch (params[0]) {
+			case SystemConfig.statusProfile:
+				HomePageActivity.oOput = profile.paserProfile(SystemConfig.user_id, SystemConfig.session_id, SystemConfig.device_id, SystemConfig.statusProfile);
+				listProfile = HomePageActivity.oOput.getProfileVO();
+				SystemConfig.oOputproduct.setProfileVO(listProfile);
+				break;
+
+			case SystemConfig.statusFavorite:
+				HomePageActivity.oOput = profile.paserProfile(SystemConfig.user_id, SystemConfig.session_id, SystemConfig.device_id, SystemConfig.statusFavorite);
+				listProfile = HomePageActivity.oOput.getProfileVO();
+				SystemConfig.oOputproduct.setProfileVO(listProfile);
+				break;
+			}
 			return HomePageActivity.oOput;
 		}
 		@Override

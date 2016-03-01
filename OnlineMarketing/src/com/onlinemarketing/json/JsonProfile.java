@@ -1,6 +1,7 @@
 package com.onlinemarketing.json;
 
 import java.net.URLEncoder;
+import java.util.ArrayList;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -16,19 +17,27 @@ import com.smile.android.gsm.utils.AndroidUtils;
 public class JsonProfile {
 	JSONObject jsonObject;
 	StringBuilder request;
-	public OutputProduct paserProfile(String user_id, String session_id, String device_id) {
+	public OutputProduct paserProfile(String user_id, String session_id, String device_id, int status) {
 		OutputProduct obj = new OutputProduct();
 		String str = null ;
 		// check email password
 		
 				try {
 					request = new StringBuilder(SystemConfig.API );
-					request.append(SystemConfig.Profile);
+					if (status == SystemConfig.statusProfile) {
+						request.append(SystemConfig.Profile);
+					}else if (status == SystemConfig.statusFavorite) {
+						request.append(SystemConfig.Favorite);
+					}
 					request.append("?user_id=").append(URLEncoder.encode(user_id, "UTF-8"));
 					request.append("&session_id=").append(URLEncoder.encode(session_id, "UTF-8"));
 					request.append("&device_id=").append(URLEncoder.encode(device_id, "UTF-8"));
-					
-					str = AndroidUtils.getjSonUrl(request.toString(), SystemConfig.httpget);
+					Debug.e("Link : " + request.toString());
+					if (status == SystemConfig.statusProfile) {
+						str = AndroidUtils.getjSonUrl(request.toString(), SystemConfig.httpget);
+					}else if (status == SystemConfig.statusFavorite) {
+						str = AndroidUtils.getjSonUrl(request.toString(), SystemConfig.httppost);
+					}
 					Debug.e("Str: "+str);
 					jsonObject = new JSONObject(str);
 					obj.setCode(jsonObject.getInt("code"));					
@@ -36,9 +45,10 @@ public class JsonProfile {
 					obj.setSession_id(jsonObject.getString("session_id"));
 					JSONArray jsonProfile = jsonObject.getJSONArray("data");
 					if (obj.getCode() == Constan.getIntProperty("success")) {
-						ProfileVO objProfile = new ProfileVO();
+						ArrayList<ProfileVO> arrayProfile = new ArrayList<ProfileVO>();
 						for (int i = 0; i < jsonProfile.length(); i++) {
 							JSONObject objjson_profile = jsonProfile.getJSONObject(i);
+							ProfileVO objProfile = new ProfileVO();
 							objProfile.setId(objjson_profile.getInt("id"));
 							objProfile.setFacebook_id(objjson_profile.getString("facebook_id"));
 							objProfile.setGoogle_id(objjson_profile.get("google_id").toString());
@@ -52,8 +62,9 @@ public class JsonProfile {
 							objProfile.setType(objjson_profile.get("type").toString());
 							objProfile.setStatus(objjson_profile.get("status").toString());
 							objProfile.setCreated_at(objjson_profile.get("created_at").toString());
+							arrayProfile.add(objProfile);
 						}
-					obj.setProfileVO(objProfile);
+					obj.setProfileVO(arrayProfile);
 					}
 				} catch (Exception e) {
 					Debug.e(e.toString());

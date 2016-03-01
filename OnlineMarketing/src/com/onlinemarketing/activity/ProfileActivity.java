@@ -3,6 +3,8 @@ package com.onlinemarketing.activity;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -57,14 +59,15 @@ public class ProfileActivity extends BaseActivity implements OnClickListener {
 		setData(SystemConfig.oOputproduct.getProfileVO());
 	}
 
-	public void setData(ProfileVO proVo) {
+	public void setData(ArrayList<ProfileVO> proVo) {
 		// imgAvatar.setImageResource(Integer.parseInt(proVo.getAvatar()));
-		editName.setText(proVo.getUsername());
-		editPhone.setText(proVo.getPhone());
-		editMail.setText(proVo.getEmail());
-		editAdd.setText(proVo.getAddress());
+		ProfileVO obj = proVo.get(0);
+		editName.setText(obj.getUsername());
+		editPhone.setText(obj.getPhone());
+		editMail.setText(obj.getEmail());
+		editAdd.setText(obj.getAddress());
 	}
-
+  
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {

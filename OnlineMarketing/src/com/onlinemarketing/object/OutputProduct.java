@@ -8,7 +8,7 @@ public class OutputProduct {
 	public ArrayList<ProductVO> productVO;
 	private ArrayList<CategoryVO> categoryVO;
 	private ArrayList<SettingVO> settingVO;
-	private ProfileVO profileVO;
+	private ArrayList<ProfileVO> profileVO;
 	private ArrayList<BackListVO> backListVO;
 	
 	public int getCode() {
@@ -54,10 +54,11 @@ public class OutputProduct {
 	public void setSettingVO(ArrayList<SettingVO> settingVO) {
 		this.settingVO = settingVO;
 	}
-	public ProfileVO getProfileVO() {
+	
+	public ArrayList<ProfileVO> getProfileVO() {
 		return profileVO;
 	}
-	public void setProfileVO(ProfileVO profileVO) {
+	public void setProfileVO(ArrayList<ProfileVO> profileVO) {
 		this.profileVO = profileVO;
 	}
 	public ArrayList<BackListVO> getBackListVO() {
