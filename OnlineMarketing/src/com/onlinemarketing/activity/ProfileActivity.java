@@ -33,7 +33,7 @@ public class ProfileActivity extends BaseActivity implements OnClickListener {
 	Output out;
 	ImageView imgAvatar;
 	EditText editName, editPhone, editMail, editAdd, editPass, editConfigPass;
-	Button btnApprovePhone, btnSave;
+	Button btnApprovePhone, btnSave, btnBacklist;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +49,8 @@ public class ProfileActivity extends BaseActivity implements OnClickListener {
 		btnApprovePhone = (Button) findViewById(R.id.btnApprovePhone_profile);
 		btnSave = (Button) findViewById(R.id.btnSave_profile);
 		imgAvatar = (ImageView) findViewById(R.id.imgAvatar_profile);
+		btnBacklist = (Button) findViewById(R.id.btnBackList);
+		btnBacklist.setOnClickListener(this);
 		imgAvatar.setOnClickListener(this);
 		btnApprovePhone.setOnClickListener(this);
 		btnSave.setOnClickListener(this);
@@ -78,6 +80,9 @@ public class ProfileActivity extends BaseActivity implements OnClickListener {
 			break;
 
 		case R.id.btnApprovePhone_profile:
+			break;
+		case R.id.btnBackList:
+			startActivity(new Intent(ProfileActivity.this, BackListActivity.class));
 			break;
 		case R.id.imgAvatar_profile:
 			getGallery();

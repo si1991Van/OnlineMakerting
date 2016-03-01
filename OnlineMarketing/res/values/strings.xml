@@ -14,5 +14,9 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
     <string name="facebook_app_id">180898835599747</string>
+    <string name="title_activity_product_detail">ProductDetailActivity</string>
+    <string name="title_activity_poster_detail">PosterDetailActivity</string>
+    <string name="title_activity_back_list">BackListActivity</string>
+    <string name="title_activity_save_news_list">SaveNewsListActivity</string>
 
 </resources>
