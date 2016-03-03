@@ -35,7 +35,6 @@ public class SaveNewsListActivity extends BaseActivity implements OnClickListene
 	ProgressDialog progressDialog;
 	ListView listview;
 	HomePageAdapter adapter;
-	OutputProduct oOput;
 	Button btnSendSMS_Detail, btnCall;
 	Intent intent;
 	@Override
@@ -43,14 +42,14 @@ public class SaveNewsListActivity extends BaseActivity implements OnClickListene
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_save_news_list);
 		listview = (ListView) findViewById(R.id.listPoster);
+		adapter = new HomePageAdapter(SaveNewsListActivity.this, R.layout.item_trang_chu, SystemConfig.oOputproduct.getProductVO());
+		listview.setAdapter(adapter);
 		btnSendSMS_Detail = (Button) findViewById(R.id.btnSendSMS_Detail);
 		btnCall = (Button) findViewById(R.id.btnCall_Detail);
 		btnCall.setOnClickListener(this);
 		btnSendSMS_Detail.setOnClickListener(this);
 		listview.setOnItemClickListener(this);
-		if (isConnect()) {
-			new SaveNewsListAsystask().execute();
-		}
+		
 	}
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
@@ -72,39 +71,5 @@ public class SaveNewsListActivity extends BaseActivity implements OnClickListene
 			break;
 		}		
 	}
-	
-	public class SaveNewsListAsystask extends AsyncTask<Integer, Integer, OutputProduct> {
-		String Device_id;
-		JsonProduct listProduct;
-
-		@Override
-		protected void onPreExecute() {
-			listProduct = new JsonProduct();
-			progressDialog = new ProgressDialog(SaveNewsListActivity.this);
-			// Set progressdialog message
-			progressDialog.setMessage("Loading...");
-			progressDialog.setIndeterminate(false);
-			// Show progressdialog
-			progressDialog.show();
-			super.onPreExecute();
-		}
-
-		@Override
-		protected OutputProduct doInBackground(Integer... params) {
-			oOput = listProduct.paserProduct(SystemConfig.user_id, SystemConfig.session_id, SystemConfig.device_id, 0, SystemConfig.statusListSaveProduct);
-					
-			list = oOput.getProductVO();
-			return oOput;
-		}
-
-		@Override
-		protected void onPostExecute(OutputProduct result) {
-			adapter = new HomePageAdapter(SaveNewsListActivity.this, R.layout.item_trang_chu, list);
-			listview.setAdapter(adapter);
-			progressDialog.dismiss();
-
-		}
-	}
-
 	
 }

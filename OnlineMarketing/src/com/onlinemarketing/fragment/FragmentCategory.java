@@ -29,6 +29,7 @@ import com.onlinemarketing.activity.FavoriteActivity;
 import com.onlinemarketing.activity.LoginActivity;
 import com.onlinemarketing.activity.ProductDetailActivity;
 import com.onlinemarketing.activity.ProfileActivity;
+import com.onlinemarketing.activity.SaveNewsListActivity;
 import com.onlinemarketing.adapter.HomePageAdapter;
 import com.onlinemarketing.config.Constan;
 import com.onlinemarketing.config.SystemConfig;
@@ -47,7 +48,7 @@ public class FragmentCategory extends Fragment implements OnItemClickListener,
 	private static final String ARG_SECTION_NUMBER = "section_number";
 	ListView listview;
 	HomePageAdapter adapter;
-	List<ProductVO> list = new ArrayList<ProductVO>();
+	ArrayList<ProductVO> list = new ArrayList<ProductVO>();
 	Context context;
 	View rootView;
 	int status;
@@ -135,12 +136,17 @@ public class FragmentCategory extends Fragment implements OnItemClickListener,
 						SystemConfig.device_id, HomePageActivity.id_category,
 						SystemConfig.statusCategoryProduct);
 				break;
-			default:
+			case SystemConfig.statusListSaveProduct:
+				HomePageActivity.oOput  = product.paserProduct(SystemConfig.user_id, SystemConfig.session_id,
+						SystemConfig.device_id, HomePageActivity.id_category,
+						SystemConfig.statusListSaveProduct);
+				
 				break;
 			}
 
 			list = HomePageActivity.oOput.getProductVO();
-			return null;
+			SystemConfig.oOputproduct.setProductVO(list);
+			return HomePageActivity.oOput;
 		}
 
 		@Override
@@ -149,7 +155,9 @@ public class FragmentCategory extends Fragment implements OnItemClickListener,
 					list);
 			listview.setAdapter(adapter);
 			progressDialog.dismiss();
-
+			if (result.getCode() == Constan.getIntProperty("success") && status == SystemConfig.statusListSaveProduct) {
+				startActivity(new Intent(context, SaveNewsListActivity.class));
+			}
 		}
 	}
 
@@ -169,6 +177,8 @@ public class FragmentCategory extends Fragment implements OnItemClickListener,
 			break;
 
 		case R.id.btnChat_FragmentCategory:
+			status = SystemConfig.statusListSaveProduct;
+			 new  HomeAsystask().execute(SystemConfig.statusListSaveProduct);
 			break;
 		case R.id.btnFavorite_FragmentCategory:
 			status = SystemConfig.statusFavorite;
