@@ -6,17 +6,24 @@ import java.util.List;
 import com.lib.Debug;
 import com.lib.SharedPreferencesUtils;
 import com.onlinemarketing.activity.BaseActivity;
+import com.onlinemarketing.activity.FavoriteActivity;
+import com.onlinemarketing.activity.LoginActivity;
+import com.onlinemarketing.activity.ProfileActivity;
 import com.onlinemarketing.config.Constan;
 import com.onlinemarketing.config.SystemConfig;
 import com.onlinemarketing.fragment.FragmentCategory;
+import com.onlinemarketing.json.JsonProfile;
 import com.onlinemarketing.json.JsonSearch;
 import com.onlinemarketing.json.JsonSetting;
 import com.onlinemarketing.object.Output;
 import com.onlinemarketing.object.OutputProduct;
+import com.onlinemarketing.object.ProductVO;
+import com.onlinemarketing.object.ProfileVO;
 import com.onlinemarketing.object.SettingVO;
 
 import android.app.ActionBar;
 import android.app.ActionBar.OnNavigationListener;
+import android.content.Intent;
 import android.app.Dialog;
 import android.app.FragmentManager;
 import android.os.AsyncTask;
@@ -52,7 +59,7 @@ public class HomePageActivity extends BaseActivity implements NavigationDrawerFr
 	public static int status = SystemConfig.statusHomeProduct;
 	String[] action = { "a", "b", "c" };
 	ArrayAdapter<String> objSettingAdapter;
-	TextView txt_saveSearch;
+	TextView txt_saveSearch, txtlistSaveSearch;
 	Button btn_search, btn_addSearch;
 	Dialog dialog;
 	EditText edit_namSPSearch;
@@ -160,15 +167,52 @@ public class HomePageActivity extends BaseActivity implements NavigationDrawerFr
 		btn_search = (Button) dialog.findViewById(R.id.btn_Search);
 		txt_saveSearch = (TextView) dialog.findViewById(R.id.txt_saveSearch);
 		edit_namSPSearch = (EditText) dialog.findViewById(R.id.edit_namSPSearch);
+		txtlistSaveSearch = (TextView) dialog.findViewById(R.id.txt_listSaveSearch);
 		txt_saveSearch.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				new SaveSearchAsysTask().execute();
 			}
 		});
+		txtlistSaveSearch.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+//				new SaveSearchAsysTask().execute();
+			}
+		});
 		dialog.show();
 	}
 
+	public class getProfileAndFavoriteAsystask extends AsyncTask<Integer, String, OutputProduct> {
+		JsonSearch jsonListSaveSearch;
+		ArrayList<ProductVO> listProfile = new ArrayList<ProductVO>();
+		
+		@Override
+		protected void onPreExecute() {
+			jsonListSaveSearch = new JsonSearch();
+			super.onPreExecute();
+		}
+
+		@Override
+		protected OutputProduct doInBackground(Integer... params) {
+				oOput = jsonListSaveSearch.paserListSearch(SystemConfig.user_id, SystemConfig.session_id, SystemConfig.device_id);
+				listProfile = oOput.getProductVO();
+				SystemConfig.oOputproduct.setProductVO(listProfile);
+
+			return oOput;
+		}
+		@Override
+		protected void onPostExecute(OutputProduct result) {
+			if (result.getCode() == Constan.getIntProperty("success") ) {
+				startActivity(new Intent(HomePageActivity.this, ProfileActivity.class));
+			}
+			else {
+				startActivity(new Intent(HomePageActivity.this, LoginActivity.class));
+			}
+			super.onPostExecute(result);
+		}
+	}
+	
 	public class SaveSearchAsysTask extends AsyncTask<String, String, Output> {
 		JsonSearch jsonSearch;
 

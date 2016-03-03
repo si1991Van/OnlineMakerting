@@ -19,6 +19,8 @@ public class SystemConfig {
 	public static final String Delete ="delete";
 	public static final String Favorite ="favorite";
 	public static final String product_user ="product_user";
+	public static final String SearchSave ="search_saved";
+	public static final String SearchLog ="search_log";
 	
 	
 	public static final int statusLogin = 1;
