@@ -61,7 +61,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		btn_skip = (Button) findViewById(R.id.btnSkip);
 		chkRemember = (CheckBox) findViewById(R.id.chkremember);
 		btnlogin.setOnClickListener(this);
-		btnRegister.setOnClickListener(this);
+		btnRegister.setOnClickListener(this);  
 		btngoogle.setOnClickListener(this);
 		btnFace.setOnClickListener(this);
 		btn_skip.setOnClickListener(this);

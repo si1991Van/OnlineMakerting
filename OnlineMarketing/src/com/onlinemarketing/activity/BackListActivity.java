@@ -130,8 +130,8 @@ public class BackListActivity extends BaseActivity implements OnItemClickListene
 		protected Output doInBackground(Integer... params) {
 			Debug.e("User: " + SystemConfig.user_id + " Session: " + SystemConfig.session_id + " device: "
 					+ SystemConfig.device_id);
-			out = jsonProduct.paserDeleteBackList(SystemConfig.user_id, SystemConfig.session_id, SystemConfig.device_id,
-					id_delete);
+			out = jsonProduct.paserDeleteBackListAndFavorite(SystemConfig.user_id, SystemConfig.session_id, SystemConfig.device_id,
+					id_delete, SystemConfig.statusDeleteBackList);
 			
 			return out;
 		}

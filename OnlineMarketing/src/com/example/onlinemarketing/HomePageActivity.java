@@ -3,11 +3,22 @@ package com.example.onlinemarketing;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.lib.Debug;
+import com.lib.SharedPreferencesUtils;
+import com.onlinemarketing.activity.BaseActivity;
+import com.onlinemarketing.config.Constan;
+import com.onlinemarketing.config.SystemConfig;
+import com.onlinemarketing.fragment.FragmentCategory;
+import com.onlinemarketing.json.JsonSearch;
+import com.onlinemarketing.json.JsonSetting;
+import com.onlinemarketing.object.Output;
+import com.onlinemarketing.object.OutputProduct;
+import com.onlinemarketing.object.SettingVO;
+
 import android.app.ActionBar;
 import android.app.ActionBar.OnNavigationListener;
-import android.app.Activity;
+import android.app.Dialog;
 import android.app.FragmentManager;
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -16,19 +27,14 @@ import android.view.ContextMenu.ContextMenuInfo;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
-import com.lib.Debug;
-import com.lib.SharedPreferencesUtils;
-import com.onlinemarketing.activity.BaseActivity;
-import com.onlinemarketing.config.SystemConfig;
-import com.onlinemarketing.fragment.FragmentCategory;
-import com.onlinemarketing.json.JsonSetting;
-import com.onlinemarketing.object.OutputProduct;
-import com.onlinemarketing.object.SettingVO;
-
-public class HomePageActivity extends BaseActivity implements
-		NavigationDrawerFragment.NavigationDrawerCallbacks {
+public class HomePageActivity extends BaseActivity implements NavigationDrawerFragment.NavigationDrawerCallbacks {
 
 	/**
 	 * Fragment managing the behaviors, interactions and presentation of the
@@ -46,6 +52,11 @@ public class HomePageActivity extends BaseActivity implements
 	public static int status = SystemConfig.statusHomeProduct;
 	String[] action = { "a", "b", "c" };
 	ArrayAdapter<String> objSettingAdapter;
+	TextView txt_saveSearch;
+	Button btn_search, btn_addSearch;
+	Dialog dialog;
+	EditText edit_namSPSearch;
+	static Output out;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,12 +68,10 @@ public class HomePageActivity extends BaseActivity implements
 				.findFragmentById(R.id.navigation_drawer);
 		mTitle = getTitle();
 		// Set up the drawer.
-		mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
-				(DrawerLayout) findViewById(R.id.drawer_layout));
+		mNavigationDrawerFragment.setUp(R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
 		Debug.e("lisst setting: " + listSetting.size());
-		
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(
-				getBaseContext(),
+
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(getBaseContext(),
 				android.R.layout.simple_spinner_dropdown_item, action);
 
 		/** Enabling dropdown list navigation for the action bar */
@@ -70,8 +79,7 @@ public class HomePageActivity extends BaseActivity implements
 		OnNavigationListener navigationListener = new OnNavigationListener() {
 
 			@Override
-			public boolean onNavigationItemSelected(int itemPosition,
-					long itemId) {
+			public boolean onNavigationItemSelected(int itemPosition, long itemId) {
 
 				Debug.showAlert(HomePageActivity.this, "VL");
 				return true;
@@ -88,18 +96,13 @@ public class HomePageActivity extends BaseActivity implements
 	public void onNavigationDrawerItemSelected(int position) {
 		// update the main content by replacing fragments
 		FragmentManager fragmentManager = getFragmentManager();
-		fragmentManager
-				.beginTransaction()
-				.replace(R.id.container,
-						FragmentCategory.newInstance(position + 1)).commit();
+		fragmentManager.beginTransaction().replace(R.id.container, FragmentCategory.newInstance(position + 1)).commit();
 	}
 
 	public void onSectionAttached(int number) {
 
-		mTitle = SystemConfig.oOputproduct.getCategoryVO().get(number - 1)
-				.getName();
-		id_category = SystemConfig.oOputproduct.getCategoryVO().get(number - 1)
-				.getId();
+		mTitle = SystemConfig.oOputproduct.getCategoryVO().get(number - 1).getName();
+		id_category = SystemConfig.oOputproduct.getCategoryVO().get(number - 1).getId();
 		status = SystemConfig.statusCategoryProduct;
 
 	}
@@ -112,8 +115,7 @@ public class HomePageActivity extends BaseActivity implements
 	}
 
 	@Override
-	public void onCreateContextMenu(ContextMenu menu, View v,
-			ContextMenuInfo menuInfo) {
+	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
 
 		for (int i = 0; i < listSetting.size(); i++) {
 			// menu.add(Menu.NONE, 0, 0 , listSetting);
@@ -139,6 +141,9 @@ public class HomePageActivity extends BaseActivity implements
 			new SettingAsystask().execute();
 			return true;
 		}
+		if (id == R.id.action_search) {
+			dialogSearch();
+		}
 		return super.onOptionsItemSelected(item);
 	}
 
@@ -146,22 +151,64 @@ public class HomePageActivity extends BaseActivity implements
 
 	}
 
-	public class SettingAsystask extends
-			AsyncTask<Integer, Integer, OutputProduct> {
+	public void dialogSearch() {
+		dialog = new Dialog(this);
+		dialog.setCanceledOnTouchOutside(false);
+		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		dialog.setContentView(R.layout.dialog_search);
+		btn_addSearch = (Button) dialog.findViewById(R.id.btn_addressSearch);
+		btn_search = (Button) dialog.findViewById(R.id.btn_Search);
+		txt_saveSearch = (TextView) dialog.findViewById(R.id.txt_saveSearch);
+		edit_namSPSearch = (EditText) dialog.findViewById(R.id.edit_namSPSearch);
+		txt_saveSearch.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				new SaveSearchAsysTask().execute();
+			}
+		});
+		dialog.show();
+	}
+
+	public class SaveSearchAsysTask extends AsyncTask<String, String, Output> {
+		JsonSearch jsonSearch;
+
+		@Override
+		protected void onPreExecute() {
+			jsonSearch = new JsonSearch();
+			super.onPreExecute();
+		}
+
+		@Override
+		protected Output doInBackground(String... params) {
+			out = jsonSearch.paserSaveSearch(SystemConfig.user_id, SystemConfig.session_id, SystemConfig.device_id, "",
+					"sản phẩm store", "", "", "", "", "");
+			return out;
+		}
+
+		@Override
+		protected void onPostExecute(Output result) {
+			if (result.getCode() == Constan.getIntProperty("success")) {
+				Debug.showAlert(HomePageActivity.this, result.getMessage());
+			}
+			super.onPostExecute(result);
+		}
+
+	}
+
+	public class SettingAsystask extends AsyncTask<Integer, Integer, OutputProduct> {
 		JsonSetting setting;
 
 		@Override
 		protected void onPreExecute() {
 			setting = new JsonSetting();
+
 			super.onPreExecute();
 		}
 
 		@Override
 		protected OutputProduct doInBackground(Integer... params) {
-			oOput = setting.paserSetting(SystemConfig.user_id,
-					SystemConfig.session_id, SystemConfig.device_id);
-
-			listSetting = oOput.getSettingVO();
+				oOput = setting.paserSetting(SystemConfig.user_id, SystemConfig.session_id, SystemConfig.device_id);
+				listSetting = oOput.getSettingVO();
 			return null;
 		}
 

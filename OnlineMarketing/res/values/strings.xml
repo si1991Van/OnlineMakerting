@@ -18,5 +18,6 @@
     <string name="title_activity_poster_detail">PosterDetailActivity</string>
     <string name="title_activity_back_list">BackListActivity</string>
     <string name="title_activity_favorite">FavoriteActivity</string>
+    <string name="title_activity_save_news_list">SaveNewsListActivity</string>
 
 </resources>

@@ -25,6 +25,7 @@ import com.example.onlinemarketing.R;
 import com.lib.Debug;
 import com.lib.SharedPreferencesUtils;
 import com.onlinemarketing.activity.BaseFragment;
+import com.onlinemarketing.activity.FavoriteActivity;
 import com.onlinemarketing.activity.LoginActivity;
 import com.onlinemarketing.activity.ProductDetailActivity;
 import com.onlinemarketing.activity.ProfileActivity;
@@ -49,6 +50,7 @@ public class FragmentCategory extends Fragment implements OnItemClickListener,
 	List<ProductVO> list = new ArrayList<ProductVO>();
 	Context context;
 	View rootView;
+	int status;
 	ProgressDialog progressDialog;
 	Button btnHome, btnChat, btnFavorite, btnProfile;
 
@@ -169,15 +171,17 @@ public class FragmentCategory extends Fragment implements OnItemClickListener,
 		case R.id.btnChat_FragmentCategory:
 			break;
 		case R.id.btnFavorite_FragmentCategory:
-			new getProfileAsystask().execute(SystemConfig.statusFavorite);
+			status = SystemConfig.statusFavorite;
+			new getProfileAndFavoriteAsystask().execute(SystemConfig.statusFavorite);
 			break;
 		case R.id.btnProfile_FragmentCategory:
-			new getProfileAsystask().execute(SystemConfig.statusProfile);
+			status = SystemConfig.statusProfile;
+			new getProfileAndFavoriteAsystask().execute(SystemConfig.statusProfile);
 			break;
 		}
 	}
 
-	public class getProfileAsystask extends AsyncTask<Integer, String, OutputProduct> {
+	public class getProfileAndFavoriteAsystask extends AsyncTask<Integer, String, OutputProduct> {
 		JsonProfile profile;
 		ArrayList<ProfileVO> listProfile = new ArrayList<ProfileVO>();
 		
@@ -206,9 +210,13 @@ public class FragmentCategory extends Fragment implements OnItemClickListener,
 		}
 		@Override
 		protected void onPostExecute(OutputProduct result) {
-			if (result.getCode() == Constan.getIntProperty("success")) {
+			if (result.getCode() == Constan.getIntProperty("success") && status == SystemConfig.statusProfile) {
 				startActivity(new Intent(context, ProfileActivity.class));
-			}else {
+				
+			}else if (result.getCode() == Constan.getIntProperty("success") && status == SystemConfig.statusFavorite) {
+				startActivity(new Intent(context, FavoriteActivity.class));
+			}
+			else {
 				startActivity(new Intent(context, LoginActivity.class));
 			}
 			super.onPostExecute(result);

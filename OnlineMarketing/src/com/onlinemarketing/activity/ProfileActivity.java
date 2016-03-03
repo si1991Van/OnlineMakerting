@@ -3,8 +3,15 @@ package com.onlinemarketing.activity;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+
+import com.example.onlinemarketing.R;
+import com.lib.Debug;
+import com.onlinemarketing.config.Constan;
+import com.onlinemarketing.config.SystemConfig;
+import com.onlinemarketing.json.JsonProfile;
+import com.onlinemarketing.object.Output;
+import com.onlinemarketing.object.ProfileVO;
 
 import android.app.Activity;
 import android.content.ContentResolver;
@@ -18,14 +25,6 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-
-import com.example.onlinemarketing.R;
-import com.lib.Debug;
-import com.onlinemarketing.config.Constan;
-import com.onlinemarketing.config.SystemConfig;
-import com.onlinemarketing.json.JsonProfile;
-import com.onlinemarketing.object.Output;
-import com.onlinemarketing.object.ProfileVO;
 
 public class ProfileActivity extends BaseActivity implements OnClickListener {
 
