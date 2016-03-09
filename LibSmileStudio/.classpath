@@ -7,5 +7,6 @@
 	<classpathentry kind="lib" path="E:/AndroidIDE/sdk/platforms/android-16/android.jar"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="lib" path="libs/com.sun.mail_1.4.2.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

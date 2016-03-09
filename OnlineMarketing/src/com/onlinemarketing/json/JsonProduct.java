@@ -29,7 +29,7 @@ public class JsonProduct {
 			if (status == SystemConfig.statusCategoryProduct)
 				request.append(SystemConfig.Category + "/" + id);
 			if(status == SystemConfig.statusListSaveProduct)
-				request.append(SystemConfig.product_user + "/" + user_id);
+				request.append(SystemConfig.Product_log );
 			request.append("?user_id=").append(URLEncoder.encode(user_id, "UTF-8"));
 			request.append("&session_id=").append(URLEncoder.encode(session_id, "UTF-8"));
 			request.append("&device_id=").append(URLEncoder.encode(device_id, "UTF-8"));

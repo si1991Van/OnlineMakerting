@@ -21,6 +21,7 @@ public class SystemConfig {
 	public static final String product_user ="product_user";
 	public static final String SearchSave ="search_saved";
 	public static final String SearchLog ="search_log";
+	public static final String Product_log = "product_log";
 	
 	
 	public static final int statusLogin = 1;

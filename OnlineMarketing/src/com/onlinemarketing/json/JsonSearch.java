@@ -86,7 +86,6 @@ public class JsonSearch {
 					objproduct.setLog(objjson_product.getString("long"));
 					objproduct.setCreate_at(objjson_product.get("created_at").toString());
 					arrProduct.add(objproduct);
-					Debug.e("objproduct: " + objproduct.getAvatar());
 				}
 				obj.setProductVO(arrProduct);
 			}

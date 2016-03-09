@@ -7,6 +7,7 @@ import com.lib.Debug;
 import com.lib.SharedPreferencesUtils;
 import com.onlinemarketing.activity.BaseActivity;
 import com.onlinemarketing.activity.FavoriteActivity;
+import com.onlinemarketing.activity.ListSaveSearchActivity;
 import com.onlinemarketing.activity.LoginActivity;
 import com.onlinemarketing.activity.ProfileActivity;
 import com.onlinemarketing.config.Constan;
@@ -177,7 +178,8 @@ public class HomePageActivity extends BaseActivity implements NavigationDrawerFr
 		txtlistSaveSearch.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-//				new SaveSearchAsysTask().execute();
+				startActivity(new Intent(HomePageActivity.this, ListSaveSearchActivity.class));
+				dialog.dismiss();
 			}
 		});
 		dialog.show();
@@ -224,8 +226,8 @@ public class HomePageActivity extends BaseActivity implements NavigationDrawerFr
 
 		@Override
 		protected Output doInBackground(String... params) {
-			out = jsonSearch.paserSaveSearch(SystemConfig.user_id, SystemConfig.session_id, SystemConfig.device_id, "",
-					"sản phẩm store", "", "", "", "", "");
+			out = jsonSearch.paserSaveSearch(SystemConfig.user_id, SystemConfig.session_id, SystemConfig.device_id, 
+					"sản phẩm store", "","", "", "", "", "");
 			return out;
 		}
 

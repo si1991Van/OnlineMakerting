@@ -90,7 +90,7 @@ public class BackListActivity extends BaseActivity implements OnItemClickListene
 		dialogDelete();
 	}
 
-	public void dialogDelete() {
+	public void dialogDelete() { 
 		dialog = new Dialog(this);
 		dialog.setContentView(R.layout.dialog_delete);
 		dialog.setTitle("Thông Báo");
