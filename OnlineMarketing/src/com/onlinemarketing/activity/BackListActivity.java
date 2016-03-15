@@ -124,7 +124,7 @@ public class BackListActivity extends BaseActivity implements OnItemClickListene
 		protected void onPreExecute() {
 			jsonProduct = new JsonProduct();
 			super.onPreExecute();
-		}
+		 }
 
 		@Override
 		protected Output doInBackground(Integer... params) {
@@ -132,9 +132,8 @@ public class BackListActivity extends BaseActivity implements OnItemClickListene
 					+ SystemConfig.device_id);
 			out = jsonProduct.paserDeleteBackListAndFavorite(SystemConfig.user_id, SystemConfig.session_id, SystemConfig.device_id,
 					id_delete, SystemConfig.statusDeleteBackList);
-			
 			return out;
-		}
+		}   
 
 		@Override
 		protected void onPostExecute(Output result) {

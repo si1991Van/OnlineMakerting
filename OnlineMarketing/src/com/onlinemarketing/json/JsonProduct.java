@@ -86,7 +86,6 @@ public class JsonProduct {
 			request.append("?user_id=").append(URLEncoder.encode(user_id, "UTF-8"));
 			request.append("&session_id=").append(URLEncoder.encode(session_id, "UTF-8"));
 			request.append("&device_id=").append(URLEncoder.encode(device_id, "UTF-8"));
-
 			Debug.e("link aaaaaaaaaaaaaaaa: " + request.toString());
 			str = AndroidUtils.getjSonUrl(request.toString(), SystemConfig.httppost);
 			Debug.e("Str: " + str);
@@ -138,6 +137,9 @@ public class JsonProduct {
 				request.append(SystemConfig.BackList + "/" + id + "/"+SystemConfig.Delete);
 			}else if (status == SystemConfig.statusDeleteFavorite) {
 				request.append(SystemConfig.Favorite + "/" + id + "/"+SystemConfig.Delete);
+			}
+			else if (status == SystemConfig.statusDeleteSearch) {
+				request.append(SystemConfig.SearchLog + "/" + id + "/"+SystemConfig.Delete);
 			}
 			request.append("?user_id=").append(URLEncoder.encode(user_id, "UTF-8"));
 			request.append("&session_id=").append(URLEncoder.encode(session_id, "UTF-8"));

@@ -17,6 +17,7 @@ public class ProductVO {
 	private String create_at;
 	private String lat, log;
 	private String time_id;
+	private boolean isCheck;
 	public int getUser_id() {
 		return user_id;
 	}
@@ -151,6 +152,14 @@ public class ProductVO {
 
 	public void setTime_id(String time_id) {
 		this.time_id = time_id;
+	}
+
+	public boolean isCheck() {
+		return isCheck;
+	}
+
+	public void setCheck(boolean isCheck) {
+		this.isCheck = isCheck;
 	}
 
 }

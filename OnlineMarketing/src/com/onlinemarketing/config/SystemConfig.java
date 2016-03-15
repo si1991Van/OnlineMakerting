@@ -37,6 +37,7 @@ public class SystemConfig {
 	public static final int statusFavorite = 2;
 	public static final int statusDeleteBackList = 1;
 	public static final int statusDeleteFavorite = 2;
+	public static final int statusDeleteSearch = 3;
 	
 	public static final int statusSetting = 1;
 	public static final int statusSaveSearch = 2;
