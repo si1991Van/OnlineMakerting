@@ -30,12 +30,11 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class SaveNewsListActivity extends BaseActivity implements OnClickListener, OnItemClickListener{
+public class SaveNewsListActivity extends BaseActivity implements OnItemClickListener{
 	List<ProductVO> list = new ArrayList<ProductVO>();
 	ProgressDialog progressDialog;
 	ListView listview;
 	HomePageAdapter adapter;
-	Button btnSendSMS_Detail, btnCall;
 	Intent intent;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,32 +43,14 @@ public class SaveNewsListActivity extends BaseActivity implements OnClickListene
 		listview = (ListView) findViewById(R.id.listPoster);
 		adapter = new HomePageAdapter(SaveNewsListActivity.this, R.layout.item_trang_chu, SystemConfig.oOputproduct.getProductVO());
 		listview.setAdapter(adapter);
-		btnSendSMS_Detail = (Button) findViewById(R.id.btnSendSMS_Detail);
-		btnCall = (Button) findViewById(R.id.btnCall_Detail);
-		btnCall.setOnClickListener(this);
-		btnSendSMS_Detail.setOnClickListener(this);
 		listview.setOnItemClickListener(this);
 		
 	}
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position,
 			long id) {
+		
 		startActivity(new Intent(SaveNewsListActivity.this, ProductDetailActivity.class));		
-	}
-	@Override
-	public void onClick(View v) {
-		String phone = "01658002108";
-		switch (v.getId()) {
-		case R.id.btnSendSMS_Detail:
-			intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("smsto:" + phone));
-			startActivity(intent);
-			break;
-
-		case R.id.btnCall_Detail:
-			intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
-			startActivity(intent);
-			break;
-		}		
 	}
 	
 }

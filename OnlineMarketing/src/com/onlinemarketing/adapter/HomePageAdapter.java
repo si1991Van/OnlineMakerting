@@ -23,7 +23,6 @@ public class HomePageAdapter extends ArrayAdapter<ProductVO> {
 	int layoutId;
 	LayoutInflater inflater;
 	ViewHolder holder;
-
 	public HomePageAdapter(Context context, int resource, List<ProductVO> objects) {
 		super(context, resource, objects);
 		this.context = context;
