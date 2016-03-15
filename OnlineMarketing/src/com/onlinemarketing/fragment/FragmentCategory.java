@@ -3,41 +3,58 @@ package com.onlinemarketing.fragment;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.ActionBar.LayoutParams;
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.Fragment;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnDismissListener;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Debug;
+import android.text.Html;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.Gallery;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import com.example.onlinemarketing.HomePageActivity;
 import com.example.onlinemarketing.R;
-import com.lib.Debug;
-import com.lib.SharedPreferencesUtils;
-import com.onlinemarketing.activity.BaseFragment;
 import com.onlinemarketing.activity.FavoriteActivity;
 import com.onlinemarketing.activity.LoginActivity;
 import com.onlinemarketing.activity.ProductDetailActivity;
 import com.onlinemarketing.activity.ProfileActivity;
 import com.onlinemarketing.activity.SaveNewsListActivity;
 import com.onlinemarketing.adapter.HomePageAdapter;
+import com.onlinemarketing.adapter.ListMessageAdapter;
 import com.onlinemarketing.config.Constan;
 import com.onlinemarketing.config.SystemConfig;
+import com.onlinemarketing.json.JsonMessage;
 import com.onlinemarketing.json.JsonProduct;
 import com.onlinemarketing.json.JsonProfile;
+import com.onlinemarketing.object.MessageVO;
+import com.onlinemarketing.object.OutputMessage;
 import com.onlinemarketing.object.OutputProduct;
 import com.onlinemarketing.object.ProductVO;
 import com.onlinemarketing.object.ProfileVO;
+import com.onlinemarketing.util.ChatDialog;
 import com.smile.android.gsm.utils.AndroidUtils;
 
 public class FragmentCategory extends Fragment implements OnItemClickListener,
@@ -46,14 +63,23 @@ public class FragmentCategory extends Fragment implements OnItemClickListener,
 	 * The fragment argument representing the section number for this fragment.
 	 */
 	private static final String ARG_SECTION_NUMBER = "section_number";
-	ListView listview;
+	ListView listview, listviewChat;
 	HomePageAdapter adapter;
+	ListMessageAdapter adapterListMessage;
 	ArrayList<ProductVO> list = new ArrayList<ProductVO>();
 	Context context;
 	View rootView;
 	int status;
+	static Dialog dialog;
+	static Dialog dialogListMsg;
+	Button btn_SMS, btnListChat, btnSend;
+	EditText editMessage, editSendMessage;
 	ProgressDialog progressDialog;
 	Button btnHome, btnChat, btnFavorite, btnProfile;
+	TextView txtShowMessageChat;
+	TableLayout tab;
+	public static OutputMessage oOputMsg;
+	ArrayList<MessageVO> listMessage = new ArrayList<MessageVO>();
 
 	/**
 	 * Returns a new instance of this fragment for the given section number.
@@ -127,20 +153,23 @@ public class FragmentCategory extends Fragment implements OnItemClickListener,
 		protected OutputProduct doInBackground(Integer... params) {
 			switch (params[0]) {
 			case SystemConfig.statusHomeProduct:
-				HomePageActivity.oOput = product.paserProduct(SystemConfig.user_id, SystemConfig.session_id,
+				HomePageActivity.oOput = product.paserProduct(
+						SystemConfig.user_id, SystemConfig.session_id,
 						SystemConfig.device_id, 0,
 						SystemConfig.statusHomeProduct);
 				break;
 			case SystemConfig.statusCategoryProduct:
-				HomePageActivity.oOput = product.paserProduct(SystemConfig.user_id, SystemConfig.session_id,
+				HomePageActivity.oOput = product.paserProduct(
+						SystemConfig.user_id, SystemConfig.session_id,
 						SystemConfig.device_id, HomePageActivity.id_category,
 						SystemConfig.statusCategoryProduct);
 				break;
 			case SystemConfig.statusListSaveProduct:
-				HomePageActivity.oOput  = product.paserProduct(SystemConfig.user_id, SystemConfig.session_id,
+				HomePageActivity.oOput = product.paserProduct(
+						SystemConfig.user_id, SystemConfig.session_id,
 						SystemConfig.device_id, HomePageActivity.id_category,
 						SystemConfig.statusListSaveProduct);
-				
+
 				break;
 			}
 
@@ -155,7 +184,8 @@ public class FragmentCategory extends Fragment implements OnItemClickListener,
 					list);
 			listview.setAdapter(adapter);
 			progressDialog.dismiss();
-			if (result.getCode() == Constan.getIntProperty("success") && status == SystemConfig.statusListSaveProduct) {
+			if (result.getCode() == Constan.getIntProperty("success")
+					&& status == SystemConfig.statusListSaveProduct) {
 				startActivity(new Intent(context, SaveNewsListActivity.class));
 			}
 		}
@@ -177,24 +207,30 @@ public class FragmentCategory extends Fragment implements OnItemClickListener,
 			break;
 
 		case R.id.btnChat_FragmentCategory:
-			status = SystemConfig.statusListSaveProduct;
-			 new  HomeAsystask().execute(SystemConfig.statusListSaveProduct);
+			//
+			if (AndroidUtils.isConnectedToInternet(context)) {
+				ChatDialog chat = new ChatDialog(context);
+				chat.run(SystemConfig.statusListMessage);
+			}
 			break;
 		case R.id.btnFavorite_FragmentCategory:
 			status = SystemConfig.statusFavorite;
-			new getProfileAndFavoriteAsystask().execute(SystemConfig.statusFavorite);
+			new getProfileAndFavoriteAsystask()
+					.execute(SystemConfig.statusFavorite);
 			break;
 		case R.id.btnProfile_FragmentCategory:
 			status = SystemConfig.statusProfile;
-			new getProfileAndFavoriteAsystask().execute(SystemConfig.statusProfile);
+			new getProfileAndFavoriteAsystask()
+					.execute(SystemConfig.statusProfile);
 			break;
 		}
-	}
+	}	
 
-	public class getProfileAndFavoriteAsystask extends AsyncTask<Integer, String, OutputProduct> {
+	public class getProfileAndFavoriteAsystask extends
+			AsyncTask<Integer, String, OutputProduct> {
 		JsonProfile profile;
 		ArrayList<ProfileVO> listProfile = new ArrayList<ProfileVO>();
-		
+
 		@Override
 		protected void onPreExecute() {
 			profile = new JsonProfile();
@@ -205,31 +241,39 @@ public class FragmentCategory extends Fragment implements OnItemClickListener,
 		protected OutputProduct doInBackground(Integer... params) {
 			switch (params[0]) {
 			case SystemConfig.statusProfile:
-				HomePageActivity.oOput = profile.paserProfile(SystemConfig.user_id, SystemConfig.session_id, SystemConfig.device_id, SystemConfig.statusProfile);
+				HomePageActivity.oOput = profile.paserProfile(
+						SystemConfig.user_id, SystemConfig.session_id,
+						SystemConfig.device_id, SystemConfig.statusProfile);
 				listProfile = HomePageActivity.oOput.getProfileVO();
 				SystemConfig.oOputproduct.setProfileVO(listProfile);
 				break;
 
 			case SystemConfig.statusFavorite:
-				HomePageActivity.oOput = profile.paserProfile(SystemConfig.user_id, SystemConfig.session_id, SystemConfig.device_id, SystemConfig.statusFavorite);
+				HomePageActivity.oOput = profile.paserProfile(
+						SystemConfig.user_id, SystemConfig.session_id,
+						SystemConfig.device_id, SystemConfig.statusFavorite);
 				listProfile = HomePageActivity.oOput.getProfileVO();
 				SystemConfig.oOputproduct.setProfileVO(listProfile);
 				break;
 			}
 			return HomePageActivity.oOput;
 		}
+
 		@Override
 		protected void onPostExecute(OutputProduct result) {
-			if (result.getCode() == Constan.getIntProperty("success") && status == SystemConfig.statusProfile) {
+			if (result.getCode() == Constan.getIntProperty("success")
+					&& status == SystemConfig.statusProfile) {
 				startActivity(new Intent(context, ProfileActivity.class));
-				
-			}else if (result.getCode() == Constan.getIntProperty("success") && status == SystemConfig.statusFavorite) {
+
+			} else if (result.getCode() == Constan.getIntProperty("success")
+					&& status == SystemConfig.statusFavorite) {
 				startActivity(new Intent(context, FavoriteActivity.class));
-			}
-			else {
+			} else {
 				startActivity(new Intent(context, LoginActivity.class));
 			}
 			super.onPostExecute(result);
 		}
 	}
+
+
 }

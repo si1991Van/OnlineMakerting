@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/itemAvatarMessage"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:src="@drawable/ic_launcher" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/txtNameMessage"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Usernaem" />
+
+        <TextView
+            android:id="@+id/txtDescripMessage"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Noi dung tin nhan" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtDateMessage"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="thoi gian chat" />
+
+</LinearLayout>

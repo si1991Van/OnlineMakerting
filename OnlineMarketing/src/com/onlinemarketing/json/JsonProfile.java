@@ -1,10 +1,22 @@
 package com.onlinemarketing.json;
 
+import java.io.File;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.mime.MultipartEntity;
+import org.apache.http.entity.mime.content.FileBody;
+import org.apache.http.entity.mime.content.StringBody;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
+
+import android.util.Log;
 
 import com.lib.Debug;
 import com.onlinemarketing.config.Constan;
@@ -12,6 +24,7 @@ import com.onlinemarketing.config.SystemConfig;
 import com.onlinemarketing.object.Output;
 import com.onlinemarketing.object.OutputProduct;
 import com.onlinemarketing.object.ProfileVO;
+import com.onlinemarketing.util.Util;
 import com.smile.android.gsm.utils.AndroidUtils;
 
 public class JsonProfile {
@@ -106,4 +119,9 @@ public class JsonProfile {
 
 	} 
 	
+	public Output doFileUpload(String user_id, String session_id, String device_id, String link) {
+		Output output = new Output();
+		output = Util.doFileUpload(user_id, session_id, device_id, link);
+		return output;
+	}
 }

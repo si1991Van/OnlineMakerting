@@ -14,6 +14,7 @@ import com.lib.Debug;
 import com.lib.SharedPreferencesUtils;
 import com.onlinemarketing.config.SystemConfig;
 import com.onlinemarketing.json.JsonCategory;
+import com.onlinemarketing.json.JsonProfile;
 import com.onlinemarketing.object.OutputProduct;
 import com.smile.android.gsm.utils.AndroidUtils;
 
@@ -38,17 +39,39 @@ public class SplashActivity extends BaseActivity {
 
 		String Device_id;
 		JsonCategory product;
+		JsonProfile profile;
+		OutputProduct oOput ;
 
 		@Override
 		protected void onPreExecute() {
 			product = new JsonCategory();
+			profile = new JsonProfile();
 			super.onPreExecute();
 		}
 
 		@Override
 		protected OutputProduct doInBackground(String... params) {
 			try {
-				SystemConfig.oOputproduct = product.paserCategory();
+				if (isConnect()) {
+					oOput = product.paserCategory();
+					SystemConfig.oOputproduct.setCategoryVO(oOput.getCategoryVO());
+						if (SharedPreferencesUtils.getBoolean(
+								SplashActivity.this, SystemConfig.CHECKLOGIN)) {
+							SystemConfig.user_id = String
+									.valueOf(SharedPreferencesUtils.getString(
+											SplashActivity.this,
+											SystemConfig.USER_ID));
+							SystemConfig.session_id = SharedPreferencesUtils
+									.getString(SplashActivity.this,
+											SystemConfig.SESSION_ID);
+							oOput = profile.paserProfile(SystemConfig.user_id,
+									SystemConfig.session_id,
+									SystemConfig.device_id,
+									SystemConfig.statusProfile);
+							SystemConfig.oOputproduct.setProfileVO(oOput.getProfileVO());
+							
+					}
+				}
 			} catch (Exception e) {
 				Debug.e(e.toString());
 			}
@@ -65,8 +88,11 @@ public class SplashActivity extends BaseActivity {
 							SystemConfig.USER_ID);
 					SharedPreferencesUtils.getString(SplashActivity.this,
 							SystemConfig.SESSION_ID);
-					SystemConfig.user_id = String.valueOf(SharedPreferencesUtils.getString(SplashActivity.this, SystemConfig.USER_ID));
-					SystemConfig.session_id = SharedPreferencesUtils.getString(SplashActivity.this, SystemConfig.SESSION_ID);
+					SystemConfig.user_id = String
+							.valueOf(SharedPreferencesUtils.getString(
+									SplashActivity.this, SystemConfig.USER_ID));
+					SystemConfig.session_id = SharedPreferencesUtils.getString(
+							SplashActivity.this, SystemConfig.SESSION_ID);
 					Intent intent = new Intent(SplashActivity.this,
 							HomePageActivity.class);
 					startActivity(intent);
