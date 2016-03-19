@@ -32,7 +32,7 @@ public class JsonMessage {
 	 * @param device_id
 	 * @return OutputProduct
 	 */
-	public OutputMessage paseListHistoryMessage(String user_id, String session_id, String device_id) {
+	public OutputMessage paseListNewMessage(String user_id, String session_id, String device_id) {
 		OutputMessage oOput = new OutputMessage();
 		String str = null ;
 		try{
@@ -47,35 +47,23 @@ public class JsonMessage {
 			oOput.setMessage(jsonObject.getString("message"));
 			oOput.setSession_id(jsonObject.getString("session_id"));
 			oOput.setUser_Id(jsonObject.getString("user_id"));
-			JSONObject objdata = jsonObject.getJSONObject("data");
-			JSONArray jsonDatasend = objdata.getJSONArray("data_sent");
-			JSONArray jsonDataRecived = objdata.getJSONArray("data_recived");
+			JSONArray objdata = jsonObject.getJSONArray("data");
 			if (oOput.getCode() == Constan.getIntProperty("success")) {
 				ArrayList<MessageVO> arrayMessage = new ArrayList<MessageVO>();
 				//data seand
-				for (int i = 0; i < jsonDatasend.length(); i++) {
-					JSONObject objjson_message = jsonDatasend.getJSONObject(i);
+				for (int i = 0; i < objdata.length(); i++) {
+					JSONObject objjson_message = objdata.getJSONObject(i);
 					MessageVO objmessage = new MessageVO();
 					objmessage.setId(objjson_message.getInt("id"));
-					objmessage.setReceiver_id(objjson_message.getInt("receiver_id"));
+					objmessage.setReceiver_id(objjson_message.getInt("chat_id"));
 					objmessage.setMessage(objjson_message.getString("message"));
 					objmessage.setCreate_at(objjson_message.getString("created_at"));
-					objmessage.setUsername(objjson_message.getString("username"));
-					objmessage.setAvatar(objjson_message.getString("avatar"));
+					objmessage.setUsername(objjson_message.getString("chat_name"));
+					objmessage.setAvatar(objjson_message.getString("chat_avatar"));
+					objmessage.setStatus(Integer.parseInt(objjson_message.get("status").toString()));
 					arrayMessage.add(objmessage);
 				}
-				//data recived
-				for (int i = 0; i < jsonDataRecived.length(); i++) {
-					JSONObject objjson_message = jsonDataRecived.getJSONObject(i);
-					MessageVO objmessage = new MessageVO();
-					objmessage.setId(objjson_message.getInt("id"));
-					objmessage.setReceiver_id(objjson_message.getInt("sent_id"));
-					objmessage.setMessage(objjson_message.getString("message"));
-					objmessage.setCreate_at(objjson_message.getString("created_at"));
-					objmessage.setUsername(objjson_message.getString("username"));
-					objmessage.setAvatar(objjson_message.getString("avatar"));
-					arrayMessage.add(objmessage);
-				}
+				
 				oOput.setArrMessage(arrayMessage);
 			}
 		}catch (Exception e) {
@@ -83,13 +71,13 @@ public class JsonMessage {
 		}
 		return oOput;
 	}
-	public OutputMessage SendMessage(String user_id, String session_id, String device_id, int iduser, String message) {
+	public OutputMessage SendMessage(String user_id, String session_id, String device_id, int id_chat, String message) {
 		OutputMessage output = new OutputMessage();
 		try{
 		String str;
 		request = new StringBuilder(SystemConfig.API);
 		request.append(SystemConfig.Message);
-		request.append("/"+iduser+"/"+SystemConfig.SendMessage);
+		request.append("/"+SystemConfig.sendUserChar+"/"+id_chat);
 		request.append("?user_id=").append(URLEncoder.encode(user_id, "UTF-8"));
 		request.append("&session_id=").append(URLEncoder.encode(session_id, "UTF-8"));
 		request.append("&device_id=").append(URLEncoder.encode(device_id, "UTF-8"));
@@ -101,10 +89,77 @@ public class JsonMessage {
 		output.setMessage(jsonObject.getString("message"));
 		output.setSession_id(jsonObject.getString("session_id"));
 		output.setUser_Id(jsonObject.getString("user_id"));
-		
+		JSONObject objdata = jsonObject.getJSONObject("data");
+		output.setMessage_id_send(objdata.getString("message_id"));
 		}catch (Exception e) {
 			Debug.e(e.toString());
 		}
 		return output;
+	}
+	/**
+	 * @param user_id
+	 * @param session_id
+	 * @param device_id
+	 * @param chat_id
+	 * @return
+	 */
+	public OutputMessage paseListHistoryMessage(String user_id, String session_id, String device_id, int chat_id) {
+		OutputMessage oOput = new OutputMessage();
+		String str = null ;
+		try{
+			request = new StringBuilder(SystemConfig.API );
+			request.append(SystemConfig.Message+"/"+SystemConfig.HistoryMsg+"/"+ chat_id);
+			request.append("?user_id=").append(URLEncoder.encode(user_id, "UTF-8"));
+			request.append("&session_id=").append(URLEncoder.encode(session_id, "UTF-8"));
+			request.append("&device_id=").append(URLEncoder.encode(device_id, "UTF-8"));
+			str = AndroidUtils.getjSonUrl(request.toString(), SystemConfig.httppost);
+			jsonObject = new JSONObject(str);
+			oOput.setCode(jsonObject.getInt("code"));					
+			oOput.setMessage(jsonObject.getString("message"));
+			oOput.setSession_id(jsonObject.getString("session_id"));
+			oOput.setUser_Id(jsonObject.getString("user_id"));
+			JSONArray objdata = jsonObject.getJSONArray("data");
+			if (oOput.getCode() == Constan.getIntProperty("success")) {
+				ArrayList<MessageVO> arrayMessage = new ArrayList<MessageVO>();
+				//data seand
+				for (int i = 0; i < objdata.length(); i++) {
+					JSONObject objjson_message = objdata.getJSONObject(i);
+					MessageVO objmessage = new MessageVO();
+					objmessage.setId(objjson_message.getInt("id"));
+					objmessage.setMessage(objjson_message.getString("message"));
+					objmessage.setCreate_at(objjson_message.getString("created_at"));
+					objmessage.setUsername(objjson_message.getString("chat_name"));
+					objmessage.setAvatar(objjson_message.getString("chat_avatar"));
+					objmessage.setSend(Boolean.valueOf(objjson_message.get("send").toString()));
+					arrayMessage.add(objmessage);
+				}
+				
+				oOput.setArrMessage(arrayMessage);
+			}
+		}catch (Exception e) {
+			Debug.e(e.toString());
+		}
+		return oOput;
+	} 
+	public OutputMessage paserDeleteMsg(String user_id, String session_id, String device_id, int message_id){
+		OutputMessage oOput = new OutputMessage();
+		String str = null ;
+		try{
+			request = new StringBuilder(SystemConfig.API );
+			request.append(SystemConfig.Message+"/"+SystemConfig.DeleteMessage+"/"+message_id);
+			request.append("?user_id=").append(URLEncoder.encode(user_id, "UTF-8"));
+			request.append("&session_id=").append(URLEncoder.encode(session_id, "UTF-8"));
+			request.append("&device_id=").append(URLEncoder.encode(device_id, "UTF-8"));
+			Debug.e(request.toString());
+			str = AndroidUtils.getjSonUrl(request.toString(), SystemConfig.httppost);
+			jsonObject = new JSONObject(str);
+			oOput.setCode(jsonObject.getInt("code"));					
+			oOput.setMessage(jsonObject.getString("message"));
+			oOput.setSession_id(jsonObject.getString("session_id"));
+			oOput.setUser_Id(jsonObject.getString("user_id"));
+		}catch (Exception e) {
+			Debug.e(e.toString());
+		}
+		return oOput;
 	}
 }

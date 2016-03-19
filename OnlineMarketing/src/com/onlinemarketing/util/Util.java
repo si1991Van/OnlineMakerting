@@ -113,4 +113,59 @@ public class Util {
 		}
 		return output;
 	}
+	public static Output doFileUploadArr(String user_id, String session_id, String device_id, String link) {
+		Output output = new Output();
+		File file_path = new File(link);
+//		File[] file = new File
+//		for (String string : link) {
+//			
+//		}
+		try {
+			StringBuilder request = new StringBuilder(SystemConfig.API );
+			request.append(SystemConfig.Upload_image);
+			HttpClient client = new DefaultHttpClient();
+			// use your server path of php file
+			HttpPost post = new HttpPost(request.toString());
+
+
+			FileBody bin1 = new FileBody(file_path);
+			Log.e("Enter", "Filebody complete " + bin1);
+
+			MultipartEntity reqEntity = new MultipartEntity();
+			reqEntity.addPart("image_url[]", bin1);
+			reqEntity.addPart("user_id", new StringBody(user_id));
+			reqEntity.addPart("device_id", new StringBody(device_id));
+			reqEntity.addPart("session_id", new StringBody(session_id));
+			post.setEntity(reqEntity);
+			HttpResponse response = client.execute(post);
+			HttpEntity resEntity ;
+			resEntity = response.getEntity();
+			Log.e("user_id", "user_id:"+ user_id+ "/n device_id: "+ device_id+ "/nsession_id:"+session_id );
+			Log.e("Enter", "Get Response");
+			try {
+				String response_str = EntityUtils.toString(resEntity);
+				Log.e( "Get Response",response_str);
+				if (resEntity != null) {
+					JSONObject jsonObject = new JSONObject(response_str);
+					output.setCode(jsonObject.getInt("code"));					
+					output.setMessage(jsonObject.getString("message"));
+					output.setSession_id(jsonObject.getString("session_id"));
+					JSONArray jsonArrAvatar = jsonObject.getJSONArray("data");
+					if (output.getCode() == Constan.getIntProperty("success")) {
+						for (int i = 0; i < jsonArrAvatar.length(); i++) {
+							JSONObject objjsonAvatar = jsonArrAvatar.getJSONObject(i);
+							if(objjsonAvatar.has("image_url"))
+								SystemConfig.Avatar =  objjsonAvatar.getString("image_url");
+							
+						}
+					}
+				}
+			} catch (Exception ex) {
+				Log.e("Debug", "error: " + ex.getMessage(), ex);
+			}
+		} catch (Exception e) {
+			Log.e("Upload Exception", "");
+		}
+		return output;
+	}
 }

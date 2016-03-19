@@ -2,7 +2,35 @@ package com.onlinemarketing.object;
 
 public class MessageVO {
 	private int id;
-	private int receiver_id;
+	private int receiver_id, send_id;
+	int status;
+	boolean send;
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public boolean isSend() {
+		return send;
+	}
+
+	public void setSend(boolean send) {
+		this.send = send;
+	}
+
+	public int getSend_id() {
+		return send_id;
+	}
+
+	public void setSend_id(int send_id) {
+		this.send_id = send_id;
+	}
+
+	
+
 	private String message, username, avatar, create_at;
 
 	public String getCreate_at() {

@@ -23,8 +23,12 @@ public class SystemConfig {
 	public static final String SearchLog ="search_log";
 	public static final String Product_log = "product_log";
 	public static final String Upload_image = "upload_image";
+	//chat dialog
 	public static final String Message = "message";
 	public static final String SendMessage = "send";
+	public static final String HistoryMsg = "history";
+	public static final String sendUserChar = "user";
+	public static final String DeleteMessage = "delete";
 	
 	public static final int statusLogin = 1;
 	public static final int statusRegister = 2;
@@ -32,8 +36,11 @@ public class SystemConfig {
 	public static final int statusHomeProduct = 1;
 	public static final int statusCategoryProduct = 2;
 	public static final int statusListSaveProduct = 3;
+	//status chatdialog on ultil
 	public static final int statusListMessage = 4;
 	public static final int statusSendMessage = 5;
+	public static final int statusGetHistoryMessage = 6;
+	public static final int statusDeleteMessage = 7;
 	
 	public static final int statusProductSave = 1;
 	public static final int statusErrorReport = 2;
@@ -49,6 +56,10 @@ public class SystemConfig {
 	public static String device_id ;
 	public static String user_id = "";
 	public static String session_id = "";
+	
+	//search type cu va moi
+	public static final int statusSearchold = 1;
+	public static final int statusSearchnew = 2;
 	
 	//key set sharedPreferences.
 	public static String USER_ID = "user_id";

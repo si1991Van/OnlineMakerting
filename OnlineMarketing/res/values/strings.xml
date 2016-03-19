@@ -20,5 +20,4 @@
     <string name="title_activity_favorite">FavoriteActivity</string>
     <string name="title_activity_save_news_list">SaveNewsListActivity</string>
     <string name="title_activity_list_save_search">ListSaveSearchActivity</string>
-
 </resources>

@@ -4,8 +4,16 @@ import java.util.ArrayList;
 
 public class OutputMessage {
 	private int code;
-	private String message, session_id, user_Id;
+	private String message, session_id, user_Id, message_id_send;
 	private ArrayList<MessageVO> arrMessage;
+
+	public String getMessage_id_send() {
+		return message_id_send;
+	}
+
+	public void setMessage_id_send(String message_id_send) {
+		this.message_id_send = message_id_send;
+	}
 
 	public int getCode() {
 		return code;
