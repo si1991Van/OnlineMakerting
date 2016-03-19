@@ -165,7 +165,7 @@ public class ChatDialog {
 	
 	public void setStyleSendMessage(String text, int id) {
 		tab = (TableLayout) dialog.findViewById(R.id.tab);
-		tr2 = new TableRow(context.getApplicationContext());
+		final TableRow tr2 = new TableRow(context.getApplicationContext());
 		tr2.setLayoutParams(new TableRow.LayoutParams(
 				TableRow.LayoutParams.MATCH_PARENT,
 				TableRow.LayoutParams.WRAP_CONTENT));
@@ -191,10 +191,10 @@ public class ChatDialog {
 		});
 		tab.addView(tr2);
 	}
-	 TableRow tr2 = new TableRow(context);
+
 	public void setStylerecivedMessage(String text, String userName, int id) {
 		tab = (TableLayout) dialog.findViewById(R.id.tab);
-		tr2 = new TableRow(context.getApplicationContext());
+		final TableRow tr2 = new TableRow(context.getApplicationContext());
 		tr2.setLayoutParams(new TableRow.LayoutParams(
 				TableRow.LayoutParams.WRAP_CONTENT,
 				TableRow.LayoutParams.WRAP_CONTENT));
@@ -309,7 +309,7 @@ public class ChatDialog {
 				}
 //				tab.removeView(tr2);
 				oOputMsg.setArrMessage(listMessage);
-//				loadHistoryChat();
+				loadHistoryChat();
 			}
 		}
 	}
